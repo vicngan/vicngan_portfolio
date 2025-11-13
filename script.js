@@ -18,6 +18,10 @@ const storedTheme = localStorage.getItem('theme');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const prefersFinePointer = window.matchMedia('(pointer: fine)');
 
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
 const setTheme = (mode) => {
   root.setAttribute('data-theme', mode);
   localStorage.setItem('theme', mode);
@@ -275,6 +279,18 @@ const initParticles = () => {
 };
 
 initParticles();
+
+const focusAboutOnLoad = () => {
+  if (window.location.hash && window.location.hash !== '#about') return;
+  const aboutSection = document.getElementById('about');
+  if (!aboutSection) return;
+  const behavior = prefersReducedMotion.matches ? 'auto' : 'smooth';
+  requestAnimationFrame(() => {
+    aboutSection.scrollIntoView({ behavior, block: 'start' });
+  });
+};
+
+window.addEventListener('load', focusAboutOnLoad);
 
 const observer = new IntersectionObserver(
   (entries) => {
