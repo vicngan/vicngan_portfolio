@@ -281,12 +281,17 @@ const initParticles = () => {
 initParticles();
 
 const focusAboutOnLoad = () => {
-  if (window.location.hash && window.location.hash !== '#about') return;
+  const hash = window.location.hash;
+  const shouldScrollToAbout = !hash || hash === '#projects' || hash === '#about';
+  if (!shouldScrollToAbout) return;
   const aboutSection = document.getElementById('about');
   if (!aboutSection) return;
   const behavior = prefersReducedMotion.matches ? 'auto' : 'smooth';
   requestAnimationFrame(() => {
     aboutSection.scrollIntoView({ behavior, block: 'start' });
+    if (hash !== '#about') {
+      history.replaceState(null, '', '#about');
+    }
   });
 };
 
