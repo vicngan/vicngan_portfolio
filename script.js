@@ -1,6 +1,8 @@
 const root = document.documentElement;
 const themeToggle = document.querySelector('.toggle-theme');
-const sections = document.querySelectorAll('.section, .card, .timeline-card, .small-card');
+const revealTargets = Array.from(
+  document.querySelectorAll('[data-reveal], .section, .card, .timeline-card, .small-card')
+);
 const navLinks = document.querySelectorAll('.site-nav a[href^="#"]');
 const modals = document.querySelectorAll('.modal');
 const modalTriggers = document.querySelectorAll('[data-modal]');
@@ -317,22 +319,56 @@ window.addEventListener('pageshow', (event) => {
   }
 });
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
-);
+const normalizeDelay = (value) => {
+  if (value == null) return null;
+  if (typeof value === 'number' && Number.isFinite(value)) {
+    return `${value}ms`;
+  }
+  const trimmed = `${value}`.trim();
+  return /m?s$/.test(trimmed) ? trimmed : `${trimmed}ms`;
+};
 
-sections.forEach((section) => {
-  section.classList.add('reveal');
-  observer.observe(section);
-});
+const initRevealObserver = () => {
+  if (!revealTargets.length) return null;
+
+  const candidates = revealTargets.filter(
+    (element) => !element.hasAttribute('data-reveal-disabled')
+  );
+
+  if (!candidates.length) return null;
+
+  if (prefersReducedMotion.matches) {
+    candidates.forEach((element) => element.classList.add('visible'));
+    return null;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
+  );
+
+  candidates.forEach((element, index) => {
+    element.classList.add('reveal');
+    if (!element.dataset.reveal) {
+      element.dataset.reveal = 'fade-up';
+    }
+    const explicitDelay = normalizeDelay(element.dataset.revealDelay);
+    const fallBackDelay = normalizeDelay(Math.min(index * 45, 360));
+    element.style.setProperty('--reveal-delay', explicitDelay ?? fallBackDelay ?? '0ms');
+    observer.observe(element);
+  });
+
+  return observer;
+};
+
+const revealObserver = initRevealObserver();
 
 modalTriggers.forEach((button) => {
   const modalId = button.getAttribute('data-modal');
