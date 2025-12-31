@@ -59,7 +59,7 @@
         <a href="#experience">Experience</a>
         <a href="#involvement">Involvement</a>
         <a href="#contact">Contact</a>
-        <a href="assets/V.Nguyen_CS_Resume_2024-11.pdf" target="_blank" rel="noreferrer noopener"
+        <a href="assets/V.Nguyen_CS_Resume.pdf" target="_blank" rel="noreferrer noopener"
           >Resume</a
         >
       </nav>
@@ -155,6 +155,7 @@
             <div><span>📍</span> Hanoi, Vietnam -> Arlington, TX -> Ann Arbor, MI</div>
             <div><span>🎓</span> Bio, Health, and Society -> Computer Science @ University of Michigan</div>
             <div><span>💡</span> Interests: building human-friendly medical tech, designing supportive clinical tools, creating thoughtful web apps, and improving care through data</div>
+            <div><span>💡</span> My Free Time: Nintendo Switch addict, Spotify Jam, Spending time with Friends, Family, and my extra-chunky dog named Angie, Night Walks, Spontaneous Food Runs!</div>
           </div>
         </div>
       </section>
@@ -224,29 +225,60 @@
             ⟵
           </button>
           <div class="projects-track" data-carousel-track>
+           
             <article class="project-card card">
               <div class="card-top">
-                <h3>Blossom Drift Journal🌸</h3>
-                <p class="stack">Python · Tkinter · React · Node.js · Express · MongoDB</p>
+                <h3> Synthlab 🧬 </h3>
+                <p class="stack">Python · Streamlit · SDV · Pandas · Plotly</p>
                 <p>
-                  A GUI-based mental health journaling app with autosave, customizable prompts,
-                  and persistent data storage. 
+                  A privacy-safe synthetic data generator that helps researchers validate models without exposing real patient information — 
+                  inspired by the data challenges in clinical research. 
                 </p>
                 <p>
-                  Designed around a soft, calming visual theme so
-                  users feel safe to reflect.
+                  Privacy-preserving synthetic data platform with multi-method generation, statistical validation, fairness testing, and PDF literature analysis for healthcare research workflows.
                 </p>
                 <ul>
-                  <li>Implemented multithreading so autosave runs smoothly without freezing the UI.</li>
-                  <li>Used JSON-based storage for organized entries, mood tracking, and user analytics.</li>
-                  <li>Designed the interface with user comfort in mind, emphasizing gentle colors and clarity.</li>
+                  <li>Built multi-method synthesis (CTGAN, GaussianCopula, TVAE) with automated quality scoring and KS statistical testing</li>
+                  <li>Implemented statistical quality assessment including KS testing, correlation analysis, and distribution comparison with interactive Plotly visualizations.</li>
+                  <li>Designed privacy scoring system with exact-match detection and Distance-to-Closest-Record metrics to quantify re-identification risk.</li>
+                  <li>Developing PDF literature analyzer to enable researchers to cross-reference synthetic outputs against published clinical benchmarks.</li>
                 </ul>
               </div>
               <div class="card-actions">
-                <a href="https://github.com/vicngan/my-care-journal-" target="_blank" rel="noreferrer noopener"
+                <a href="https://github.com/vicngan/synthlab " target="_blank" rel="noreferrer noopener"
                   >View Code</a
                 >
                 <button class="ghost-button" data-modal="blossom-modal">Design Story</button>
+              </div>
+            </article>
+
+
+            <article class="project-card card">
+              <div class="card-top">
+                <h3>Heartline Care Companion 💚</h3>
+                <p class="stack">React Native · Node.js · MongoDB · Bluetooth LE · Twilio</p>
+                <p>
+                  A mobile care companion that keeps transplant and post-op patients connected to their care
+                  team through 
+                </p>
+                <p>
+                  gentle reminders, vitals syncing, and mood check-ins inspired by real 5C workflows.
+                </p>
+                <ul>
+                  <li>Designed pill and hydration reminders with a soothing matcha UI that reduces alert fatigue.</li>
+                  <li>Streams Bluetooth vitals and symptom notes to a secure dashboard so RNs can intervene sooner.</li>
+                  <li>Built an escalation flow that texts caregivers via Twilio when concerning patterns appear.</li>
+                </ul>
+              </div>
+              <div class="card-actions">
+                <a href="https://github.com/vicngan/heartline_companion.py" target="_blank" rel="noreferrer noopener"
+                  >View Code</a
+                  >
+              <div class="card-actions">
+                <a href="https://heartlinecare.netlify.app/" target="_blank" rel="noreferrer noopener"
+                  >View Page</a
+                  >
+                <button class="ghost-button" data-modal="heartline-modal">Care Flow</button>
               </div>
             </article>
 
@@ -278,34 +310,33 @@
               </div>
             </article>
 
-            <article class="project-card card">
+             <article class="project-card card">
               <div class="card-top">
-                <h3>Heartline Care Companion 💚</h3>
-                <p class="stack">React Native · Node.js · MongoDB · Bluetooth LE · Twilio</p>
+                <h3>Blossom Drift Journal🌸</h3>
+                <p class="stack">Python · Tkinter · React · Node.js · Express · MongoDB</p>
                 <p>
-                  A mobile care companion that keeps transplant and post-op patients connected to their care
-                  team through 
+                  A GUI-based mental health journaling app with autosave, customizable prompts,
+                  and persistent data storage. 
                 </p>
                 <p>
-                  gentle reminders, vitals syncing, and mood check-ins inspired by real 5C workflows.
+                  Designed around a soft, calming visual theme so
+                  users feel safe to reflect.
                 </p>
                 <ul>
-                  <li>Designed pill and hydration reminders with a soothing matcha UI that reduces alert fatigue.</li>
-                  <li>Streams Bluetooth vitals and symptom notes to a secure dashboard so RNs can intervene sooner.</li>
-                  <li>Built an escalation flow that texts caregivers via Twilio when concerning patterns appear.</li>
+                  <li>Implemented multithreading so autosave runs smoothly without freezing the UI.</li>
+                  <li>Used JSON-based storage for organized entries, mood tracking, and user analytics.</li>
+                  <li>Designed the interface with user comfort in mind, emphasizing gentle colors and clarity.</li>
                 </ul>
               </div>
               <div class="card-actions">
-                <a href="https://github.com/vicngan/heartline_companion.py" target="_blank" rel="noreferrer noopener"
+                <a href="https://github.com/vicngan/my-care-journal-" target="_blank" rel="noreferrer noopener"
                   >View Code</a
-                  >
-              <div class="card-actions">
-                <a href="https://heartlinecare.netlify.app/" target="_blank" rel="noreferrer noopener"
-                  >View Page</a
-                  >
-                <button class="ghost-button" data-modal="heartline-modal">Care Flow</button>
+                >
+                <button class="ghost-button" data-modal="blossom-modal">Design Story</button>
               </div>
             </article>
+
+
           </div>
           <button class="carousel-control next" type="button" data-carousel-next aria-label="View next project">
             ⟶
@@ -445,12 +476,24 @@
     <div class="modal" id="blossom-modal" aria-hidden="true">
       <div class="modal-content">
         <button class="modal-close" data-close>&times;</button>
-        <h3>Blossom Drift Journal App 🌸</h3>
+        <h3>(CURRENT PROJECT) Synthlab 🧬 </h3>
         <p>
-          This is my first ever attempt on trying to build something and figuring out how everything works. 
-          Blossom Drift is my experiment in building a journaling companion that validates emotions while
-          surfacing gentle insights. I’m prototyping guided prompts, optional mood data syncing, and a
-          “soft data” dashboard caregivers can reference when supporting loved ones.
+          Working in clinical research taught me how hard it is to get clean, usable data — 
+          and how much harder it gets when patient privacy is on the line. 
+          SynthLab is my answer to that tension: a tool that generates statistically faithful synthetic datasets so researchers can test, 
+          validate, and iterate without ever touching real patient records.
+        </p>
+      </div>
+    </div>
+
+    <div class="modal" id="heartline-modal" aria-hidden="true">
+      <div class="modal-content">
+        <button class="modal-close" data-close>&times;</button>
+        <h3>Heartline Care Companion 💚</h3>
+        <p>
+          Heartline is my first full-stack project — and the first time I built an end-to-end system that blends frontend, backend, UX, and clinical logic.
+          Inspired by late-night hospital shifts, Heartline gives patients a softer recovery companion while giving nurses context-rich vitals, symptom notes, and journaling patterns.
+          The app layers compassionate reminders, micro-journaling, and Bluetooth vitals syncing so patients feel supported and nurses get real context — not just numbers        
         </p>
       </div>
     </div>
@@ -470,14 +513,15 @@
       </div>
     </div>
 
-    <div class="modal" id="heartline-modal" aria-hidden="true">
+    <div class="modal" id="blossom-modal" aria-hidden="true">
       <div class="modal-content">
         <button class="modal-close" data-close>&times;</button>
-        <h3>Heartline Care Companion 💚</h3>
+        <h3>Blossom Drift Journal App 🌸</h3>
         <p>
-          Heartline is my first full-stack project — and the first time I built an end-to-end system that blends frontend, backend, UX, and clinical logic.
-          Inspired by late-night hospital shifts, Heartline gives patients a softer recovery companion while giving nurses context-rich vitals, symptom notes, and journaling patterns.
-          The app layers compassionate reminders, micro-journaling, and Bluetooth vitals syncing so patients feel supported and nurses get real context — not just numbers        
+          This is my first ever attempt on trying to build something and figuring out how everything works. 
+          Blossom Drift is my experiment in building a journaling companion that validates emotions while
+          surfacing gentle insights. I’m prototyping guided prompts, optional mood data syncing, and a
+          “soft data” dashboard caregivers can reference when supporting loved ones.
         </p>
       </div>
     </div>
