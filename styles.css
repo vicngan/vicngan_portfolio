@@ -279,6 +279,18 @@ main {
     opacity: 1;
     transform: none;
   }
+  .timeline-card,
+  .skill-pills span {
+    transition: none;
+  }
+  .timeline-card:hover,
+  .skill-pills span:hover {
+    transform: none;
+  }
+  .section-heading h2::after {
+    transition: none;
+    width: 60%;
+  }
 }
 
 .hero-text h1::after {
@@ -508,9 +520,27 @@ main {
 }
 
 .section-heading h2 {
-  margin:
-0;
+  margin: 0;
   font-size: 2.4rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-heading h2::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--matcha), var(--lavender));
+  border-radius: 999px;
+  transition: width 0.6s ease;
+}
+
+.reveal.visible .section-heading h2::after,
+.section.visible .section-heading h2::after {
+  width: 60%;
 }
 
 .section-heading p {
@@ -739,6 +769,14 @@ main {
   background: rgba(167, 214, 109, 0.1);
   border: 1px solid var(--border);
   font-size: 0.9rem;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  cursor: default;
+}
+
+.skill-pills span:hover {
+  transform: translateY(-2px) scale(1.05);
+  background: rgba(167, 214, 109, 0.25);
+  box-shadow: 0 4px 12px rgba(167, 214, 109, 0.2);
 }
 
 .currently {
@@ -757,12 +795,37 @@ main {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 1.05rem;
+  top: 2rem;
+  bottom: 2rem;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary-strong), var(--lavender));
+  opacity: 0.4;
+  border-radius: 999px;
 }
 
 .timeline-card {
   position: relative;
   padding-left: 2.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.timeline-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 50px rgba(119, 109, 93, 0.18);
+}
+
+.timeline-card.reveal:nth-child(1) { transition-delay: 0s; }
+.timeline-card.reveal:nth-child(2) { transition-delay: 0.1s; }
+.timeline-card.reveal:nth-child(3) { transition-delay: 0.2s; }
+.timeline-card.reveal:nth-child(4) { transition-delay: 0.3s; }
+.timeline-card.reveal:nth-child(5) { transition-delay: 0.4s; }
 
 .timeline-dot {
   position: absolute;
