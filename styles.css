@@ -523,7 +523,7 @@ main {
   margin: 0;
   font-size: 2.4rem;
   position: relative;
-  display: inline-block;
+  width: fit-content;
 }
 
 .section-heading h2::after {
@@ -544,7 +544,7 @@ main {
 }
 
 .section-heading p {
-  margin: 0.2rem 0 1.5rem;
+  margin: 0.4rem 0 1.5rem;
   color: var(--muted);
 }
 
@@ -656,8 +656,23 @@ main {
 
 .project-card {
   flex: 0 0 auto;
-  min-width: clamp(280px, 65vw, 360px);
+  min-width: clamp(280px, 65vw, 400px);
+  max-width: 420px;
   scroll-snap-align: start;
+}
+
+.project-card p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.project-card ul {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.project-card li {
+  line-height: 1.5;
 }
 
 .carousel-control {
