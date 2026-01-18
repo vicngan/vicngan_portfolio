@@ -667,10 +667,9 @@ main {
 }
 
 .project-card {
-  flex: 0 0 auto;
-  min-width: clamp(280px, 65vw, 400px);
-  max-width: 420px;
-  scroll-snap-align: start;
+  flex: 0 0 100%;
+  min-width: 100%;
+  scroll-snap-align: center;
   display: flex;
   flex-direction: column;
 }
