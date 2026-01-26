@@ -165,41 +165,48 @@
             <h3>Languages</h3>
             <div class="skill-pills">
               <span>Python</span>
-              <span>JavaScript</span>
+              <span>C++</span>
+              <span>JavaScript (ES6+)</span>
               <span>TypeScript</span>
               <span>SQL</span>
-              <span>C++</span>
               <span>HTML/CSS</span>
-              <span>Bash/CLI</span>
+              <span>Bash</span>
             </div>
           </div>
           <div class="skill-group">
-            <h3>Frameworks &amp; Libraries</h3>
+            <h3>Frameworks</h3>
             <div class="skill-pills">
               <span>React</span>
               <span>FastAPI</span>
+              <span>Vite</span>
               <span>Node.js</span>
+              <span>TailwindCSS</span>
               <span>Express</span>
               <span>React Native</span>
-              <span>Streamlit</span>
-              <span>D3.js</span>
-              <span>Pandas</span>
-              <span>Plotly</span>
-              <span>Matplotlib</span>
-              <span>SDV</span>
             </div>
           </div>
           <div class="skill-group">
-            <h3>Technologies</h3>
+            <h3>Data &amp; AI</h3>
             <div class="skill-pills">
+              <span>Pandas</span>
+              <span>SDV</span>
+              <span>FAISS</span>
+              <span>RAG</span>
+              <span>Plotly</span>
+              <span>D3.js</span>
+              <span>NumPy</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Tools &amp; Infrastructure</h3>
+            <div class="skill-pills">
+              <span>Git/GitHub</span>
+              <span>Docker</span>
               <span>MongoDB</span>
               <span>REST APIs</span>
-              <span>Twilio API</span>
-              <span>Bluetooth LE</span>
-              <span>JSON</span>
-              <span>CSV</span>
-              <span>Git/GitHub</span>
-              <span>Jupyter Notebook</span>
+              <span>HL7 FHIR</span>
+              <span>Jupyter</span>
+              <span>Figma</span>
             </div>
           </div>
         </div>
@@ -234,6 +241,7 @@
                 <a href="https://github.com/vicngan/synthlab " target="_blank" rel="noreferrer noopener"
                   >View Code</a
                 >
+                <button class="ghost-button" data-modal="synthlab-demo-modal">Demo</button>
                 <button class="ghost-button" data-modal="blossom-modal">Design Story</button>
               </div>
             </article>
@@ -255,6 +263,7 @@
               <div class="card-actions">
                 <a href="https://github.com/vicngan/heartline_companion.py" target="_blank" rel="noreferrer noopener">View Code</a>
                 <a href="https://heartlinecare.netlify.app/" target="_blank" rel="noreferrer noopener">View Page</a>
+                <button class="ghost-button" data-modal="heartline-demo-modal">Demo</button>
                 <button class="ghost-button" data-modal="heartline-modal">Care Flow</button>
               </div>
             </article>
@@ -512,11 +521,57 @@
         <button class="modal-close" data-close>&times;</button>
         <h3>Blossom Drift Journal App 🌸</h3>
         <p>
-          This is my first ever attempt on trying to build something and figuring out how everything works. 
+          This is my first ever attempt on trying to build something and figuring out how everything works.
           Blossom Drift is my experiment in building a journaling companion that validates emotions while
-          surfacing gentle insights. I’m prototyping guided prompts, optional mood data syncing, and a
-          “soft data” dashboard caregivers can reference when supporting loved ones.
+          surfacing gentle insights. I'm prototyping guided prompts, optional mood data syncing, and a
+          "soft data" dashboard caregivers can reference when supporting loved ones.
         </p>
+      </div>
+    </div>
+
+    <div class="modal video-modal" id="synthlab-demo-modal" aria-hidden="true">
+      <div class="modal-content modal-content--video">
+        <button class="modal-close" data-close>&times;</button>
+        <h3>SynthLab Demo 🧬</h3>
+        <div class="video-container">
+          <!-- Replace the src with your actual video URL (YouTube embed, Vimeo, or local video) -->
+          <video controls playsinline poster="assets/synthlab-poster.jpg">
+            <source src="assets/demos/synthlab-demo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <!-- Or use YouTube/Vimeo embed instead:
+          <iframe
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+            title="SynthLab Demo"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+          -->
+        </div>
+      </div>
+    </div>
+
+    <div class="modal video-modal" id="heartline-demo-modal" aria-hidden="true">
+      <div class="modal-content modal-content--video">
+        <button class="modal-close" data-close>&times;</button>
+        <h3>Heartline Care Companion Demo 💚</h3>
+        <div class="video-container">
+          <!-- Replace the src with your actual video URL (YouTube embed, Vimeo, or local video) -->
+          <video controls playsinline poster="assets/heartline-poster.jpg">
+            <source src="assets/demos/heartline-demo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <!-- Or use YouTube/Vimeo embed instead:
+          <iframe
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+            title="Heartline Demo"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+          -->
+        </div>
       </div>
     </div>
 
