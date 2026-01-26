@@ -1432,3 +1432,380 @@ main {
   border: 1px dashed rgba(167, 214, 109, 0.4);
   margin-top: 1rem;
 }
+
+/* ================================
+   SPLASH SCREEN STYLES
+   ================================ */
+
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #c8d9b8 0%, #a8c9a3 50%, #98b893 100%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.splash-screen.splash-hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+
+/* Stars */
+.splash-stars {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.splash-stars .star {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.7);
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: star-draw 0.8s ease forwards;
+}
+
+.star-1 { width: 35px; top: 12%; left: 8%; animation-delay: 0s; }
+.star-2 { width: 25px; top: 8%; right: 15%; animation-delay: 0.15s; }
+.star-3 { width: 30px; top: 25%; right: 8%; animation-delay: 0.3s; }
+.star-4 { width: 22px; bottom: 20%; left: 12%; animation-delay: 0.45s; }
+.star-5 { width: 28px; bottom: 15%; right: 10%; animation-delay: 0.6s; }
+.star-6 { width: 20px; top: 40%; left: 5%; animation-delay: 0.75s; }
+
+@keyframes star-draw {
+  0% {
+    stroke-dashoffset: 200;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+/* Scene container */
+.splash-scene {
+  position: relative;
+  width: 280px;
+  height: 260px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* Teapot */
+.splash-teapot {
+  position: absolute;
+  top: 0;
+  right: -10px;
+  width: 140px;
+  color: #4a6b4a;
+  transform-origin: 90% 80%;
+  opacity: 0;
+  transform: rotate(0deg);
+  animation: teapot-appear 0.5s ease 0.3s forwards, teapot-tilt 1.5s ease 0.8s forwards;
+}
+
+.splash-teapot svg {
+  width: 100%;
+  height: auto;
+}
+
+@keyframes teapot-appear {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes teapot-tilt {
+  0% {
+    transform: rotate(0deg);
+  }
+  40% {
+    transform: rotate(-25deg);
+  }
+  100% {
+    transform: rotate(-25deg);
+  }
+}
+
+/* Pour stream */
+.pour-stream {
+  position: absolute;
+  top: 18px;
+  right: -12px;
+  width: 8px;
+  height: 0;
+  background: linear-gradient(180deg,
+    rgba(126, 180, 95, 0.9) 0%,
+    rgba(126, 201, 95, 0.7) 50%,
+    rgba(126, 201, 95, 0.5) 100%);
+  border-radius: 4px;
+  transform-origin: top center;
+  transform: rotate(-15deg);
+  animation: pour 2s ease 1.2s forwards;
+}
+
+@keyframes pour {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    height: 100px;
+    opacity: 1;
+  }
+  80% {
+    height: 100px;
+    opacity: 1;
+  }
+  100% {
+    height: 100px;
+    opacity: 0;
+  }
+}
+
+/* Matcha Cup (Chawan) */
+.splash-cup {
+  position: relative;
+  width: 160px;
+  color: #4a6b4a;
+}
+
+.splash-cup svg {
+  width: 100%;
+  height: auto;
+}
+
+/* Liquid fill */
+.liquid-fill {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 0;
+  max-height: 45px;
+  background: linear-gradient(180deg,
+    rgba(126, 201, 95, 0.6) 0%,
+    rgba(100, 170, 80, 0.7) 100%);
+  border-radius: 0 0 50px 50px;
+  overflow: hidden;
+  animation: fill-cup 2s ease 1.4s forwards;
+}
+
+.liquid-surface {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(180deg,
+    rgba(180, 230, 150, 0.8) 0%,
+    rgba(126, 201, 95, 0.6) 100%);
+  border-radius: 50%;
+  animation: surface-wobble 1s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+@keyframes fill-cup {
+  0% {
+    height: 0;
+  }
+  60% {
+    height: 50px;
+  }
+  100% {
+    height: 45px;
+  }
+}
+
+@keyframes surface-wobble {
+  0%, 100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(1.02);
+  }
+}
+
+/* Splash text */
+.splash-text {
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #3d5a3d;
+  opacity: 0;
+  animation: text-fade 0.5s ease 0.5s forwards;
+}
+
+@keyframes text-fade {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Progress bar */
+.splash-progress {
+  position: absolute;
+  bottom: 60px;
+  width: 180px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.splash-progress-bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #6b9b5a, #8bc97a);
+  border-radius: 999px;
+  animation: progress-fill 3.8s ease-out forwards;
+}
+
+@keyframes progress-fill {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* Dark mode splash */
+[data-theme='dark'] .splash-screen {
+  background: linear-gradient(135deg, #1a2e20 0%, #243828 50%, #2a3d2e 100%);
+}
+
+[data-theme='dark'] .splash-stars .star {
+  color: rgba(168, 232, 144, 0.5);
+}
+
+[data-theme='dark'] .splash-teapot,
+[data-theme='dark'] .splash-cup {
+  color: rgba(168, 232, 144, 0.7);
+}
+
+[data-theme='dark'] .splash-teapot svg,
+[data-theme='dark'] .splash-cup svg {
+  fill: rgba(126, 201, 95, 0.05);
+}
+
+[data-theme='dark'] .pour-stream {
+  background: linear-gradient(180deg,
+    rgba(126, 201, 95, 0.8) 0%,
+    rgba(168, 232, 144, 0.6) 50%,
+    rgba(168, 232, 144, 0.4) 100%);
+}
+
+[data-theme='dark'] .liquid-fill {
+  background: linear-gradient(180deg,
+    rgba(126, 201, 95, 0.5) 0%,
+    rgba(100, 170, 80, 0.6) 100%);
+}
+
+[data-theme='dark'] .liquid-surface {
+  background: linear-gradient(180deg,
+    rgba(168, 232, 144, 0.6) 0%,
+    rgba(126, 201, 95, 0.4) 100%);
+}
+
+[data-theme='dark'] .splash-text {
+  color: rgba(232, 240, 232, 0.9);
+}
+
+[data-theme='dark'] .splash-progress {
+  background: rgba(126, 201, 95, 0.15);
+}
+
+[data-theme='dark'] .splash-progress-bar {
+  background: linear-gradient(90deg, #5c8b4a, #7ec95f);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .splash-screen {
+    transition: opacity 0.2s ease;
+  }
+
+  .splash-stars .star {
+    animation: none;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+
+  .splash-teapot {
+    animation: none;
+    opacity: 1;
+    transform: rotate(-25deg);
+  }
+
+  .pour-stream {
+    animation: none;
+    height: 100px;
+    opacity: 0.7;
+  }
+
+  .liquid-fill {
+    animation: none;
+    height: 45px;
+  }
+
+  .liquid-surface {
+    animation: none;
+  }
+
+  .splash-text {
+    animation: none;
+    opacity: 1;
+  }
+
+  .splash-progress-bar {
+    animation: progress-fill 2s linear forwards;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .splash-scene {
+    width: 220px;
+    height: 200px;
+  }
+
+  .splash-teapot {
+    width: 110px;
+    right: -5px;
+  }
+
+  .splash-cup {
+    width: 130px;
+  }
+
+  .liquid-fill {
+    width: 85px;
+    bottom: 12px;
+  }
+
+  .pour-stream {
+    right: -8px;
+  }
+
+  .star-1 { width: 28px; }
+  .star-2 { width: 20px; }
+  .star-3 { width: 24px; }
+  .star-4 { width: 18px; }
+  .star-5 { width: 22px; }
+  .star-6 { width: 16px; }
+}

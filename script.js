@@ -1,3 +1,32 @@
+// ================================
+// SPLASH SCREEN
+// ================================
+const splashScreen = document.getElementById('splash-screen');
+const SPLASH_DURATION = 4000; // 4 seconds
+
+const hideSplash = () => {
+  if (!splashScreen) return;
+  splashScreen.classList.add('splash-hidden');
+  // Remove from DOM after transition
+  setTimeout(() => {
+    splashScreen.remove();
+  }, 500);
+};
+
+// Hide splash after animation completes
+if (splashScreen) {
+  // Ensure minimum display time for animation
+  setTimeout(hideSplash, SPLASH_DURATION);
+
+  // Also allow click to skip (optional)
+  splashScreen.addEventListener('click', () => {
+    hideSplash();
+  });
+}
+
+// ================================
+// MAIN SITE CODE
+// ================================
 const root = document.documentElement;
 const themeToggle = document.querySelector('.toggle-theme');
 const sections = document.querySelectorAll('.section, .card, .timeline-card, .small-card');
