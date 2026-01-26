@@ -2,7 +2,7 @@
 // SPLASH SCREEN
 // ================================
 const splashScreen = document.getElementById('splash-screen');
-const SPLASH_DURATION = 4000; // 4 seconds
+const SPLASH_DURATION = 5000; // 5 seconds
 
 const hideSplash = () => {
   if (!splashScreen) return;
