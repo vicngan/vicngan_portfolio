@@ -1495,95 +1495,18 @@ main {
 /* Scene container */
 .splash-scene {
   position: relative;
-  width: 360px;
-  height: 300px;
+  width: 100%;
+  height: 320px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
 }
 
-/* Teapot */
-.splash-teapot {
-  position: absolute;
-  top: -10px;
-  left: 400px; 
-  width: 180px;
-  color: #3a5a3a;
-  transform-origin: 10% 80%;
-  opacity: 0;
-  transform: scaleX(-1);
-  z-index: 2; /* Ensure teapot sits on top of the stream */
-  animation: teapot-appear 0.6s ease 0.3s forwards, teapot-tilt 2s ease 1s forwards;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
-}
-.splash-teapot svg {
-  width: 100%;
-  height: auto;
-}
 
-@keyframes teapot-appear {
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes teapot-tilt {
-  0% {
-    transform: scaleX(-1) rotate(0deg);
-  }
-  30% {
-    transform: scaleX(-1) rotate(30deg);
-  }
-  100% {
-    transform: scaleX(-1) rotate(30deg);
-  }
-}
-
-/* Pour stream */
-.pour-stream {
-  position: absolute;
-  top: 28px; 
-  left: 178px; 
-  width: 10px;
-  height: 0;
-  z-index: 1;
-  background: linear-gradient(180deg,
-    rgba(100, 160, 70, 0.95) 0%,
-    rgba(126, 201, 95, 0.85) 40%,
-    rgba(140, 210, 100, 0.7) 100%);
-  border-radius: 5px 5px 8px 8px;
-  transform-origin: top center;
-  transform: rotate(-65deg); /* Fixed: Gravity pulls straight down */
-  animation: pour 2.8s ease 1.6s forwards;
-  filter: drop-shadow(0 2px 4px rgba(100, 160, 70, 0.4));
-}
-@keyframes pour {
-  0% {
-    height: 0;
-    opacity: 0;
-  }
-  8% {
-    opacity: 1;
-    height: 15px;
-  }
-  35% {
-    height: 115px;
-    opacity: 1;
-  }
-  75% {
-    height: 115px;
-    opacity: 1;
-  }
-  100% {
-    height: 115px;
-    opacity: 0;
-  }
-}
-
-/* Matcha Cup (Chawan) */
+/* Cat Matcha Cup */
 .splash-cup {
   position: relative;
-  width: 200px;
+  width: 240px;
   color: #3a5a3a;
   filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
 }
@@ -1596,18 +1519,18 @@ main {
 /* Liquid fill */
 .liquid-fill {
   position: absolute;
-  bottom: 18px;
+  bottom: 22px;
   left: 50%;
   transform: translateX(-50%);
-  width: 140px;
+  width: 168px;
   height: 0;
-  max-height: 55px;
+  max-height: 70px;
   background: linear-gradient(180deg,
     rgba(110, 180, 80, 0.85) 0%,
     rgba(90, 150, 65, 0.9) 100%);
   border-radius: 0 0 60px 60px;
   overflow: hidden;
-  animation: fill-cup 2.5s ease 1.8s forwards;
+  animation: fill-cup 4.5s ease-out 0.3s forwards;
 }
 
 .liquid-surface {
@@ -1624,18 +1547,49 @@ main {
   animation-delay: 3s;
 }
 
+/* Steam from cup */
+.splash-steam {
+  position: absolute;
+  bottom: 80px; /* Positioned just above the final liquid level */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 60px;
+  pointer-events: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  opacity: 0;
+  animation: steam-fade-in 1.5s ease 2s forwards;
+}
+
+.steam-wisp {
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to top, transparent, rgba(255, 255, 255, 0.7) 50%);
+  border-radius: 50%;
+  animation: steam 5s ease-in-out infinite;
+}
+
+.steam-wisp-1 { animation-delay: 0s; }
+.steam-wisp-2 { animation-delay: 1.5s; transform: scale(0.8); }
+.steam-wisp-3 { animation-delay: 2.8s; transform: scale(0.9); }
+
 @keyframes fill-cup {
   0% {
     height: 0;
   }
-  20% {
-    height: 15px;
-  }
-  70% {
-    height: 58px;
+  80% {
+    height: 70px; /* slightly overfill */
   }
   100% {
-    height: 52px;
+    height: 65px; /* settle */
+  }
+}
+
+@keyframes steam-fade-in {
+  to {
+    opacity: 1;
   }
 }
 
@@ -1702,22 +1656,13 @@ main {
   filter: drop-shadow(0 0 6px rgba(168, 232, 144, 0.4));
 }
 
-[data-theme='dark'] .splash-teapot,
 [data-theme='dark'] .splash-cup {
   color: rgba(168, 232, 144, 0.85);
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
 }
 
-[data-theme='dark'] .splash-teapot svg,
 [data-theme='dark'] .splash-cup svg {
   fill: rgba(126, 201, 95, 0.08);
-}
-
-[data-theme='dark'] .pour-stream {
-  background: linear-gradient(180deg,
-    rgba(126, 201, 95, 0.8) 0%,
-    rgba(168, 232, 144, 0.6) 50%,
-    rgba(168, 232, 144, 0.4) 100%);
 }
 
 [data-theme='dark'] .liquid-fill {
@@ -1730,6 +1675,10 @@ main {
   background: linear-gradient(180deg,
     rgba(168, 232, 144, 0.6) 0%,
     rgba(126, 201, 95, 0.4) 100%);
+}
+
+[data-theme='dark'] .steam-wisp {
+  background: linear-gradient(to top, transparent, rgba(168, 232, 144, 0.5) 50%);
 }
 
 [data-theme='dark'] .splash-text {
@@ -1756,25 +1705,24 @@ main {
     opacity: 1;
   }
 
-  .splash-teapot {
-    animation: none;
-    opacity: 1;
-    transform: rotate(-30deg);
-  }
-
-  .pour-stream {
-    animation: none;
-    height: 120px;
-    opacity: 0.8;
-  }
-
   .liquid-fill {
     animation: none;
-    height: 52px;
+    height: 65px;
   }
 
   .liquid-surface {
     animation: none;
+  }
+
+  .splash-steam {
+    animation: none; /* Disables fade-in */
+    opacity: 1; /* Makes it visible */
+  }
+
+  .steam-wisp {
+    animation: none; /* Disables steam rising */
+    opacity: 0.5; /* Make it statically visible but faint */
+    transform: translateY(-15px) scaleX(0.9); /* Static position */
   }
 
   .splash-text {
@@ -1790,29 +1738,16 @@ main {
 /* Mobile adjustments */
 @media (max-width: 480px) {
   .splash-scene {
-    width: 280px;
     height: 250px;
   }
 
-  .splash-teapot {
-    width: 140px;
-    right: -15px;
-    top: -5px;
-  }
-
   .splash-cup {
-    width: 160px;
+    width: 200px;
   }
 
   .liquid-fill {
-    width: 110px;
-    bottom: 14px;
-  }
-
-  .pour-stream {
-    top: 22px;
-    right: 10px;
-    width: 8px;
+    width: 140px;
+    bottom: 18px;
   }
 
   .star-1 { width: 38px; }
