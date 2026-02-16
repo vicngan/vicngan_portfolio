@@ -1035,6 +1035,25 @@ main {
   display: block;
 }
 
+.image-zoom-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.image-zoom-button.is-zoomed {
+  cursor: zoom-out;
+}
+
+.image-zoom-button.is-zoomed .modal-image {
+  width: 160%;
+  max-width: none;
+  max-height: none;
+}
+
 .modal-section {
   margin-top: 1.5rem;
 }

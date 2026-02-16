@@ -363,6 +363,15 @@ sections.forEach((section) => {
   observer.observe(section);
 });
 
+const zoomButtons = document.querySelectorAll('[data-zoomable]');
+
+zoomButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const isZoomed = button.classList.toggle('is-zoomed');
+    button.setAttribute('aria-pressed', String(isZoomed));
+  });
+});
+
 modalTriggers.forEach((button) => {
   const modalId = button.getAttribute('data-modal');
   const modal = document.getElementById(modalId);
@@ -378,6 +387,11 @@ modals.forEach((modal) => {
   const closeModal = () => {
     modal.removeAttribute('data-open');
     modal.setAttribute('aria-hidden', 'true');
+    const zoomed = modal.querySelectorAll('[data-zoomable].is-zoomed');
+    zoomed.forEach((button) => {
+      button.classList.remove('is-zoomed');
+      button.setAttribute('aria-pressed', 'false');
+    });
   };
   closeBtn?.addEventListener('click', closeModal);
   modal.addEventListener('click', (event) => {
