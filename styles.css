@@ -1019,12 +1019,17 @@ main {
 }
 
 .modal-content--wide {
-  max-width: 900px;
+  max-width: 720px;
+  max-height: 80vh;
+  padding: 1.5rem;
+  overflow: auto;
 }
 
 .modal-image {
   width: 100%;
   height: auto;
+  max-height: 60vh;
+  object-fit: contain;
   border-radius: 16px;
   border: 1px solid var(--border);
   display: block;
