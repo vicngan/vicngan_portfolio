@@ -1,27 +1,39 @@
 // ================================
-// SPLASH SCREEN
+// SPLASH SCREEN - MATCHA WHISKING
 // ================================
 const splashScreen = document.getElementById('splash-screen');
-const SPLASH_DURATION = 5000; // 5 seconds
 
 const hideSplash = () => {
   if (!splashScreen) return;
   splashScreen.classList.add('splash-hidden');
-  // Remove from DOM after transition
   setTimeout(() => {
     splashScreen.remove();
   }, 500);
 };
 
-// Hide splash after animation completes
 if (splashScreen) {
-  // Ensure minimum display time for animation
-  setTimeout(hideSplash, SPLASH_DURATION);
+  let whiskCount = 0;
+  const targetWhisks = 100;
+  const progressBar = document.querySelector('.splash-progress-bar');
+  
+  const handleWhisk = (e) => {
+    whiskCount++;
+    const progress = Math.min((whiskCount / targetWhisks) * 100, 100);
+    if (progressBar) progressBar.style.width = `${progress}%`;
+    
+    if (progress >= 100) {
+      splashScreen.removeEventListener('mousemove', handleWhisk);
+      splashScreen.removeEventListener('touchmove', handleWhisk);
+      document.querySelector('.splash-text').textContent = "Enjoy your stay! 🍵";
+      setTimeout(hideSplash, 400); // Small delay to read text
+    }
+  };
 
-  // Also allow click to skip (optional)
-  splashScreen.addEventListener('click', () => {
-    hideSplash();
-  });
+  splashScreen.addEventListener('mousemove', handleWhisk);
+  splashScreen.addEventListener('touchmove', handleWhisk);
+  
+  // Fallback timeout just in case they don't move the mouse and want to skip
+  splashScreen.addEventListener('click', hideSplash);
 }
 
 // ================================
@@ -138,100 +150,108 @@ const heroTilt = (() => {
   return { destroy: resetTilt };
 })();
 
-const initCarousels = () => {
-  const carousels = document.querySelectorAll('[data-carousel]');
-  if (!carousels.length) return;
+const initBook = () => {
+  const container = document.getElementById('menu-book-container');
+  if (!container) return;
 
-  carousels.forEach((carousel) => {
-    const track = carousel.querySelector('[data-carousel-track]');
-    const prev = carousel.querySelector('[data-carousel-prev]');
-    const next = carousel.querySelector('[data-carousel-next]');
-    const dotsHost =
-      carousel.nextElementSibling && carousel.nextElementSibling.matches('[data-carousel-dots]')
-        ? carousel.nextElementSibling
-        : null;
+  const book = document.getElementById('menu-book');
+  const pages = Array.from(book.querySelectorAll('.book-page'));
+  const btnPrev = document.getElementById('book-prev');
+  const btnNext = document.getElementById('book-next');
 
-    if (!track) return;
-    const cards = Array.from(track.children);
-    if (!cards.length) return;
+  if (!pages.length) return;
 
-    let currentIndex = 0;
-    let scrollRAF;
+  let currentPage = 0;
 
-    const setDots = (index) => {
-      if (!dotsHost) return;
-      dotsHost.querySelectorAll('button').forEach((dot, idx) => {
-        dot.setAttribute('aria-current', idx === index ? 'true' : 'false');
-      });
-    };
-
-    if (dotsHost) {
-      dotsHost.innerHTML = '';
-      cards.forEach((_, idx) => {
-        const dot = document.createElement('button');
-        dot.type = 'button';
-        dot.setAttribute('aria-label', `Jump to project ${idx + 1}`);
-        dotsHost.appendChild(dot);
-        dot.addEventListener('click', () => {
-          scrollToIndex(idx);
-        });
-      });
-    }
-
-    const updateControls = () => {
-      if (prev) prev.disabled = currentIndex === 0;
-      if (next) next.disabled = currentIndex === cards.length - 1;
-      setDots(currentIndex);
-    };
-
-    const scrollToIndex = (index, smooth = true) => {
-      const clamped = Math.max(0, Math.min(index, cards.length - 1));
-      const behavior = smooth ? 'smooth' : 'auto';
-      const card = cards[clamped];
-      const trackRect = track.getBoundingClientRect();
-      const cardRect = card.getBoundingClientRect();
-      const offsetWithinTrack = cardRect.left - trackRect.left;
-      const target =
-        offsetWithinTrack - track.clientWidth / 2 + card.clientWidth / 2 + track.scrollLeft;
-      const clampedTarget = Math.max(
-        0,
-        Math.min(target, track.scrollWidth - track.clientWidth)
-      );
-      track.scrollTo({ left: clampedTarget, behavior });
-      currentIndex = clamped;
-      updateControls();
-    };
-
-    prev?.addEventListener('click', () => scrollToIndex(currentIndex - 1));
-    next?.addEventListener('click', () => scrollToIndex(currentIndex + 1));
-
-    track.addEventListener('scroll', () => {
-      if (scrollRAF) cancelAnimationFrame(scrollRAF);
-      scrollRAF = requestAnimationFrame(() => {
-        const trackCenter = track.scrollLeft + track.clientWidth / 2;
-        let nearestIndex = 0;
-        let minDistance = Infinity;
-        cards.forEach((card, idx) => {
-          const cardCenter = card.offsetLeft + card.clientWidth / 2;
-          const distance = Math.abs(cardCenter - trackCenter);
-          if (distance < minDistance) {
-            minDistance = distance;
-            nearestIndex = idx;
-          }
-        });
-        if (nearestIndex !== currentIndex) {
-          currentIndex = nearestIndex;
-          updateControls();
+  const updateBook = () => {
+    pages.forEach((page, index) => {
+      // Don't override z-index if actively flipping, as it's handled by 'is-flipping' class.
+      if (!page.classList.contains('is-flipping')) {
+        if (index < currentPage) {
+          page.classList.add('flipped');
+          page.style.zIndex = index + 1; 
+        } else {
+          page.classList.remove('flipped');
+          page.style.zIndex = pages.length - index; 
         }
-      });
+      } else {
+        // Just add class, let it transition out/in cleanly
+        if (index < currentPage) {
+          page.classList.add('flipped');
+        } else {
+          page.classList.remove('flipped');
+        }
+      }
     });
 
-    updateControls();
-    scrollToIndex(0, false);
+    if (btnPrev) btnPrev.disabled = currentPage === 0;
+    // Don't let users turn past the very last back cover.
+    if (btnNext) btnNext.disabled = currentPage >= pages.length - 1; 
+  };
+
+  btnPrev?.addEventListener('click', () => {
+    if (currentPage > 0) {
+      currentPage--;
+      const pageToFlip = pages[currentPage];
+      pageToFlip.classList.add('is-flipping');
+      pageToFlip.style.zIndex = 100; // Force to top during flip
+      updateBook();
+      setTimeout(() => {
+        pageToFlip.classList.remove('is-flipping');
+        updateBook(); // re-eval z-index securely
+      }, 800);
+    }
+  });
+
+  btnNext?.addEventListener('click', () => {
+    if (currentPage < pages.length - 1) {
+      const pageToFlip = pages[currentPage];
+      pageToFlip.classList.add('is-flipping');
+      pageToFlip.style.zIndex = 100; // Force to top during flip
+      currentPage++;
+      updateBook();
+      setTimeout(() => {
+        pageToFlip.classList.remove('is-flipping');
+        updateBook(); // re-eval z-index
+      }, 800);
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initSkillsHighlight();
+  });
+}
+
+// --- Interactive Skills Highlighting ---
+const clearHighlights = () => {
+  document.querySelectorAll('.label-row').forEach(row => {
+    row.classList.remove('highlighted');
   });
 };
 
-initCarousels();
+const highlightSkills = (techString) => {
+  if (!techString) return;
+  const techs = techString.split(',').map(t => t.trim().toLowerCase());
+  techs.forEach(tech => {
+    const row = document.querySelector(`.label-row[data-skill="${tech}"]`);
+    if (row) row.classList.add('highlighted');
+  });
+};
+
+const initSkillsHighlight = () => {
+  const cards = document.querySelectorAll('.project-card');
+  if (!cards.length) return;
+  cards.forEach((card) => {
+    card.addEventListener('mouseenter', () => highlightSkills(card.getAttribute('data-tech')));
+    card.addEventListener('mouseleave', clearHighlights);
+  });
+};
+
+// Start everything
+initBook();
+initSkillsHighlight();
+
+
 
 const updateSoundCaption = (playing) => {
   if (!soundCaption) return;
@@ -446,4 +466,23 @@ contactForm?.addEventListener('submit', async (event) => {
       formStatus.textContent = '';
     }, 6000);
   }
+});
+
+/* ================================
+   EMPLOYEE CARD (FLIP CARD)
+   ================================ */
+const initFlipCard = () => {
+  const card = document.getElementById('profile-card');
+  const inner = card?.querySelector('.flip-card-inner');
+  if (!inner) return;
+
+  card.addEventListener('click', (e) => {
+    // Prevent flip if clicking on links or buttons if any (though there are none inside currently)
+    if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') return;
+    inner.classList.toggle('is-flipped');
+  });
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  initFlipCard();
 });

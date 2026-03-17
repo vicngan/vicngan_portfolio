@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="bg-overlay"></div>
     <!-- Splash Screen -->
     <div class="splash-screen" id="splash-screen">
       <!-- Animated Stars -->
@@ -65,10 +66,10 @@
         </div>
       </div>
 
-      <p class="splash-text">Brewing something cozy...</p>
+      <p class="splash-text">Move your cursor to whisk the matcha...</p>
 
-      <div class="splash-progress">
-        <div class="splash-progress-bar"></div>
+      <div class="splash-progress" style="background: rgba(255, 255, 255, 0.2); border-radius: 999px; overflow: hidden;">
+        <div class="splash-progress-bar" style="width: 0%; transition: width 0.1s ease-out; background: #a8d66d;"></div>
       </div>
     </div>
 
@@ -86,11 +87,16 @@
     <button
       class="sound-toggle"
       data-sound-toggle
-      aria-pressed="true"
+      aria-pressed="false"
       aria-controls="ambient-player"
       aria-describedby="sound-caption"
     >
-      <span class="sound-icon" aria-hidden="true">☕</span>
+      <div class="sound-wave">
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+      </div>
       <span class="sr-only">Toggle cozy café ambience</span>
     </button>
     <div class="ambient-player" id="ambient-player">
@@ -106,19 +112,15 @@
       ></iframe>
     </div>
     <header class="site-header">
-      <div class="logo">
-        <span class="logo-dot"></span>
-        Victoria Nguyen
-      </div>
       <nav class="site-nav">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#involvement">Involvement</a>
-        <a href="#contact">Contact</a>
+        <a href="#about">🍵 My Recipe</a>
+        <a href="#skills">🍳 Ingredients</a>
+        <a href="#projects">🍽️ The Menu</a>
+        <a href="#experience">🗺️ My Journey</a>
+        <a href="#involvement">🌱 Community</a>
+        <a href="#contact">📝 Leave a Note</a>
         <a href="assets/V_Nguyen_Resume.pdf" target="_blank" rel="noreferrer noopener"
-          >Resume</a
+          >📄 Resume</a
         >
       </nav>
       <div class="header-actions">
@@ -129,315 +131,303 @@
     </header>
 
     <main>
-      <section id="hero" class="hero section">
+      <section id="hero" class="section">
         <canvas id="matcha-particles" aria-hidden="true"></canvas>
-        <div class="hero-text">
-          <div class="steam-drift" aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <p class="eyebrow">Hi there, I’m</p>
-          <h1>Victoria Nguyen</h1>
-          <p class="subtitle">Computer Science + Entrepreneur • University of Michigan</p>
-          <p class="tagline">Building soft, meaningful tech that feels warm, intuitive, and real 🌸💻</p>
-          <p class="intro">
-            Welcome in!! 
-            Hi! I’m Victoria 💚
-            I’m a software engineer-in-progress who mixes tech, design, and care like a matcha blend — warm, energizing, and crafted to make people feel better.
-            My work blends engineering, innovation, and a sprinkle of aesthetics to create digital spaces that feel warm and cozy.
-            Grab a seat, sip your matcha, and explore what I’ve been crafting 🍵✨
-          </p>
-          <p class="matcha-note">Currently brewing: matcha-coded spaces where tech feels like a cozy café.</p>
-          <div class="hero-buttons">
-            <a class="btn primary" href="#projects">View My Projects</a>
-            <a class="btn secondary" href="assets/V_Nguyen_Resume.pdf" target="_blank" rel="noreferrer noopener"
-              >Download Resume</a
-            >
-          </div>
-          <div class="hero-socials">
-            <a href="mailto:Victoria.n.nguyen05@gmail.com">Email</a>
-            <a href="https://www.linkedin.com/in/vicngan" target="_blank" rel="noreferrer noopener"
-              >LinkedIn</a
-            >
-            <a href="https://github.com/vicngan" target="_blank" rel="noreferrer noopener">GitHub</a>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <div class="hero-blob"></div>
-          <div class="matcha-illustration">
-            <img src="assets/stickers/vic_chibi.png" alt="Victoria chibi illustration sipping matcha" loading="lazy" />
-          </div>
-          <div class="matcha-cup" aria-hidden="true">
-            <div class="cup-liquid">
-              <div class="latte-art"></div>
+        <div class="flip-card" id="profile-card">
+          <div class="flip-card-inner">
+            
+            <!-- Frontside: Employee Card (Combined with Bio) -->
+            <div class="flip-card-front">
+              <span class="tap-hint">Tap to flip 🔄</span>
+              <div class="id-banner">
+                <div class="id-logo-combined">
+                  <img src="assets/stickers/vic_chibi.png" alt="Chibi illustration" class="id-logo-chibi" />
+                  <div class="id-company-wrapper">
+                    <div class="id-company">UNIVERSITY OF MICHIGAN</div>
+                    <div class="id-company-sub">COMPUTER SCIENCE & ENTREPRENEURSHIP</div>
+                  </div>
+                </div>
+                <!-- Removed Active badge to make space for Tap hint top-rightmost -->
+              </div>
+              <div class="id-body-new">
+                <div class="id-photo-new">
+                  <div class="portrait-frame-new">
+                    <img src="assets/stickers/Headshot.jpg" alt="Victoria Nguyen smiling headshot" loading="lazy" />
+                  </div>
+                  <div class="id-actions-col">
+                    <a class="btn id-btn primary" href="#projects">View My Projects</a>
+                    <a class="btn id-btn secondary" href="assets/V_Nguyen_Resume.pdf" target="_blank" rel="noreferrer noopener">Resume</a>
+                  </div>
+                </div>
+                <div class="id-details-new">
+                  <div class="id-name-new">Victoria Nguyen</div>
+                  <div class="id-role-new">CHIEF BUILDER / DEVELOPER</div>
+                  <div class="id-divider-new"></div>
+                  
+                  <p class="tagline">Building soft, meaningful tech that feels warm, intuitive, and real 🌸💻</p>
+                  <p class="intro-text-new">
+                    Welcome in!! Hi! I’m Victoria 💚 
+                    I’m a software engineer-in-progress who mixes tech, design, and care like a matcha blend.
+                    Work blends engineering, innovation, and a sprinkle of aesthetics to create digital spaces that feel warm and cozy.
+                    Grab a seat, sip your matcha, and explore 🍵✨
+                  </p>
+
+                  <div class="id-footer-row-combined">
+                    <div class="status-badge-new">
+                      <span class="status-dot"></span> Currently brewing: matcha-coded spaces
+                    </div>
+                    <div class="id-signature">Victoria N.</div>
+                    <div class="id-barcode">
+                      <div class="bar"></div><div class="bar thin"></div><div class="bar"></div><div class="bar thick"></div><div class="bar"></div><div class="bar thin"></div><div class="bar"></div><div class="bar"></div><div class="bar thick"></div><div class="bar"></div>
+                    </div>
+                  </div>
+
+                  <div class="id-social-links">
+                    <a href="mailto:Victoria.n.nguyen05@gmail.com">Email</a>
+                    <a href="https://www.linkedin.com/in/vicngan" target="_blank" rel="noreferrer noopener">LinkedIn</a>
+                    <a href="https://github.com/vicngan" target="_blank" rel="noreferrer noopener">GitHub</a>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="cup-handle"></div>
-            <div class="cup-plate"></div>
-            <div class="steam steam-1"></div>
-            <div class="steam steam-2"></div>
+
+            <!-- Backside: Personal Description -->
+            <div class="flip-card-back">
+              <span class="tap-hint dark">Tap to flip 🔄</span>
+              <div class="back-header">
+                <div class="section-heading">
+                  <h2>My Recipe 🍵</h2>
+                </div>
+              </div>
+              <div class="about-text-condensed">
+                <div class="bio-grid">
+                  <div class="bio-section">
+                    <h3>🌱 Background</h3>
+                    <p>Before code, I walked hospital hallways at 3 AM taking vitals to support patients. That taught me how powerful thoughtful design is.</p>
+                  </div>
+                  <div class="bio-section">
+                    <h3>💻 Present</h3>
+                    <p>Studying CS & Entrepreneurship at Michigan, building AI tools for genomics and creating user-first products.</p>
+                  </div>
+                  <div class="bio-section full-col">
+                    <h3>🫶 Mission</h3>
+                    <p>To build software that feels like a helping hand — changing how people feel supported, empowered, and cared for by tech.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="about" class="section card">
-        <div class="about-header">
-          <div class="section-heading">
-            <h2>About Me 🌱</h2>
-            <p>From aspiring medical professional with a love for tech to human-centered coder.</p>
-          </div>
-          <div class="about-portrait">
-            <div class="portrait-frame">
-              <img src="assets/stickers/Headshot.jpg" alt="Victoria Nguyen smiling headshot" loading="lazy" />
-            </div>
-          </div>
-        </div>
-        <div class="about-text">
-          <p>🌿 Hi, I'm Victoria — a builder at heart, combining care, code, and community 🤍</p>
-          <p>
-            Before I ever wrote a line of code, I was walking hospital hallways at 3 AM, taking vitals, and learning what it really means to support someone on their worst days. That experience taught me how powerful thoughtful design can be — and how much bad software can get in the way.
-          </p>
-          <p>
-            Now I'm studying Computer Science + Entrepreneurship at Michigan, building AI interfaces for genomic research and creating tools that put users first. I believe the best software doesn't just work — it feels intuitive, kind, and made with intention.
-          </p>
-          <h3>🫶 My Mission</h3>
-          <p>
-            To build software that changes how people feel when they use it — supported, not frustrated. Empowered, not confused. Whether it's healthcare, productivity, or everyday tools, I want to create technology that feels like a helping hand, not a barrier.
-          </p>
-          <div class="currently">
-            <div><span>📍</span> Ann Arbor, MI</div>
-            <div><span>🎓</span> B.S. Computer Science + Entrepreneur Minor @ University of Michigan</div>
-            <div><span>💡</span> Specialization: Full-Stack Web Development, AI application, UI/UX design</div>
-            <div><span>💡</span> Talk to Me: Spotify Jam, Friends, Family, my extra-chunky dog named Angie, Night Walks, Spontaneous Food Runs!</div>
-          </div>
-        </div>
-      </section>
+    <!-- SIDE-BY-SIDE INTERACTIVE DASHBOARD -->
+    <div class="skills-projects-split">
 
-      <section id="skills" class="section card">
-        <div class="section-heading">
-          <h2>Skills &amp; Tools 🧠</h2>
-          <p>Thoughtful engineering with a care-first mindset.</p>
-        </div>
-        <div class="skill-groups">
-          <div class="skill-group">
-            <h3>Languages</h3>
-            <div class="skill-pills">
-              <span>Python</span>
-              <span>C++</span>
-              <span>JavaScript</span>
-              <span>TypeScript</span>
-              <span>SQL</span>
-              <span>HTML/CSS</span>
-              <span>Bash</span>
-            </div>
+
+      <section id="skills" class="section">
+        <div class="nutrition-label">
+          <div class="label-header">Nutrition Facts</div>
+          <p class="label-sub">Serving Size: 1 Victoria Nguyen (Warm &amp; Dynamic)</p>
+          <div class="label-divider thick"></div>
+          
+          <div class="label-row bold">
+            Amount Per Serving <span>% Daily Value*</span>
           </div>
-          <div class="skill-group">
-            <h3>Frameworks</h3>
-            <div class="skill-pills">
-              <span>React</span>
-              <span>FastAPI</span>
-              <span>Vite</span>
-              <span>Node.js</span>
-              <span>TailwindCSS</span>
-              <span>Express</span>
-              <span>React Native</span>
+          <div class="label-divider medium"></div>
+
+          <!-- DUAL COLUMN LAYOUT FOR SHORTER HEIGHT -->
+          <div class="label-contents-grid">
+            
+            <div class="label-column">
+              <!-- Languages -->
+              <div class="label-section">
+                <div class="label-row bold">Languages <span class="val">100%</span></div>
+                <div class="label-divider thin"></div>
+                <div class="label-row indent" data-skill="python">Python <span class="val">95%</span></div>
+                <div class="label-row indent" data-skill="cpp">C++ <span class="val">90%</span></div>
+                <div class="label-row indent" data-skill="javascript">JavaScript <span class="val">95%</span></div>
+                <div class="label-row indent" data-skill="typescript">TypeScript <span class="val">90%</span></div>
+                <div class="label-row indent" data-skill="sql">SQL <span class="val">85%</span></div>
+                <div class="label-row indent" data-skill="htmlcss">HTML/CSS <span class="val">100%</span></div>
+              </div>
+              <div class="label-divider thin"></div>
+
+              <!-- Frameworks -->
+              <div class="label-section">
+                <div class="label-row bold">Frameworks &amp; Libs <span class="val">90%</span></div>
+                <div class="label-divider thin"></div>
+                <div class="label-row indent" data-skill="react">React <span class="val">92%</span></div>
+                <div class="label-row indent" data-skill="fastapi">FastAPI <span class="val">88%</span></div>
+                <div class="label-row indent" data-skill="vite">Vite <span class="val">90%</span></div>
+                <div class="label-row indent" data-skill="nodejs">Node.js <span class="val">85%</span></div>
+                <div class="label-row indent" data-skill="tailwindcss">TailwindCSS <span class="val">95%</span></div>
+                <div class="label-row indent" data-skill="express">Express <span class="val">85%</span></div>
+                <div class="label-row indent" data-skill="reactnative">React Native <span class="val">82%</span></div>
+              </div>
             </div>
-          </div>
-          <div class="skill-group">
-            <h3>Data &amp; AI</h3>
-            <div class="skill-pills">
-              <span>Pandas</span>
-              <span>SDV</span>
-              <span>FAISS</span>
-              <span>RAG</span>
-              <span>Plotly</span>
-              <span>D3.js</span>
-              <span>NumPy</span>
+
+            <div class="label-column">
+              <!-- Data & AI -->
+              <div class="label-section">
+                <div class="label-row bold">Data &amp; AI <span class="val">85%</span></div>
+                <div class="label-divider thin"></div>
+                <div class="label-row indent" data-skill="pandas">Pandas <span class="val">88%</span></div>
+                <div class="label-row indent" data-skill="sdv">SDV (Synthetic Data) <span class="val">85%</span></div>
+                <div class="label-row indent" data-skill="faiss">FAISS (Vector Search) <span class="val">80%</span></div>
+                <div class="label-row indent" data-skill="rag">RAG Architecture <span class="val">82%</span></div>
+                <div class="label-row indent" data-skill="plotly">Plotly / D3.js <span class="val">88%</span></div>
+                <div class="label-row indent" data-skill="numpy">NumPy <span class="val">85%</span></div>
+              </div>
+              <div class="label-divider thin"></div>
+
+              <!-- Tools & Infrastructure -->
+              <div class="label-section">
+                <div class="label-row bold">Tools &amp; Infrastructure <span class="val">92%</span></div>
+                <div class="label-divider thin"></div>
+                <div class="label-row indent" data-skill="git">Git / GitHub <span class="val">95%</span></div>
+                <div class="label-row indent" data-skill="docker">Docker <span class="val">82%</span></div>
+                <div class="label-row indent" data-skill="mongodb">MongoDB <span class="val">88%</span></div>
+                <div class="label-row indent" data-skill="restapi">REST APIs <span class="val">92%</span></div>
+                <div class="label-row indent" data-skill="hl7fhir">HL7 FHIR <span class="val">80%</span></div>
+                <div class="label-row indent" data-skill="figma">Figma <span class="val">90%</span></div>
+              </div>
             </div>
-          </div>
-          <div class="skill-group">
-            <h3>Tools &amp; Infrastructure</h3>
-            <div class="skill-pills">
-              <span>Git/GitHub</span>
-              <span>Docker</span>
-              <span>MongoDB</span>
-              <span>REST APIs</span>
-              <span>HL7 FHIR</span>
-              <span>Jupyter Notebook</span>
-              <span>Figma</span>
-              <span>Adobe Premiere Pro</span>
-            </div>
-          </div>
+
+          </div> <!-- End label-contents-grid -->
+
+
+
+          
+          <div class="label-divider thick"></div>
+          <p class="label-footnote">
+            *Percent Daily Values are based on a workload of 2000+ lines of code, 3 matcha lattes, and continuous learning. 
+            Your daily values may vary depending on project requirements.
+          </p>
         </div>
       </section>
 
       <section id="projects" class="section">
-        <div class="section-heading">
-          <h2>Projects 💻</h2>
-          <p>Soft, thoughtful builds rooted in care.</p>
+        <div class="projects-stack">
+          
+          <!-- Project 1 -->
+          <article class="project-card" data-tech="figma">
+            <div class="card-top">
+              <h3>betterSchedule ⏳</h3>
+              <p class="stack">Figma · Agile/Scrum · UX Research</p>
+              <p class="desc">A scheduling platform focused on helping students structure academic, work, and personal commitments through adaptive time-blocking and smarter task prioritization.</p>
+              <ul>
+                <li>Designed user journey maps, personas, and interaction flows to align technical functionality with user behavior</li>
+                <li>Built wireframes, sitemap architecture, and an interactive Figma prototype</li>
+              </ul>
+            </div>
+            <div class="card-actions">
+              <a href="https://www.figma.com/proto/BHBdNEiOi7MsnOvYYQCJDl/Project-1---victoria_nguyen?page-id=1%3A2&node-id=287-26364&starting-point-node-id=287%3A16632" target="_blank" rel="noreferrer noopener" class="ghost-button">Live Prototype</a>
+              <button class="ghost-button" data-modal="betterschedule-problem-modal">Problem Statement</button>
+              <button class="ghost-button" data-modal="betterschedule-prd-modal">PRD</button>
+              <button class="ghost-button" data-modal="betterschedule-wireframes-modal">Wireframes</button>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card" data-tech="figma">
+            <div class="card-top">
+              <h3>BetBuddies 💰</h3>
+              <p class="stack">User Research · Behavioral Design · Product Strategy</p>
+              <p class="desc">Social accountability platform for goal retention, built from 50+ user interviews to address sleep and wellness inconsistency through financial commitment and social pressure.</p>
+              <ul>
+                <li>Conducted 50 interviews with UM students to map habit failure patterns and adoption gaps</li>
+                <li>Proposed a commitment-based system combining money stakes, group accountability, and daily tracking</li>
+              </ul>
+            </div>
+            <div class="card-actions">
+              <button class="ghost-button" data-modal="betbuddies-overview-modal">Overview</button>
+              <button class="ghost-button" data-modal="betbuddies-problem-modal">Problems</button>
+              <button class="ghost-button" data-modal="betbuddies-research-modal">Research</button>
+              <button class="ghost-button" data-modal="betbuddies-solution-modal">Solution</button>
+              <button class="ghost-button" data-modal="betbuddies-future-modal">Future</button>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card" data-tech="react,fastapi,python,faiss,rag">
+            <div class="card-top">
+              <h3>SynthLab 🧬</h3>
+              <p class="stack">React · FastAPI · Python · FAISS · RAG</p>
+              <p class="desc">Privacy-preserving synthetic data platform with multi-method generation, statistical validation, fairness testing, and PDF literature analysis for healthcare workflows.</p>
+              <ul>
+                <li>Built multi-method synthesis (CTGAN, TVAE) with automated scoring and KS statistical testing</li>
+                <li>Designed privacy scoring system with Distance-to-Closest-Record metrics to quantify risk</li>
+              </ul>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/vicngan/synthlab " target="_blank" rel="noreferrer noopener" class="ghost-button">View Code</a>
+              <button class="ghost-button" data-modal="synthlab-demo-modal">Demo</button>
+              <button class="ghost-button" data-modal="synthlab-story-modal">Design Story</button>
+            </div>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="project-card" data-tech="reactnative,nodejs,mongodb">
+            <div class="card-top">
+              <h3>Heartline Care Companion 💚</h3>
+              <p class="stack">React Native · Node.js · MongoDB · Bluetooth LE</p>
+              <p class="desc">A mobile care companion that keeps users connected to their wellness goals through gentle reminders, scheduling, and mood check-ins.</p>
+              <ul>
+                <li>Architected adaptive UI that flexes routines based on user energy levels</li>
+                <li>Implemented charts visualization supporting interactive rendering of mood trends</li>
+              </ul>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/vicngan/heartline_companion.py" target="_blank" rel="noreferrer noopener" class="ghost-button">Code</a>
+              <a href="https://heartlinecare.netlify.app/" target="_blank" rel="noreferrer noopener" class="ghost-button">Live</a>
+              <button class="ghost-button" data-modal="heartline-demo-modal">Demo</button>
+            </div>
+          </article>
+
+          <!-- Project 5 -->
+          <article class="project-card" data-tech="python,react,nodejs,mongodb">
+            <div class="card-top">
+              <h3>Heartline Smart Record 🩺</h3>
+              <p class="stack">Python · React · Node.js · MongoDB</p>
+              <p class="desc">A patient vitals tracking system that simulates an EMR for clinical data management, inspired by real inpatient workflows.</p>
+              <ul>
+                <li>Built vitals tracking supporting full CRUD with data validation and abnormal vital flags</li>
+              </ul>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/vicngan/smart_record.py" target="_blank" rel="noreferrer noopener" class="ghost-button">View Code</a>
+              <button class="ghost-button" data-modal="smart-modal">Design Story</button>
+            </div>
+          </article>
+
+          <!-- Project 6 -->
+          <article class="project-card" data-tech="python,express,mongodb">
+            <div class="card-top">
+              <h3>Blossom Drift Journal 🌸</h3>
+              <p class="stack">Python · Tkinter · Express · MongoDB</p>
+              <p class="desc">A GUI-based mental health journaling app with customizable prompts and safe data storage. Soft, calming visual theme layout.</p>
+              <ul>
+                <li>Implemented background multithreading enabling seamless background autosave without freezing UI</li>
+              </ul>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/vicngan/my-care-journal-" target="_blank" rel="noreferrer noopener" class="ghost-button">View Code</a>
+              <button class="ghost-button" data-modal="blossom-modal">Design Story</button>
+            </div>
+          </article>
+
+
         </div>
-        <div class="projects-carousel" data-carousel>
-          <button class="carousel-control prev" type="button" data-carousel-prev aria-label="View previous project">
-            ⟵
-          </button>
-          <div class="projects-track" data-carousel-track>
-            <article class="project-card card">
-              <div class="card-top">
-                <h3>betterSchedule ⏳ </h3>
-                <p class="stack">Figma · Agile/Scrum · UX Research · Wireframing · MVP Development</p>
-                <p>
-                  Ascheduling platform focused on helping students structure academic, work, and personal commitments through adaptive time-blocking and smarter task prioritization.
-                </p>
-                <ul>
-                  <li>Developed the product using Agile/Scrum methodology, iterating through sprint cycles and incorporating peer feedback into each design revision</li>
-                  <li>Designed and refined user journey maps, personas, and interaction flows to align technical functionality with real user behavior</li>
-                  <li>Built low-fidelity and high-fidelity wireframes, sitemap architecture, and an interactive Figma prototype as part of an evolving MVP deliverable</li>
-                </ul>
-              </div>
-              <div class="card-actions">
-                <a
-                  href="https://www.figma.com/proto/BHBdNEiOi7MsnOvYYQCJDl/Project-1---victoria_nguyen?page-id=1%3A2&node-id=287-26364&starting-point-node-id=287%3A16632"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  >View Live Prototype</a
-                >
-                <button class="ghost-button" data-modal="betterschedule-problem-modal">
-                  Problem Statement
-                </button>
-                <button class="ghost-button" data-modal="betterschedule-prd-modal">
-                  PRD
-                </button>
-                <button class="ghost-button" data-modal="betterschedule-sitemap-modal">
-                  Design Process
-                </button>
-                <button class="ghost-button" data-modal="betterschedule-wireframes-modal">
-                  Wireframes
-                </button>
-              </div>
-            </article>
-
-            <article class="project-card card">
-              <div class="card-top">
-                <h3>BetBuddies 💰 </h3>
-                <p class="stack">User Research · Behavioral Design · Product Strategy</p>
-                <p>
-                  Social accountability platform for goal retention, built from 50+ user interviews to address
-                  sleep and wellness inconsistency through financial commitment and social pressure.
-                </p>
-                <ul>
-                  <li>Conducted 50 interviews with UM students to map habit failure patterns and adoption gaps.</li>
-                  <li>Identified the core insight: habits fail without immediate consequence or reward.</li>
-                  <li>Proposed a commitment-based system combining money stakes, group accountability, and daily tracking.</li>
-                </ul>
-              </div>
-              <div class="card-actions">
-                <button class="ghost-button" data-modal="betbuddies-overview-modal">Overview</button>
-                <button class="ghost-button" data-modal="betbuddies-problem-modal">Key Problems</button>
-                <button class="ghost-button" data-modal="betbuddies-research-modal">User Research</button>
-                <button class="ghost-button" data-modal="betbuddies-solution-modal">Solution</button>
-                <button class="ghost-button" data-modal="betbuddies-future-modal">Future Build</button>
-              </div>
-            </article>
-
-            <article class="project-card card">
-              <div class="card-top">
-                <h3> SynthLab 🧬 </h3>
-                <p class="stack">React · FastAPI · Python · SDV · FAISS · RAG</p>
-                <p>
-                  A privacy-safe synthetic data generator that helps researchers validate models without exposing real patient information — inspired by the data challenges in clinical research. Privacy-preserving synthetic data platform with multi-method generation, statistical validation, fairness testing, and PDF literature analysis for healthcare research workflows.
-                </p>
-                <ul>
-                  <li>Built multi-method synthesis (CTGAN, GaussianCopula, TVAE) with automated quality scoring and KS statistical testing</li>
-                  <li>Implemented statistical quality assessment including KS testing, correlation analysis, and distribution comparison with interactive Plotly visualizations.</li>
-                  <li>Designed privacy scoring system with exact-match detection and Distance-to-Closest-Record metrics to quantify re-identification risk.</li>
-                  <li>Developing PDF literature analyzer to enable researchers to cross-reference synthetic outputs against published clinical benchmarks.</li>
-                </ul>
-              </div>
-              <div class="card-actions">
-                <a href="https://github.com/vicngan/synthlab " target="_blank" rel="noreferrer noopener"
-                  >View Code</a
-                >
-                <button class="ghost-button" data-modal="synthlab-demo-modal">Demo</button>
-                <button class="ghost-button" data-modal="synthlab-story-modal">Design Story</button>
-              </div>
-            </article>
-
-
-            <article class="project-card card">
-              <div class="card-top">
-                <h3>Heartline Care Companion 💚</h3>
-                <p class="stack">React Native · Node.js · MongoDB · Bluetooth LE · Twilio</p>
-                <p>
-                  A mobile care companion that keeps users connected to their wellness goals through gentle reminders, scheduling, and mood check-ins inspired by clinical workflows.
-                </p>
-                <ul>
-                  <li>Architected a cross-platform care companion, featuring an adaptive UI that flexes routines based on user energy levels</li>
-                  <li>Implemented advanced visualization to render dual-line charts of mood and energy trends</li>
-                  <li>Implemented advanced visualizations using Matplotlib and Altair to render dual-line charts of mood and energy trends.</li>
-                </ul>
-              </div>
-              <div class="card-actions">
-                <a href="https://github.com/vicngan/heartline_companion.py" target="_blank" rel="noreferrer noopener">View Code</a>
-                <a href="https://heartlinecare.netlify.app/" target="_blank" rel="noreferrer noopener">View Page</a>
-                <button class="ghost-button" data-modal="heartline-demo-modal">Demo</button>
-                <button class="ghost-button" data-modal="heartline-modal">Care Flow</button>
-              </div>
-            </article>
-
-            <article class="project-card card">
-              <div class="card-top">
-                <h3>Heartline Smart Record 🩺</h3>
-                <p class="stack">Python · React · Node.js · MongoDB</p>
-                <p>
-                  A patient vitals tracking system that simulates an EMR for clinical data management, inspired by real inpatient workflows I've seen in urgent care and hospital units.
-                </p>
-                <ul>
-                  <li>Built vitals tracking with data validation and abnormal vital detection.</li>
-                  <li>Automated logging to CSV/JSON for easy review and analysis.</li>
-                  <li>Modeled clinical flows with object-oriented design; expanding with role-based dashboards for team members.</li>
-                </ul>
-              </div>
-              <div class="card-actions">
-                <a href="https://github.com/vicngan/smart_record.py" target="_blank" rel="noreferrer noopener"
-                  >View Code</a
-                >
-                <button class="ghost-button" data-modal="smart-modal">Design Story</button>
-              </div>
-            </article>
-
-             <article class="project-card card">
-              <div class="card-top">
-                <h3>Blossom Drift Journal🌸</h3>
-                <p class="stack">Python · Tkinter · React · Node.js · Express · MongoDB</p>
-                <p>
-                  A GUI-based mental health journaling app with autosave, customizable prompts, and persistent data storage. Designed around a soft, calming visual theme so users feel safe to reflect.
-                </p>
-                <ul>
-                  <li>Implemented multithreading so autosave runs smoothly without freezing the UI.</li>
-                  <li>Used JSON-based storage for organized entries, mood tracking, and user analytics.</li>
-                  <li>Designed the interface with user comfort in mind, emphasizing gentle colors and clarity.</li>
-                </ul>
-              </div>
-              <div class="card-actions">
-                <a href="https://github.com/vicngan/my-care-journal-" target="_blank" rel="noreferrer noopener"
-                  >View Code</a
-                >
-                <button class="ghost-button" data-modal="blossom-modal">Design Story</button>
-              </div>
-            </article>
-
-
-          </div>
-          <button class="carousel-control next" type="button" data-carousel-next aria-label="View next project">
-            ⟶
-          </button>
-        </div>
-        <div class="carousel-dots" data-carousel-dots></div>
       </section>
+
+    </div> <!-- End side-by-side split -->
+
 
       <section id="experience" class="section">
         <div class="section-heading">
-          <h2>Experience &amp; Impact 🌟</h2>
+          <h2>My Journey 🛤️</h2>
           <p>Care-first work that informs every line of code.</p>
         </div>
         <div class="timeline">
@@ -522,7 +512,7 @@
 
       <section id="involvement" class="section">
         <div class="section-heading">
-          <h2>Community &amp; Leadership 💬</h2>
+          <h2>Community Board 📍</h2>
           <p>Rooted in storytelling, culture, and care.</p>
         </div>
         <div class="card-grid leadership-grid">
@@ -547,44 +537,91 @@
         </div>
       </section>
 
-      <section id="contact" class="section card contact-card">
-        <div class="section-heading">
-          <h2>Let’s Connect ☁️</h2>
-          <p>
-            If you’re interested in health tech, mental health tools, or just want to chat about CS paths,
-            I’d love to connect! 💌
+      <section id="contact" class="section no-bg no-border">
+        <div class="cafe-receipt">
+          <div class="receipt-clip"></div> <!-- Decorative Clip/Sticker Top -->
+          
+          <div class="receipt-header">
+            <div class="receipt-title">ORDER #777</div>
+            <div class="receipt-sub">ITEM: MATCHA CHAT & CONNECT</div>
+            <div class="receipt-date">TIMESTAMP: 2026.03.17 🍵</div>
+          </div>
+          <div class="receipt-divider"></div>
+
+          <p class="receipt-intro">
+            Interested in health tech, mental health tools, or just chatting about CS? Let's order!
           </p>
+          <div class="receipt-divider dotted"></div>
+
+          <!-- Socials as Add-ons -->
+          <div class="receipt-modifiers">
+            <span class="modifier-label">ADD-ONS / SOCIALS:</span>
+            <div class="modifier-links">
+              <a href="mailto:victoria.n.nguyen05@umich.edu">+ Email 💌</a>
+              <a href="https://www.linkedin.com/in/vicngan" target="_blank">+ LinkedIn 🤝</a>
+              <a href="https://github.com/vicngan" target="_blank">+ GitHub 💻</a>
+            </div>
+          </div>
+          <div class="receipt-divider dotted"></div>
+
+          <!-- Special Requests Checkbox/Chips -->
+          <div class="receipt-modifiers">
+            <span class="modifier-label">SPECIAL REQUESTS:</span>
+            <div class="modifier-chips">
+              <a href="https://calendly.com/victoria-n-nguyen05/new-meeting" target="_blank" rel="noreferrer noopener">☕ Book a matcha chat</a>
+              <a href="assets/V_Nguyen_Resume.pdf" target="_blank" rel="noreferrer noopener">📄 Download resume</a>
+            </div>
+          </div>
+          <div class="receipt-divider"></div>
+
+          <form class="contact-form-receipt" data-form>
+            <div class="receipt-item">
+              <span class="item-num">[01]</span>
+              <div class="item-details">
+                <label>CLIENT_NAME</label>
+                <input type="text" name="name" placeholder="..." required />
+              </div>
+            </div>
+            
+            <div class="receipt-item">
+              <span class="item-num">[02]</span>
+              <div class="item-details">
+                <label>EMAIL_ADDRESS</label>
+                <input type="email" name="email" placeholder="you@email.com" required />
+              </div>
+            </div>
+
+            <div class="receipt-item full">
+              <span class="item-num">[03]</span>
+              <div class="item-details">
+                <label>MESSAGE_NOTES</label>
+                <textarea name="message" rows="3" placeholder="What should we build together?" required></textarea>
+              </div>
+            </div>
+
+            <div class="receipt-divider"></div>
+
+            <div class="receipt-footer">
+              <div class="footer-row">
+                <span>SUBTOTAL</span>
+                <span>$0.00</span>
+              </div>
+              <div class="footer-row bold">
+                <span>TOTAL CARE</span>
+                <span>100% ✨</span>
+              </div>
+              
+              <div class="receipt-barcode-wrap">
+                <div class="id-barcode" style="margin: 0.5rem auto; height: 35px; justify-content: center;">
+                  <div class="bar"></div><div class="bar thin"></div><div class="bar"></div><div class="bar thick"></div><div class="bar"></div><div class="bar thin"></div><div class="bar"></div><div class="bar"></div>
+                </div>
+              </div>
+
+              <button type="submit" class="submit-receipt">Place Order / Send</button>
+              <p class="form-status" role="status" aria-live="polite"></p>
+            </div>
+          </form>
         </div>
-        <div class="contact-actions">
-          <a class="btn primary" href="mailto:victoria.n.nguyen05@umich.edu">Email me</a>
-          <a class="btn secondary" href="https://www.linkedin.com/in/vicngan" target="_blank" rel="noreferrer noopener"
-            >LinkedIn</a
-          >
-          <a class="btn secondary" href="https://github.com/vicngan" target="_blank" rel="noreferrer noopener"
-            >GitHub</a
-          >
-        </div>
-        <div class="contact-chips">
-          <a href="https://calendly.com/victoria-n-nguyen05/new-meeting" target="_blank" rel="noreferrer noopener">☕ Book a matcha chat</a>
-          <a href="assets/V_Nguyen_Resume.pdf" target="_blank" rel="noreferrer noopener">📄 Download resume</a>
-          <a href="mailto:Vicngan@umich.edu?subject=Voice%20note%20for%20Victoria" rel="noreferrer noopener">🎙️ Send a quick voice note</a>
-        </div>
-        <form class="contact-form" data-form>
-          <label>
-            Name
-            <input type="text" name="name" placeholder="Your name" required />
-          </label>
-          <label>
-            Email
-            <input type="email" name="email" placeholder="you@email.com" required />
-          </label>
-          <label>
-            Message
-            <textarea name="message" rows="3" placeholder="What should we build together?" required></textarea>
-          </label>
-          <button type="submit" class="btn primary">Send message</button>
-          <p class="form-status" role="status" aria-live="polite"></p>
-        </form>
       </section>
     </main>
 
@@ -594,7 +631,7 @@
 
     <div class="modal" id="betterschedule-problem-modal">
       <div class="modal-content">
-        <span class="close-button">&times;</span>
+        <button class="modal-close" data-close>&times;</button>
         
         <h2>betterSchedule — Problem Statement</h2>
 
@@ -1062,6 +1099,55 @@
           </iframe>
         </div>
       </div>
+    </div>
+
+    <!-- 📋 Loyalty Stamp Card Widget -->
+    <div class="loyalty-card">
+      <div class="loyalty-header">
+        <span class="loyalty-title">🍵 CAFÉ CARD</span>
+        <span class="loyalty-sub">10 stamps = 1 free coffee</span>
+      </div>
+      <div class="loyalty-grid">
+        <div class="stamp-wrapper" data-tooltip="Stamp #1: Hospital Vitals 🏥 3 AM rounds. Learning care.">
+          <div class="stamp filled">1</div>
+        </div>
+        <div class="stamp-wrapper" data-tooltip="Stamp #2: Started CS @ Michigan 〽️ Diving into algorithms.">
+          <div class="stamp filled">2</div>
+        </div>
+        <div class="stamp-wrapper" data-tooltip="Stamp #3: Tech Internship 💻 Building full stack dashboards.">
+          <div class="stamp filled">3</div>
+        </div>
+        <div class="stamp-wrapper" data-tooltip="Stamp #4: Genomic AI Research 🧬 Data Screening algorithms.">
+          <div class="stamp filled">4</div>
+        </div>
+        <div class="stamp-wrapper" data-tooltip="Stamp #5: Chief Builder 🛠️ Pushing cozy UX layout redesigns.">
+          <div class="stamp filled">5</div>
+        </div>
+        <!-- Unfilled Stamps -->
+        <div class="stamp-wrapper" data-tooltip="Loading...">
+          <div class="stamp">6</div>
+        </div>
+        <div class="stamp-wrapper" data-tooltip="Loading...">
+          <div class="stamp">7</div>
+        </div>
+        <div class="stamp-wrapper" data-tooltip="Loading...">
+          <div class="stamp">8</div>
+        </div>
+        <div class="stamp-wrapper" data-tooltip="Loading...">
+          <div class="stamp">9</div>
+        </div>
+        <div class="stamp-wrapper" data-tooltip="Loading...">
+          <div class="stamp">10</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 💡 Now Brewing Status Bar -->
+    <div class="brewing-status">
+      <span class="pulse-dot"></span>
+      <span class="status-item">🍵 Brewing: Latte </span>
+      <span class="status-divider">|</span>
+      <span class="status-item">💻 Coding: Features</span>
     </div>
 
     <script src="script.js"></script>
