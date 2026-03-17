@@ -331,7 +331,11 @@
                 </ul>
               </div>
               <div class="card-actions">
-                <button class="ghost-button" data-modal="betbuddies-case-modal">Case Study</button>
+                <button class="ghost-button" data-modal="betbuddies-overview-modal">Overview</button>
+                <button class="ghost-button" data-modal="betbuddies-problem-modal">Key Problems</button>
+                <button class="ghost-button" data-modal="betbuddies-research-modal">User Research</button>
+                <button class="ghost-button" data-modal="betbuddies-solution-modal">Solution</button>
+                <button class="ghost-button" data-modal="betbuddies-future-modal">Future Build</button>
               </div>
             </article>
 
@@ -802,10 +806,10 @@
       </div>
     </div>
 
-    <div class="modal" id="betbuddies-case-modal" aria-hidden="true">
+    <div class="modal" id="betbuddies-overview-modal" aria-hidden="true">
       <div class="modal-content modal-content--wide">
         <button class="modal-close" data-close>&times;</button>
-        <h3>BetBuddies — Product Case Study</h3>
+        <h3>BetBuddies — Overview</h3>
 
         <div class="modal-section">
           <h4>Project Overview</h4>
@@ -815,20 +819,6 @@
             using financial commitment and social pressure.
           </p>
           <p><strong>Focus:</strong> Behavioral design, user research, product strategy.</p>
-        </div>
-
-        <div class="modal-section">
-          <h4>The Problem</h4>
-          <p>
-            College students (18–22) consistently fail to maintain habits like sleep, despite existing tools
-            like reminders and trackers.
-          </p>
-          <ul>
-            <li>61% feel physically drained when goals fail.</li>
-            <li>52% cite academic workload as the primary disruption.</li>
-            <li>Most rely on self-discipline without structured tools.</li>
-          </ul>
-          <p><strong>Opportunity:</strong> Current solutions are high-friction and easy to ignore.</p>
         </div>
 
         <div class="modal-section">
@@ -842,65 +832,6 @@
             <li>Social pressure creates follow-through.</li>
             <li>Immediate feedback loops drive behavior change.</li>
           </ul>
-        </div>
-
-        <div class="modal-section">
-          <h4>User Research</h4>
-          <p><strong>Research Process:</strong> 50 interviews with University of Michigan students.</p>
-          <ul>
-            <li>25 broad goal interviews.</li>
-            <li>25 focused sleep interviews.</li>
-          </ul>
-          <p><strong>Key Findings:</strong></p>
-          <ul>
-            <li>Sleep and wellness emerged as the top goal category.</li>
-            <li>Users want consistency, not just improvement.</li>
-            <li>No dominant solution exists in the market.</li>
-          </ul>
-          <p><strong>Pain Points:</strong></p>
-          <ul>
-            <li>Academic workload: 52%.</li>
-            <li>Schedule inconsistency: 25%.</li>
-            <li>Social distractions: 17%.</li>
-            <li>Phone usage: 13%.</li>
-          </ul>
-        </div>
-
-        <div class="modal-section">
-          <h4>Personas</h4>
-          <p>
-            Personas (Ethan, Jason, Cynthia) revealed shared challenges across job seekers, students,
-            and wellness-focused users.
-          </p>
-          <ul>
-            <li>Rejection fatigue during job searches.</li>
-            <li>Habit inconsistency in sleep and wellness goals.</li>
-            <li>Lack of visible progress.</li>
-          </ul>
-          <p><strong>Needs:</strong> Small wins, accountability, immediate reinforcement.</p>
-        </div>
-
-        <div class="modal-section">
-          <h4>Solution</h4>
-          <p>BetBuddies introduces a commitment-based system:</p>
-          <ul>
-            <li>Users deposit money toward a goal.</li>
-            <li>Invite friends for accountability.</li>
-            <li>Track progress daily.</li>
-            <li>Success returns the deposit; failure loses it.</li>
-          </ul>
-          <p><strong>Outcome:</strong> Combines financial stakes with social pressure to sustain habits.</p>
-        </div>
-
-        <div class="modal-section">
-          <h4>How It Works</h4>
-          <ol>
-            <li>Set a goal (example: sleep before 12 AM).</li>
-            <li>Deposit money.</li>
-            <li>Invite an accountability group.</li>
-            <li>Track progress.</li>
-            <li>Outcome: success returns money; failure triggers a penalty.</li>
-          </ol>
         </div>
 
         <div class="modal-section">
@@ -934,7 +865,106 @@
             <li>Product direction must evolve with user data.</li>
           </ul>
         </div>
+      </div>
+    </div>
 
+    <div class="modal" id="betbuddies-problem-modal" aria-hidden="true">
+      <div class="modal-content modal-content--wide">
+        <button class="modal-close" data-close>&times;</button>
+        <h3>BetBuddies — Key Problems</h3>
+        <div class="modal-section">
+          <h4>The Problem</h4>
+          <p>
+            College students (18–22) consistently fail to maintain habits like sleep, despite existing tools
+            like reminders and trackers.
+          </p>
+          <ul>
+            <li>61% feel physically drained when goals fail.</li>
+            <li>52% cite academic workload as the primary disruption.</li>
+            <li>Most rely on self-discipline without structured tools.</li>
+          </ul>
+          <p><strong>Opportunity:</strong> Current solutions are high-friction and easy to ignore.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="betbuddies-research-modal" aria-hidden="true">
+      <div class="modal-content modal-content--wide">
+        <button class="modal-close" data-close>&times;</button>
+        <h3>BetBuddies — User Research</h3>
+        <div class="modal-section">
+          <h4>Research Process</h4>
+          <p>50 interviews with University of Michigan students.</p>
+          <ul>
+            <li>25 broad goal interviews.</li>
+            <li>25 focused sleep interviews.</li>
+          </ul>
+        </div>
+        <div class="modal-section">
+          <h4>Key Findings</h4>
+          <ul>
+            <li>Sleep and wellness emerged as the top goal category.</li>
+            <li>Users want consistency, not just improvement.</li>
+            <li>No dominant solution exists in the market.</li>
+          </ul>
+        </div>
+        <div class="modal-section">
+          <h4>Pain Points</h4>
+          <ul>
+            <li>Academic workload: 52%.</li>
+            <li>Schedule inconsistency: 25%.</li>
+            <li>Social distractions: 17%.</li>
+            <li>Phone usage: 13%.</li>
+          </ul>
+        </div>
+        <div class="modal-section">
+          <h4>Personas</h4>
+          <p>
+            Personas (Ethan, Jason, Cynthia) revealed shared challenges across job seekers, students,
+            and wellness-focused users.
+          </p>
+          <ul>
+            <li>Rejection fatigue during job searches.</li>
+            <li>Habit inconsistency in sleep and wellness goals.</li>
+            <li>Lack of visible progress.</li>
+          </ul>
+          <p><strong>Needs:</strong> Small wins, accountability, immediate reinforcement.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="betbuddies-solution-modal" aria-hidden="true">
+      <div class="modal-content modal-content--wide">
+        <button class="modal-close" data-close>&times;</button>
+        <h3>BetBuddies — Solution</h3>
+        <div class="modal-section">
+          <h4>Solution</h4>
+          <p>BetBuddies introduces a commitment-based system:</p>
+          <ul>
+            <li>Users deposit money toward a goal.</li>
+            <li>Invite friends for accountability.</li>
+            <li>Track progress daily.</li>
+            <li>Success returns the deposit; failure loses it.</li>
+          </ul>
+          <p><strong>Outcome:</strong> Combines financial stakes with social pressure to sustain habits.</p>
+        </div>
+        <div class="modal-section">
+          <h4>How It Works</h4>
+          <ol>
+            <li>Set a goal (example: sleep before 12 AM).</li>
+            <li>Deposit money.</li>
+            <li>Invite an accountability group.</li>
+            <li>Track progress.</li>
+            <li>Outcome: success returns money; failure triggers a penalty.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="betbuddies-future-modal" aria-hidden="true">
+      <div class="modal-content modal-content--wide">
+        <button class="modal-close" data-close>&times;</button>
+        <h3>BetBuddies — Future Build</h3>
         <div class="modal-section">
           <h4>Future Build</h4>
           <ul>
