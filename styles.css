@@ -131,7 +131,7 @@ a {
 .site-nav a {
   padding: 0.45rem 0.9rem;
   border-radius: 999px;
-  color: #4a4a4a;
+  color: var(--text);
   font-weight: 500;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   white-space: nowrap;
@@ -3984,4 +3984,317 @@ main {
 .status-divider {
   color: #ccc;
   font-size: 0.8rem;
+}
+
+/* ================================
+   DARK MODE – COMPREHENSIVE FIXES
+   All hardcoded light-only colors patched below
+   ================================ */
+
+/* --- Site Header / Nav bar --- */
+[data-theme='dark'] .site-header {
+  background: rgba(21, 29, 24, 0.92);
+  border-color: rgba(126, 201, 95, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .site-nav a {
+  color: var(--text);
+}
+
+[data-theme='dark'] .site-nav a:hover {
+  background: rgba(126, 201, 95, 0.12);
+  color: var(--matcha-deep);
+}
+
+[data-theme='dark'] .site-nav a[aria-current="page"] {
+  background: rgba(126, 201, 95, 0.18) !important;
+  color: var(--matcha-deep) !important;
+}
+
+/* --- Projects Stack Cards --- */
+[data-theme='dark'] .projects-stack .project-card {
+  background: #1a1c1a;
+  border-color: #2b302c;
+}
+
+[data-theme='dark'] .project-card h3 {
+  color: var(--matcha-deep);
+}
+
+[data-theme='dark'] .project-card .stack {
+  color: var(--muted);
+  border-bottom-color: rgba(126, 201, 95, 0.2);
+}
+
+[data-theme='dark'] .project-card p:not(.stack),
+[data-theme='dark'] .project-card ul {
+  color: var(--text);
+}
+
+[data-theme='dark'] .project-card .ghost-button,
+[data-theme='dark'] .project-card .card-actions a {
+  background: rgba(126, 201, 95, 0.12) !important;
+  border-color: rgba(126, 201, 95, 0.35) !important;
+  color: var(--matcha-deep) !important;
+}
+
+[data-theme='dark'] .project-card .ghost-button:hover,
+[data-theme='dark'] .project-card .card-actions a:hover {
+  background: rgba(126, 201, 95, 0.25) !important;
+}
+
+/* --- Ghost Buttons (global) in dark mode --- */
+[data-theme='dark'] .ghost-button {
+  color: var(--text);
+}
+
+/* --- Flip ID Card (front + back) --- */
+[data-theme='dark'] .id-name-new {
+  color: var(--matcha-deep);
+}
+
+[data-theme='dark'] .id-divider-new {
+  background: rgba(126, 201, 95, 0.2);
+}
+
+[data-theme='dark'] .id-details-new .tagline {
+  color: var(--text);
+}
+
+[data-theme='dark'] .id-social-links a {
+  color: var(--muted);
+}
+
+[data-theme='dark'] .id-social-links a:hover {
+  color: var(--matcha-deep);
+}
+
+[data-theme='dark'] .id-barcode {
+  background: transparent;
+}
+
+[data-theme='dark'] .id-barcode .bar {
+  background: var(--text);
+}
+
+[data-theme='dark'] .id-footer-row-combined {
+  border-bottom-color: rgba(126, 201, 95, 0.15);
+}
+
+[data-theme='dark'] .status-badge-new {
+  color: var(--matcha-deep);
+  background: rgba(126, 201, 95, 0.08);
+  border-color: rgba(126, 201, 95, 0.2);
+}
+
+[data-theme='dark'] .id-signature {
+  color: var(--matcha-deep);
+}
+
+[data-theme='dark'] .bio-section {
+  background: rgba(126, 201, 95, 0.04);
+  border-color: rgba(126, 201, 95, 0.12);
+}
+
+[data-theme='dark'] .bio-section h3 {
+  color: var(--matcha-deep);
+}
+
+[data-theme='dark'] .id-btn.secondary {
+  color: var(--matcha-deep) !important;
+  border-color: var(--matcha-deep) !important;
+}
+
+[data-theme='dark'] .tap-hint.dark {
+  background: rgba(126, 201, 95, 0.1) !important;
+  color: var(--matcha-deep) !important;
+  border-color: rgba(126, 201, 95, 0.25) !important;
+}
+
+/* --- Community Board (Involvement) --- */
+[data-theme='dark'] #involvement.section {
+  background: #1a1810;
+  background-image:
+    radial-gradient(#2e2b20 1.5px, transparent 1.5px),
+    linear-gradient(45deg, rgba(255, 255, 255, 0.03) 25%, transparent 25%);
+  background-size: 15px 15px, 100% 100%;
+  border-color: #3a2e22;
+}
+
+[data-theme='dark'] #involvement.section::before {
+  border-color: #2a2018;
+}
+
+[data-theme='dark'] #involvement .section-heading h2 {
+  color: var(--matcha-deep);
+}
+
+[data-theme='dark'] #involvement .section-heading p {
+  color: var(--muted);
+}
+
+[data-theme='dark'] .leadership-grid .small-card {
+  border-color: rgba(126, 201, 95, 0.1) !important;
+  box-shadow: 3px 6px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-theme='dark'] .leadership-grid .small-card:nth-child(odd) {
+  background: #252018 !important;
+}
+
+[data-theme='dark'] .leadership-grid .small-card:nth-child(even) {
+  background: #1c2520 !important;
+}
+
+[data-theme='dark'] .leadership-grid .small-card:nth-child(3n) {
+  background: #221e2a !important;
+}
+
+[data-theme='dark'] .leadership-grid .small-card:nth-child(4n) {
+  background: #1a2228 !important;
+}
+
+[data-theme='dark'] .leadership-grid .small-card h3 {
+  color: var(--matcha-deep);
+  border-bottom-color: rgba(126, 201, 95, 0.15);
+}
+
+[data-theme='dark'] .leadership-grid .small-card p {
+  color: var(--text);
+}
+
+/* --- Café Receipt Contact Form --- */
+[data-theme='dark'] .cafe-receipt {
+  background: #1c1e1c;
+  color: #d8e8d8;
+  border-top-color: var(--matcha);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme='dark'] .cafe-receipt::after {
+  background-image:
+    linear-gradient(135deg, transparent 66%, #1c1e1c 66%),
+    linear-gradient(225deg, transparent 66%, #1c1e1c 66%);
+  background-size: 10px 20px;
+}
+
+[data-theme='dark'] .receipt-clip {
+  background: #3a3c3a;
+}
+
+[data-theme='dark'] .receipt-sub,
+[data-theme='dark'] .receipt-date {
+  color: var(--muted);
+}
+
+[data-theme='dark'] .receipt-divider {
+  border-bottom-color: rgba(126, 201, 95, 0.25);
+}
+
+[data-theme='dark'] .receipt-divider.dotted {
+  border-bottom-color: rgba(126, 201, 95, 0.15);
+}
+
+[data-theme='dark'] .receipt-intro {
+  color: var(--muted);
+}
+
+[data-theme='dark'] .modifier-label {
+  color: var(--muted);
+}
+
+[data-theme='dark'] .modifier-links a {
+  color: var(--matcha-deep);
+}
+
+[data-theme='dark'] .modifier-chips a {
+  background: rgba(126, 201, 95, 0.1);
+  color: var(--text);
+  border-color: rgba(126, 201, 95, 0.2);
+}
+
+[data-theme='dark'] .item-num {
+  color: var(--muted);
+}
+
+[data-theme='dark'] .item-details label {
+  color: var(--muted);
+}
+
+[data-theme='dark'] .item-details input,
+[data-theme='dark'] .item-details textarea {
+  color: var(--text);
+  border-bottom-color: rgba(126, 201, 95, 0.25);
+}
+
+[data-theme='dark'] .item-details input:focus,
+[data-theme='dark'] .item-details textarea:focus {
+  border-bottom-color: var(--matcha);
+}
+
+[data-theme='dark'] .footer-row {
+  color: var(--muted);
+}
+
+[data-theme='dark'] .footer-row.bold {
+  color: var(--text);
+  border-top-color: rgba(126, 201, 95, 0.2);
+}
+
+[data-theme='dark'] .submit-receipt {
+  background: var(--matcha-deep);
+  color: #fff;
+}
+
+[data-theme='dark'] .submit-receipt:hover {
+  background: var(--primary-strong);
+}
+
+/* --- Now Brewing Status Bar --- */
+[data-theme='dark'] .brewing-status {
+  background: rgba(21, 29, 24, 0.92);
+  border-color: rgba(126, 201, 95, 0.2);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .status-item {
+  color: var(--text);
+}
+
+[data-theme='dark'] .status-divider {
+  color: rgba(126, 201, 95, 0.3);
+}
+
+/* --- Loyalty Card --- */
+[data-theme='dark'] .loyalty-card {
+  background: rgba(21, 29, 24, 0.95);
+  border-color: rgba(126, 201, 95, 0.2);
+  color: var(--text);
+}
+
+[data-theme='dark'] .loyalty-title {
+  color: var(--matcha-deep);
+}
+
+[data-theme='dark'] .loyalty-sub {
+  color: var(--muted);
+}
+
+[data-theme='dark'] .stamp {
+  border-color: rgba(126, 201, 95, 0.3);
+  color: rgba(126, 201, 95, 0.5);
+}
+
+/* --- Experience Receipt Section --- */
+[data-theme='dark'] #experience.section {
+  background: #2a2c2a;
+  color: #e8e6e1;
+  background-image: radial-gradient(#3a3c3a 1px, transparent 0);
+}
+
+/* --- Sound Toggle --- */
+[data-theme='dark'] .sound-toggle {
+  background: rgba(30, 40, 35, 0.85);
+  border-color: rgba(126, 201, 95, 0.25);
 }
