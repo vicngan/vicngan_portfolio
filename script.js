@@ -88,8 +88,48 @@ navLinks.forEach((link) => {
       event.preventDefault();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+    // Close mobile nav when a link is clicked
+    closeNav();
   });
 });
+
+// ================================
+// MOBILE HAMBURGER NAV
+// ================================
+const navToggle = document.querySelector('.nav-toggle');
+const siteHeader = document.querySelector('.site-header');
+const siteNav = document.getElementById('site-nav');
+
+const openNav = () => {
+  siteHeader?.classList.add('nav-open');
+  navToggle?.setAttribute('aria-expanded', 'true');
+  navToggle?.setAttribute('aria-label', 'Close navigation menu');
+};
+
+const closeNav = () => {
+  siteHeader?.classList.remove('nav-open');
+  navToggle?.setAttribute('aria-expanded', 'false');
+  navToggle?.setAttribute('aria-label', 'Open navigation menu');
+};
+
+navToggle?.addEventListener('click', () => {
+  const isOpen = siteHeader?.classList.contains('nav-open');
+  isOpen ? closeNav() : openNav();
+});
+
+// Close nav when clicking outside
+document.addEventListener('click', (e) => {
+  if (siteHeader?.classList.contains('nav-open') &&
+      !siteHeader.contains(e.target)) {
+    closeNav();
+  }
+});
+
+// Close nav on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeNav();
+});
+
 
 const navObservers = (() => {
   if (!navLinks.length) return null;
