@@ -2228,364 +2228,326 @@ main {
    SPLASH SCREEN STYLES
    ================================ */
 
+/* ================================
+   SPLASH SCREEN — CAFÉ RECEIPT
+   ================================ */
+
 .splash-screen {
   position: fixed;
   inset: 0;
-  z-index: 1000;
+  z-index: 9999;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #c8d9b8 0%, #a8c9a3 50%, #98b893 100%);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  background: linear-gradient(160deg, #c5dab3 0%, #a2c4a0 40%, #8fb88c 100%);
+  transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
 }
 
+/* Exit animation — receipt tears upward */
 .splash-screen.splash-hidden {
   opacity: 0;
-  transform: translateY(-20px);
+  transform: translateY(-100%);
   pointer-events: none;
 }
 
-/* Stars */
-.splash-stars {
+/* Random soft bokeh dots */
+.receipt-bg-dots {
   position: absolute;
   inset: 0;
-  overflow: hidden;
-}
-
-.splash-stars .star {
-  position: absolute;
-  color: rgba(255, 255, 255, 0.85);
-  stroke-dasharray: 200;
-  stroke-dashoffset: 200;
-  animation: star-draw 1s ease forwards;
-  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.5));
-}
-
-.star-1 {
-  width: 50px;
-  top: 10%;
-  left: 10%;
-  animation-delay: 0s;
-}
-
-.star-2 {
-  width: 40px;
-  top: 8%;
-  right: 12%;
-  animation-delay: 0.2s;
-}
-
-.star-3 {
-  width: 45px;
-  top: 22%;
-  right: 6%;
-  animation-delay: 0.4s;
-}
-
-.star-4 {
-  width: 35px;
-  bottom: 18%;
-  left: 8%;
-  animation-delay: 0.6s;
-}
-
-.star-5 {
-  width: 42px;
-  bottom: 12%;
-  right: 8%;
-  animation-delay: 0.8s;
-}
-
-.star-6 {
-  width: 32px;
-  top: 38%;
-  left: 4%;
-  animation-delay: 1s;
-}
-
-@keyframes star-draw {
-  0% {
-    stroke-dashoffset: 200;
-    opacity: 0;
-  }
-
-  20% {
-    opacity: 1;
-  }
-
-  100% {
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
-}
-
-/* Scene container */
-.splash-scene {
-  position: relative;
-  width: 100%;
-  height: 320px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-}
-
-
-/* Cat Matcha Cup */
-.splash-cup {
-  position: relative;
-  width: 240px;
-  color: #3a5a3a;
-  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
-}
-
-.splash-cup svg {
-  width: 100%;
-  height: auto;
-}
-
-/* Liquid fill */
-.liquid-fill {
-  position: absolute;
-  bottom: 22px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 168px;
-  height: 0;
-  max-height: 70px;
-  background: linear-gradient(180deg,
-      rgba(110, 180, 80, 0.85) 0%,
-      rgba(90, 150, 65, 0.9) 100%);
-  border-radius: 0 0 60px 60px;
-  overflow: hidden;
-  animation: fill-cup 4.5s ease-out 0.3s forwards;
-}
-
-.liquid-surface {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 10px;
-  background: linear-gradient(180deg,
-      rgba(160, 220, 120, 0.9) 0%,
-      rgba(126, 201, 95, 0.7) 100%);
-  border-radius: 50%;
-  animation: surface-wobble 1.2s ease-in-out infinite;
-  animation-delay: 3s;
-}
-
-/* Steam from cup */
-.splash-steam {
-  position: absolute;
-  bottom: 80px;
-  /* Positioned just above the final liquid level */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 70px;
-  height: 60px;
+  background-image:
+    radial-gradient(circle at 15% 25%, rgba(255,255,255,0.18) 60px, transparent 60px),
+    radial-gradient(circle at 80% 15%, rgba(255,255,255,0.12) 45px, transparent 45px),
+    radial-gradient(circle at 60% 80%, rgba(255,255,255,0.14) 70px, transparent 70px),
+    radial-gradient(circle at 30% 70%, rgba(255,255,255,0.10) 50px, transparent 50px),
+    radial-gradient(circle at 90% 60%, rgba(255,255,255,0.09) 40px, transparent 40px);
   pointer-events: none;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
-  opacity: 0;
-  animation: steam-fade-in 1.5s ease 2s forwards;
 }
 
-.steam-wisp {
-  width: 4px;
-  height: 100%;
-  background: linear-gradient(to top, transparent, rgba(255, 255, 255, 0.7) 50%);
-  border-radius: 50%;
-  animation: steam 5s ease-in-out infinite;
-}
-
-.steam-wisp-1 {
-  animation-delay: 0s;
-}
-
-.steam-wisp-2 {
-  animation-delay: 1.5s;
-  transform: scale(0.8);
-}
-
-.steam-wisp-3 {
-  animation-delay: 2.8s;
-  transform: scale(0.9);
-}
-
-@keyframes fill-cup {
-  0% {
-    height: 0;
-  }
-
-  80% {
-    height: 70px;
-    /* slightly overfill */
-  }
-
-  100% {
-    height: 65px;
-    /* settle */
-  }
-}
-
-@keyframes steam-fade-in {
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes surface-wobble {
-
-  0%,
-  100% {
-    transform: scaleX(1);
-  }
-
-  50% {
-    transform: scaleX(1.02);
-  }
-}
-
-/* Splash text */
-.splash-text {
-  margin-top: 2rem;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #3d5a3d;
-  opacity: 0;
-  animation: text-fade 0.5s ease 0.5s forwards;
-}
-
-@keyframes text-fade {
-  to {
-    opacity: 1;
-  }
-}
-
-/* Progress bar */
-.splash-progress {
-  position: absolute;
-  bottom: 60px;
-  width: 180px;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 999px;
+/* The receipt card */
+.splash-receipt {
+  position: relative;
+  width: min(340px, 90vw);
+  background: #fdfaf4;
+  border-radius: 2px;
+  box-shadow:
+    0 4px 6px rgba(0,0,0,0.04),
+    0 20px 60px rgba(0,0,0,0.15),
+    0 1px 2px rgba(0,0,0,0.06);
+  font-family: 'Courier New', Courier, monospace;
+  color: #2a2a2a;
+  padding: 0 1.5rem 1rem;
+  animation: receipt-drop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
   overflow: hidden;
 }
 
-.splash-progress-bar {
+@keyframes receipt-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Wavy tear edge — top */
+.receipt-tear-top {
+  position: relative;
+  width: calc(100% + 3rem);
+  margin-left: -1.5rem;
+  height: 18px;
+  margin-bottom: 1.25rem;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #c8d9b8 0%, #a8c9a3 100%); /* matches bg */
+}
+
+.receipt-tear-top svg,
+.receipt-tear-bottom svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
-  width: 0;
-  background: linear-gradient(90deg, #5a8a4a, #7ec95f);
-  border-radius: 999px;
-  animation: progress-fill 4.8s ease-out forwards;
 }
 
-@keyframes progress-fill {
-  0% {
-    width: 0;
-  }
+/* Inside the SVG, path fill is white (receipt color) to "cut" the wavy edge */
 
-  100% {
-    width: 100%;
+/* Wavy tear edge — bottom */
+.receipt-tear-bottom {
+  position: relative;
+  width: calc(100% + 3rem);
+  margin-left: -1.5rem;
+  height: 18px;
+  margin-top: 0.5rem;
+  background: linear-gradient(135deg, #c8d9b8 0%, #a8c9a3 100%);
+}
+
+.receipt-tear-bottom svg {
+  top: 0;
+  bottom: auto;
+}
+
+/* Store header */
+.receipt-store-header {
+  text-align: center;
+  padding-bottom: 0.25rem;
+}
+
+.receipt-store-name {
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  animation: line-print 0.3s ease 0.6s both;
+}
+
+.receipt-store-sub {
+  font-size: 0.7rem;
+  color: #666;
+  margin-top: 0.2rem;
+  letter-spacing: 0.05em;
+  animation: line-print 0.3s ease 0.75s both;
+}
+
+.receipt-order-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #888;
+  margin-top: 0.5rem;
+  animation: line-print 0.3s ease 1.1s both;
+}
+
+.receipt-order-item-main {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #1a3a1a;
+  margin-top: 0.2rem;
+  margin-bottom: 0.4rem;
+  animation: line-print 0.35s cubic-bezier(0.34, 1.3, 0.64, 1) 1.25s both;
+}
+
+/* Dashed dividers */
+.receipt-divider.dashes {
+  border: none;
+  border-top: 1.5px dashed #ccc;
+  margin: 0.55rem 0;
+}
+
+/* Checklist */
+.receipt-checklist {
+  list-style: none;
+  margin: 0.2rem 0 0.2rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.receipt-check {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: none;
+}
+
+/* Each item animates in via JS adding .check-visible */
+.receipt-check.check-visible {
+  animation: check-slide-in 0.35s ease forwards;
+}
+
+@keyframes check-slide-in {
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
-/* Dark mode splash */
+.check-box {
+  font-weight: 700;
+  color: #aaa;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  transition: color 0.2s ease, transform 0.25s ease;
+  display: inline-block;
+}
+
+/* Checked state — JS adds .is-checked to the li */
+.receipt-check.is-checked .check-box {
+  color: #4a8a4a;
+  transform: scale(1.1);
+}
+
+.receipt-check.is-checked .check-label {
+  color: #4a8a4a;
+}
+
+.check-label {
+  color: #333;
+  transition: color 0.25s ease;
+}
+
+/* Footer rows */
+.receipt-footer-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #555;
+  letter-spacing: 0.04em;
+  padding: 0.1rem 0;
+  animation: line-print 0.3s ease 3.8s both;
+}
+
+.receipt-footer-row.bold {
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: #222;
+  animation-delay: 3.95s;
+}
+
+/* Barcode */
+.receipt-barcode-row {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0 0.1rem;
+  animation: line-print 0.3s ease 4.1s both;
+}
+
+.splash-barcode {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 32px;
+}
+
+.splash-barcode span {
+  display: block;
+  width: 2px;
+  background: #333;
+  border-radius: 1px;
+}
+
+.splash-barcode span:nth-child(odd) { height: 100%; }
+.splash-barcode span:nth-child(even) { height: 65%; }
+.splash-barcode span:nth-child(3n) { width: 4px; }
+.splash-barcode span:nth-child(5n) { height: 80%; }
+.splash-barcode span:nth-child(7n) { width: 3px; }
+
+/* Skip hint */
+.receipt-skip {
+  text-align: center;
+  font-size: 0.62rem;
+  color: #aaa;
+  letter-spacing: 0.06em;
+  margin-top: 0.2rem;
+  animation: line-print 0.3s ease 4.3s both;
+}
+
+/* Generic print-in animation for header lines */
+@keyframes line-print {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+/* Dark mode */
 [data-theme='dark'] .splash-screen {
-  background: linear-gradient(135deg, #1a2e20 0%, #243828 50%, #2a3d2e 100%);
+  background: linear-gradient(160deg, #1a2e20 0%, #243828 50%, #2a3d2e 100%);
 }
 
-[data-theme='dark'] .splash-stars .star {
-  color: rgba(168, 232, 144, 0.75);
-  filter: drop-shadow(0 0 6px rgba(168, 232, 144, 0.4));
+[data-theme='dark'] .splash-receipt {
+  background: #1e2a1e;
+  color: #d4e8c8;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.3);
 }
 
-[data-theme='dark'] .splash-cup {
-  color: rgba(168, 232, 144, 0.85);
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+[data-theme='dark'] .receipt-tear-top,
+[data-theme='dark'] .receipt-tear-bottom {
+  background: linear-gradient(135deg, #1a2e20, #243828);
 }
 
-[data-theme='dark'] .splash-cup svg {
-  fill: rgba(126, 201, 95, 0.08);
+[data-theme='dark'] .receipt-tear-top svg path,
+[data-theme='dark'] .receipt-tear-bottom svg path {
+  fill: #1e2a1e;
 }
 
-[data-theme='dark'] .liquid-fill {
-  background: linear-gradient(180deg,
-      rgba(126, 201, 95, 0.5) 0%,
-      rgba(100, 170, 80, 0.6) 100%);
-}
-
-[data-theme='dark'] .liquid-surface {
-  background: linear-gradient(180deg,
-      rgba(168, 232, 144, 0.6) 0%,
-      rgba(126, 201, 95, 0.4) 100%);
-}
-
-[data-theme='dark'] .steam-wisp {
-  background: linear-gradient(to top, transparent, rgba(168, 232, 144, 0.5) 50%);
-}
-
-[data-theme='dark'] .splash-text {
-  color: rgba(232, 240, 232, 0.9);
-}
-
-[data-theme='dark'] .splash-progress {
-  background: rgba(126, 201, 95, 0.15);
-}
-
-[data-theme='dark'] .splash-progress-bar {
-  background: linear-gradient(90deg, #5c8b4a, #7ec95f);
-}
+[data-theme='dark'] .receipt-store-name { color: #a8e890; }
+[data-theme='dark'] .receipt-store-sub  { color: #6a9a6a; }
+[data-theme='dark'] .receipt-order-label { color: #6a9a6a; }
+[data-theme='dark'] .receipt-order-item-main { color: #a8e890; }
+[data-theme='dark'] .receipt-divider.dashes { border-color: #3a5a3a; }
+[data-theme='dark'] .check-box  { color: #5a7a5a; }
+[data-theme='dark'] .check-label { color: #b0ccb0; }
+[data-theme='dark'] .receipt-check.is-checked .check-box,
+[data-theme='dark'] .receipt-check.is-checked .check-label { color: #7ec95f; }
+[data-theme='dark'] .receipt-footer-row { color: #7a9a7a; }
+[data-theme='dark'] .receipt-footer-row.bold { color: #d4e8c8; }
+[data-theme='dark'] .splash-barcode span { background: #7ec95f; }
+[data-theme='dark'] .receipt-skip { color: #4a6a4a; }
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .splash-screen {
-    transition: opacity 0.2s ease;
-  }
-
-  .splash-stars .star {
-    animation: none;
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
-
-  .liquid-fill {
-    animation: none;
-    height: 65px;
-  }
-
-  .liquid-surface {
-    animation: none;
-  }
-
-  .splash-steam {
-    animation: none;
-    /* Disables fade-in */
-    opacity: 1;
-    /* Makes it visible */
-  }
-
-  .steam-wisp {
-    animation: none;
-    /* Disables steam rising */
-    opacity: 0.5;
-    /* Make it statically visible but faint */
-    transform: translateY(-15px) scaleX(0.9);
-    /* Static position */
-  }
-
-  .splash-text {
-    animation: none;
-    opacity: 1;
-  }
-
-  .splash-progress-bar {
-    animation: progress-fill 3s linear forwards;
-  }
+  .splash-receipt { animation: none; opacity: 1; transform: none; }
+  .receipt-check  { animation: none; opacity: 1; transform: none; }
+  .receipt-check.check-visible { animation: none; opacity: 1; transform: none; }
+  .receipt-store-name,
+  .receipt-store-sub,
+  .receipt-order-label,
+  .receipt-order-item-main,
+  .receipt-footer-row,
+  .receipt-barcode-row,
+  .receipt-skip { animation: none; opacity: 1; transform: none; }
+  .splash-screen { transition: opacity 0.2s ease; }
 }
+
+
 
 /* ================================
    BREAK THE MOLD: RECEIPT EXPERIENCE

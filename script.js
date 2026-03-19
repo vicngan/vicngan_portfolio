@@ -1,40 +1,61 @@
 // ================================
-// SPLASH SCREEN - MATCHA WHISKING
+// SPLASH SCREEN — CAFÉ RECEIPT
 // ================================
 const splashScreen = document.getElementById('splash-screen');
 
-const hideSplash = () => {
-  if (!splashScreen) return;
-  splashScreen.classList.add('splash-hidden');
-  setTimeout(() => {
-    splashScreen.remove();
-  }, 500);
-};
+const hideSplash = (() => {
+  let dismissed = false;
+  return () => {
+    if (dismissed || !splashScreen) return;
+    dismissed = true;
+    splashScreen.classList.add('splash-hidden');
+    setTimeout(() => splashScreen.remove(), 700);
+  };
+})();
 
 if (splashScreen) {
-  let whiskCount = 0;
-  const targetWhisks = 100;
-  const progressBar = document.querySelector('.splash-progress-bar');
-  
-  const handleWhisk = (e) => {
-    whiskCount++;
-    const progress = Math.min((whiskCount / targetWhisks) * 100, 100);
-    if (progressBar) progressBar.style.width = `${progress}%`;
-    
-    if (progress >= 100) {
-      splashScreen.removeEventListener('mousemove', handleWhisk);
-      splashScreen.removeEventListener('touchmove', handleWhisk);
-      document.querySelector('.splash-text').textContent = "Enjoy your stay! 🍵";
-      setTimeout(hideSplash, 400); // Small delay to read text
-    }
-  };
+  // All 5 check items
+  const checks = [
+    document.getElementById('check-1'),
+    document.getElementById('check-2'),
+    document.getElementById('check-3'),
+    document.getElementById('check-4'),
+    document.getElementById('check-5'),
+  ];
 
-  splashScreen.addEventListener('mousemove', handleWhisk);
-  splashScreen.addEventListener('touchmove', handleWhisk);
-  
-  // Fallback timeout just in case they don't move the mouse and want to skip
-  splashScreen.addEventListener('click', hideSplash);
+  // Staggered delays (ms) after page load before each line appears
+  const APPEAR_DELAYS  = [1500, 2000, 2550, 3100, 3650];
+  // How long after appearing before each gets ticked ✓
+  const TICK_OFFSETS   = [400,  400,  400,  400,  500 ];
+  // Auto-dismiss after the last tick + a short pause
+  const AUTO_DISMISS_AFTER = 3650 + 500 + 800; // ~5s total
+
+  checks.forEach((el, i) => {
+    if (!el) return;
+    const box = el.querySelector('.check-box');
+
+    // 1. Slide in
+    setTimeout(() => {
+      el.classList.add('check-visible');
+    }, APPEAR_DELAYS[i]);
+
+    // 2. Tick ✓
+    setTimeout(() => {
+      if (box) box.textContent = '[✓]';
+      el.classList.add('is-checked');
+    }, APPEAR_DELAYS[i] + TICK_OFFSETS[i]);
+  });
+
+  // Auto-dismiss
+  const autoTimer = setTimeout(hideSplash, AUTO_DISMISS_AFTER);
+
+  // Click / tap to skip instantly
+  splashScreen.addEventListener('click', () => {
+    clearTimeout(autoTimer);
+    hideSplash();
+  });
 }
+
 
 // ================================
 // MAIN SITE CODE
