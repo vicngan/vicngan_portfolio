@@ -11,10 +11,43 @@
     rel="stylesheet" />
   <link rel="icon" type="image/svg+xml" href="assets/icons/heart.svg" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
 <body>
-  <div class="bg-overlay"></div>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <div class="sidebar-logo">🍵</div>
+      <nav class="sidebar-nav">
+        <div class="nav-item active" data-target="hero">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </div>
+        <div class="nav-item" data-target="work">
+          <i class="fas fa-layer-group"></i>
+          <span>Work</span>
+        </div>
+        <div class="nav-item" data-target="journey">
+          <i class="fas fa-map-marked-alt"></i>
+          <span>Journey</span>
+        </div>
+        <div class="nav-item" data-target="contact">
+          <i class="fas fa-envelope-open-text"></i>
+          <span>Contact</span>
+        </div>
+        <a href="assets/V_Nguyen_Resume.pdf" target="_blank" class="nav-item">
+          <i class="fas fa-file-alt"></i>
+          <span>Resume</span>
+        </a>
+      </nav>
+      <div class="header-actions" style="margin-top: auto;">
+        <button class="toggle-theme" aria-label="Toggle dark mode">
+          <span class="toggle-thumb"></span>
+        </button>
+      </div>
+    </aside>
+
+    <div class="main-content">
   <!-- Splash Screen: Café Receipt -->
   <div class="splash-screen" id="splash-screen" role="status" aria-live="polite" aria-label="Loading Victoria's Portfolio">
     <!-- Floating dots background -->
@@ -98,1076 +131,804 @@
     <span></span>
     <span></span>
   </div>
-  <button class="sound-toggle" data-sound-toggle aria-pressed="false" aria-controls="ambient-player"
-    aria-describedby="sound-caption">
-    <div class="sound-wave">
-      <div class="wave-bar"></div>
-      <div class="wave-bar"></div>
-      <div class="wave-bar"></div>
-      <div class="wave-bar"></div>
-    </div>
-    <span class="sr-only">Toggle cozy café ambience</span>
-  </button>
-  <div class="ambient-player" id="ambient-player">
-    <p class="ambient-player__label">Vibe check playlist</p>
-    <iframe src="https://open.spotify.com/embed/playlist/2Al9G2jrWkwDlRFMZaw1GX?utm_source=generator" width="100%"
-      height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      loading="lazy" title="Spotify playlist: Cozy Café Lo-Fi"></iframe>
-  </div>
-  <header class="site-header">
-    <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav">
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-    </button>
-    <nav class="site-nav" id="site-nav">
-      <a href="#about">🍵 My Recipe</a>
-      <a href="#skills">🍳 Ingredients</a>
-      <a href="#projects">🍽️ The Menu</a>
-      <a href="#experience">🗺️ My Journey</a>
-      <a href="#involvement">🌱 Community</a>
-      <a href="#contact">📝 Leave a Note</a>
-      <a href="assets/V_Nguyen_Resume.pdf" target="_blank" rel="noreferrer noopener">📄 Resume</a>
-    </nav>
-    <div class="header-actions">
-      <button class="toggle-theme" aria-label="Toggle dark mode">
-        <span class="toggle-thumb"></span>
-      </button>
-    </div>
-  </header>
 
-  <main>
-    <section id="hero" class="section">
-      <canvas id="matcha-particles" aria-hidden="true"></canvas>
-      <div class="flip-card" id="profile-card">
-        <div class="flip-card-inner">
+    <!-- ===== HOME SCREEN ===== -->
+    <section id="hero" class="screen active">
+      <div class="screen-content-wrapper">
+        <div class="hero-editorial-layout">
 
-          <!-- Frontside: Employee Card (Combined with Bio) -->
-          <div class="flip-card-front">
-            <span class="tap-hint">Tap to flip 🔄</span>
-            <div class="id-banner">
-              <div class="id-logo-combined">
-                <img src="assets/stickers/vic_chibi.png" alt="Chibi illustration" class="id-logo-chibi" />
-                <div class="id-company-wrapper">
-                  <div class="id-company">UNIVERSITY OF MICHIGAN</div>
-                  <div class="id-company-sub">COMPUTER SCIENCE & ENTREPRENEURSHIP</div>
-                </div>
-              </div>
-              <!-- Removed Active badge to make space for Tap hint top-rightmost -->
+          <!-- LEFT: Identity block -->
+          <div class="hero-editorial-text">
+            <div class="hero-portrait-avatar">
+              <img src="assets/stickers/Headshot.jpg" alt="Victoria Nguyen" />
             </div>
-            <div class="id-body-new">
-              <div class="id-photo-new">
-                <div class="portrait-frame-new">
-                  <img src="assets/stickers/Headshot.jpg" alt="Victoria Nguyen smiling headshot" loading="lazy" />
-                </div>
-                <div class="id-actions-col">
-                  <a class="btn id-btn primary" href="#projects">View My Projects</a>
-                  <a class="btn id-btn secondary" href="assets/V_Nguyen_Resume.pdf" target="_blank"
-                    rel="noreferrer noopener">Resume</a>
-                </div>
-              </div>
-              <div class="id-details-new">
-                <div class="id-name-new">Victoria Nguyen</div>
-                <div class="id-role-new">CHIEF BUILDER / DEVELOPER</div>
-                <div class="id-divider-new"></div>
-
-                <p class="tagline">Building soft, meaningful tech that feels warm, intuitive, and real 🌸💻</p>
-                <p class="intro-text-new">
-                  Welcome in!! Hi! I’m Victoria 💚
-                  I’m a software engineer-in-progress who mixes tech, design, and care like a matcha blend.
-                  Work blends engineering, innovation, and a sprinkle of aesthetics to create digital spaces that feel
-                  warm and cozy.
-                  Grab a seat, sip your matcha, and explore 🍵✨
-                </p>
-
-                <div class="id-footer-row-combined">
-                  <div class="status-badge-new">
-                    <span class="status-dot"></span> Currently brewing: matcha-coded spaces
-                  </div>
-                  <div class="id-signature">Victoria N.</div>
-                  <div class="id-barcode">
-                    <div class="bar"></div>
-                    <div class="bar thin"></div>
-                    <div class="bar"></div>
-                    <div class="bar thick"></div>
-                    <div class="bar"></div>
-                    <div class="bar thin"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar thick"></div>
-                    <div class="bar"></div>
-                  </div>
-                </div>
-
-                <div class="id-social-links">
-                  <a href="mailto:Victoria.n.nguyen05@gmail.com">Email</a>
-                  <a href="https://www.linkedin.com/in/vicngan" target="_blank" rel="noreferrer noopener">LinkedIn</a>
-                  <a href="https://github.com/vicngan" target="_blank" rel="noreferrer noopener">GitHub</a>
-                </div>
-              </div>
+            <p class="hero-intro-line">Hi, I'm</p>
+            <h1 class="hero-name">Victoria Nguyen</h1>
+            <p class="hero-role">Software Engineer &amp; Product Thinker</p>
+            <p class="hero-bio">
+              CS + Entrepreneurship @ University of Michigan. I build tech that feels
+              warm, intentional, and human — from AI healthcare tools to behavioral
+              design platforms.
+            </p>
+            <div class="hero-actions">
+              <button class="btn primary nav-link-btn" data-target="work">View Work</button>
+              <a class="btn secondary" href="assets/V_Nguyen_Resume.pdf" target="_blank" rel="noreferrer noopener">Resume ↗</a>
             </div>
           </div>
 
-          <!-- Backside: Personal Description -->
-          <div class="flip-card-back">
-            <span class="tap-hint dark">Tap to flip 🔄</span>
-            <div class="back-header">
-              <div class="section-heading">
-                <h2>My Recipe 🍵</h2>
-              </div>
+          <!-- RIGHT: Visual collage -->
+          <div class="hero-collage">
+            <div class="collage-item collage-tall" data-lightbox="assets/stickers/Headshot.jpg">
+              <img src="assets/stickers/Headshot.jpg" alt="Victoria" loading="lazy" />
             </div>
-            <div class="about-text-condensed">
-              <div class="bio-grid">
-                <div class="bio-section">
-                  <h3>🌱 Background</h3>
-                  <p>Before code, I walked hospital hallways at 3 AM taking vitals to support patients. That taught me
-                    how powerful thoughtful design is.</p>
-                </div>
-                <div class="bio-section">
-                  <h3>💻 Present</h3>
-                  <p>Studying CS & Entrepreneurship at Michigan, building AI tools for genomics and creating user-first
-                    products.</p>
-                </div>
-                <div class="bio-section full-col">
-                  <h3>🫶 Mission</h3>
-                  <p>To build software that feels like a helping hand — changing how people feel supported, empowered,
-                    and cared for by tech.</p>
-                </div>
-              </div>
+            <div class="collage-item collage-wide" data-lightbox="assets/Hi-fi Wireframes.png">
+              <img src="assets/Hi-fi Wireframes.png" alt="Hi-fi designs" loading="lazy" />
+            </div>
+            <div class="collage-item collage-sq" data-lightbox="assets/stickers/Heartline_care.png">
+              <img src="assets/stickers/Heartline_care.png" alt="Heartline" loading="lazy" />
+            </div>
+            <div class="collage-item collage-sq" data-lightbox="assets/Design Components.png">
+              <img src="assets/Design Components.png" alt="Design components" loading="lazy" />
+            </div>
+            <div class="collage-item collage-wide" data-lightbox="assets/SiteMap.png">
+              <img src="assets/SiteMap.png" alt="Site map" loading="lazy" />
             </div>
           </div>
 
         </div>
       </div>
-      </div>
     </section>
 
-    <!-- SIDE-BY-SIDE INTERACTIVE DASHBOARD -->
-    <div class="skills-projects-split">
 
 
-      <section id="skills" class="section">
-        <div class="nutrition-label">
-          <div class="label-header">Nutrition Facts</div>
-          <p class="label-sub">Serving Size: 1 Victoria Nguyen (Warm &amp; Dynamic)</p>
-          <div class="label-divider thick"></div>
 
-          <div class="label-row bold">
-            Amount Per Serving <span>% Daily Value*</span>
-          </div>
-          <div class="label-divider medium"></div>
+    <!-- ===== WORK SCREEN ===== -->
+    <section id="work" class="screen unified-work-screen">
+      <div class="work-screen-inner">
 
-          <!-- DUAL COLUMN LAYOUT FOR SHORTER HEIGHT -->
-          <div class="label-contents-grid">
+        <!-- 30% Left: Skills (sticky nutrition label) -->
+        <div class="work-column-skills">
+          <div class="nutrition-label">
+            <div class="label-header">Nutrition Facts</div>
+            <p class="label-serving">Serving: 1 Victoria Nguyen</p>
+            <div class="label-divider thick"></div>
+            <div class="label-row bold">Skills Stack <span>% Proficiency</span></div>
+            <div class="label-divider medium"></div>
 
-            <div class="label-column">
-              <!-- Languages -->
-              <div class="label-section">
-                <div class="label-row bold">Languages <span class="val">100%</span></div>
-                <div class="label-divider thin"></div>
-                <div class="label-row indent" data-skill="python">Python <span class="val">95%</span></div>
-                <div class="label-row indent" data-skill="cpp">C++ <span class="val">90%</span></div>
-                <div class="label-row indent" data-skill="javascript">JavaScript <span class="val">95%</span></div>
-                <div class="label-row indent" data-skill="typescript">TypeScript <span class="val">90%</span></div>
-                <div class="label-row indent" data-skill="sql">SQL <span class="val">85%</span></div>
-                <div class="label-row indent" data-skill="htmlcss">HTML/CSS <span class="val">100%</span></div>
-              </div>
+            <div class="label-section">
+              <div class="label-row bold">Languages</div>
               <div class="label-divider thin"></div>
-
-              <!-- Frameworks -->
-              <div class="label-section">
-                <div class="label-row bold">Frameworks &amp; Libs <span class="val">90%</span></div>
-                <div class="label-divider thin"></div>
-                <div class="label-row indent" data-skill="react">React <span class="val">92%</span></div>
-                <div class="label-row indent" data-skill="fastapi">FastAPI <span class="val">88%</span></div>
-                <div class="label-row indent" data-skill="vite">Vite <span class="val">90%</span></div>
-                <div class="label-row indent" data-skill="nodejs">Node.js <span class="val">85%</span></div>
-                <div class="label-row indent" data-skill="tailwindcss">TailwindCSS <span class="val">95%</span></div>
-                <div class="label-row indent" data-skill="express">Express <span class="val">85%</span></div>
-                <div class="label-row indent" data-skill="reactnative">React Native <span class="val">82%</span></div>
-              </div>
+              <div class="label-row indent" data-skill="python">Python <span>95%</span></div>
+              <div class="label-row indent" data-skill="javascript">JavaScript <span>95%</span></div>
+              <div class="label-row indent" data-skill="typescript">TypeScript <span>90%</span></div>
+              <div class="label-row indent" data-skill="cpp">C++ <span>88%</span></div>
+              <div class="label-row indent" data-skill="sql">SQL <span>85%</span></div>
+              <div class="label-row indent" data-skill="html">HTML / CSS <span>92%</span></div>
+              <div class="label-row indent" data-skill="bash">Bash <span>78%</span></div>
             </div>
+            <div class="label-divider thin"></div>
 
-            <div class="label-column">
-              <!-- Data & AI -->
-              <div class="label-section">
-                <div class="label-row bold">Data &amp; AI <span class="val">85%</span></div>
-                <div class="label-divider thin"></div>
-                <div class="label-row indent" data-skill="pandas">Pandas <span class="val">88%</span></div>
-                <div class="label-row indent" data-skill="sdv">SDV (Synthetic Data) <span class="val">85%</span></div>
-                <div class="label-row indent" data-skill="faiss">FAISS (Vector Search) <span class="val">80%</span>
-                </div>
-                <div class="label-row indent" data-skill="rag">RAG Architecture <span class="val">82%</span></div>
-                <div class="label-row indent" data-skill="plotly">Plotly / D3.js <span class="val">88%</span></div>
-                <div class="label-row indent" data-skill="numpy">NumPy <span class="val">85%</span></div>
-              </div>
+            <div class="label-section">
+              <div class="label-row bold">Frameworks</div>
               <div class="label-divider thin"></div>
+              <div class="label-row indent" data-skill="react">React <span>92%</span></div>
+              <div class="label-row indent" data-skill="fastapi">FastAPI <span>88%</span></div>
+              <div class="label-row indent" data-skill="nodejs">Node.js <span>82%</span></div>
+              <div class="label-row indent" data-skill="express">Express <span>80%</span></div>
+              <div class="label-row indent" data-skill="reactnative">React Native <span>75%</span></div>
+              <div class="label-row indent" data-skill="tailwind">TailwindCSS <span>88%</span></div>
+            </div>
+            <div class="label-divider thin"></div>
 
-              <!-- Tools & Infrastructure -->
-              <div class="label-section">
-                <div class="label-row bold">Tools &amp; Infrastructure <span class="val">92%</span></div>
-                <div class="label-divider thin"></div>
-                <div class="label-row indent" data-skill="git">Git / GitHub <span class="val">95%</span></div>
-                <div class="label-row indent" data-skill="docker">Docker <span class="val">82%</span></div>
-                <div class="label-row indent" data-skill="mongodb">MongoDB <span class="val">88%</span></div>
-                <div class="label-row indent" data-skill="restapi">REST APIs <span class="val">92%</span></div>
-                <div class="label-row indent" data-skill="hl7fhir">HL7 FHIR <span class="val">80%</span></div>
-                <div class="label-row indent" data-skill="figma">Figma <span class="val">90%</span></div>
+            <div class="label-section">
+              <div class="label-row bold">Data &amp; AI</div>
+              <div class="label-divider thin"></div>
+              <div class="label-row indent" data-skill="pandas">Pandas / NumPy <span>88%</span></div>
+              <div class="label-row indent" data-skill="faiss">FAISS / RAG <span>80%</span></div>
+              <div class="label-row indent" data-skill="sdv">SDV / Synth <span>82%</span></div>
+              <div class="label-row indent" data-skill="plotly">Plotly / D3 <span>78%</span></div>
+              <div class="label-row indent" data-skill="llm">LLM APIs <span>85%</span></div>
+            </div>
+            <div class="label-divider thin"></div>
+
+            <div class="label-section">
+              <div class="label-row bold">Product &amp; Design</div>
+              <div class="label-divider thin"></div>
+              <div class="label-row indent" data-skill="agile">Agile / Scrum <span>90%</span></div>
+              <div class="label-row indent" data-skill="research">User Research <span>92%</span></div>
+              <div class="label-row indent" data-skill="figma">Figma <span>90%</span></div>
+              <div class="label-row indent" data-skill="strategy">Strategy <span>88%</span></div>
+              <div class="label-row indent" data-skill="abtesting">A/B Testing <span>82%</span></div>
+              <div class="label-row indent" data-skill="roadmap">Roadmapping <span>85%</span></div>
+            </div>
+            <div class="label-divider thin"></div>
+
+            <div class="label-section">
+              <div class="label-row bold">Tools &amp; Infra</div>
+              <div class="label-divider thin"></div>
+              <div class="label-row indent" data-skill="git">Git / GitHub <span>95%</span></div>
+              <div class="label-row indent" data-skill="docker">Docker <span>75%</span></div>
+              <div class="label-row indent" data-skill="mongodb">MongoDB <span>78%</span></div>
+              <div class="label-row indent" data-skill="cloud">Google Cloud <span>72%</span></div>
+              <div class="label-row indent" data-skill="jira">Jira <span>85%</span></div>
+              <div class="label-row indent" data-skill="jupyter">Jupyter <span>80%</span></div>
+            </div>
+
+            <div class="label-divider thick"></div>
+            <p class="label-footnote">Hover a project to see relevant skills.✨</p>
+          </div>
+        </div>
+
+
+        <!-- 65% Right: Projects (scrollable) -->
+        <div class="work-column-projects">
+          <div class="work-projects-header">
+            <h1>Featured Work</h1>
+            <p>Click a project to explore the full case study 🍽️</p>
+          </div>
+          <div class="project-cards-container">
+
+            <div class="project-row-card" data-tech="python,react,fastapi,faiss,sdv,pandas,docker,git" data-modal="modal-synthlab" role="button" tabindex="0">
+              <div class="project-row-visual"><div class="proj-emoji">🧬</div></div>
+              <div class="project-row-details">
+                <div class="project-row-top"><h3>SynthLab</h3><span class="proj-year">2024–25</span></div>
+                <p class="tech-tags">Python · FastAPI · React · FAISS · SDV</p>
+                <p class="project-desc">Privacy-preserving synthetic data for pediatric healthcare. Multi-method generation, statistical validation, fairness testing.</p>
               </div>
+              <span class="proj-arrow">→</span>
             </div>
 
-          </div> <!-- End label-contents-grid -->
+            <div class="project-row-card" data-tech="figma,research,agile,strategy,abtesting,roadmap" data-modal="modal-betterschedule" role="button" tabindex="0">
+              <div class="project-row-visual"><div class="proj-emoji">⏳</div></div>
+              <div class="project-row-details">
+                <div class="project-row-top"><h3>betterSchedule</h3><span class="proj-year">2024</span></div>
+                <p class="tech-tags">Figma · UX Research · Agile · Product Strategy</p>
+                <p class="project-desc">Academic scheduling platform redesign from 30+ user interviews. Adaptive time-blocking, syllabus sync, smart prioritization.</p>
+              </div>
+              <span class="proj-arrow">→</span>
+            </div>
 
+            <div class="project-row-card" data-tech="research,strategy,figma,abtesting,agile,roadmap" data-modal="modal-betbuddies" role="button" tabindex="0">
+              <div class="project-row-visual"><div class="proj-emoji">💰</div></div>
+              <div class="project-row-details">
+                <div class="project-row-top"><h3>BetBuddies</h3><span class="proj-year">2024</span></div>
+                <p class="tech-tags">User Research · Behavioral Design · Product Strategy</p>
+                <p class="project-desc">Social accountability platform. 50+ interviews. Combines financial stakes with peer pressure to sustain habits.</p>
+              </div>
+              <span class="proj-arrow">→</span>
+            </div>
 
+            <div class="project-row-card" data-tech="reactnative,figma,research,nodejs,express" data-modal="modal-heartline" role="button" tabindex="0">
+              <div class="project-row-visual"><div class="proj-emoji">💚</div></div>
+              <div class="project-row-details">
+                <div class="project-row-top"><h3>Heartline Care Companion</h3><span class="proj-year">2025</span></div>
+                <p class="tech-tags">React Native · Node.js · Figma</p>
+                <p class="project-desc">Wellness mobile app designed around hospital care routines. Gentle reminders, mood check-ins, adaptive UI.</p>
+              </div>
+              <span class="proj-arrow">→</span>
+            </div>
 
+            <div class="project-row-card" data-tech="react,python,figma,html,research" data-modal="modal-smartrecord" role="button" tabindex="0">
+              <div class="project-row-visual"><div class="proj-emoji">🩺</div></div>
+              <div class="project-row-details">
+                <div class="project-row-top"><h3>Smart Record App</h3><span class="proj-year">2025</span></div>
+                <p class="tech-tags">React · Python · Clinical Design</p>
+                <p class="project-desc">Clinical documentation tool for care team onboarding. Walks through vitals flows and patient decision points.</p>
+              </div>
+              <span class="proj-arrow">→</span>
+            </div>
 
-          <div class="label-divider thick"></div>
-          <p class="label-footnote">
-            *Percent Daily Values are based on a workload of 2000+ lines of code, 3 matcha lattes, and continuous
-            learning.
-            Your daily values may vary depending on project requirements.
-          </p>
+          </div>
         </div>
-      </section>
-
-      <section id="projects" class="section">
-        <div class="projects-stack">
-
-          <!-- Project 1 -->
-          <article class="project-card" data-tech="figma">
-            <div class="card-top">
-              <h3>betterSchedule ⏳</h3>
-              <p class="stack">Figma · Agile/Scrum · UX Research</p>
-              <p class="desc">A scheduling platform focused on helping students structure academic, work, and personal
-                commitments through adaptive time-blocking and smarter task prioritization.</p>
-              <ul>
-                <li>Designed user journey maps, personas, and interaction flows to align technical functionality with
-                  user behavior</li>
-                <li>Built wireframes, sitemap architecture, and an interactive Figma prototype</li>
-              </ul>
-            </div>
-            <div class="card-actions">
-              <a href="https://www.figma.com/proto/BHBdNEiOi7MsnOvYYQCJDl/Project-1---victoria_nguyen?page-id=1%3A2&node-id=287-26364&starting-point-node-id=287%3A16632"
-                target="_blank" rel="noreferrer noopener" class="ghost-button">Live Prototype</a>
-              <button class="ghost-button" data-modal="betterschedule-problem-modal">Problem Statement</button>
-              <button class="ghost-button" data-modal="betterschedule-prd-modal">PRD</button>
-              <button class="ghost-button" data-modal="betterschedule-wireframes-modal">Wireframes</button>
-            </div>
-          </article>
-
-          <!-- Project 2 -->
-          <article class="project-card" data-tech="figma">
-            <div class="card-top">
-              <h3>BetBuddies 💰</h3>
-              <p class="stack">User Research · Behavioral Design · Product Strategy</p>
-              <p class="desc">Social accountability platform for goal retention, built from 50+ user interviews to
-                address sleep and wellness inconsistency through financial commitment and social pressure.</p>
-              <ul>
-                <li>Conducted 50 interviews with UM students to map habit failure patterns and adoption gaps</li>
-                <li>Proposed a commitment-based system combining money stakes, group accountability, and daily tracking
-                </li>
-              </ul>
-            </div>
-            <div class="card-actions">
-              <button class="ghost-button" data-modal="betbuddies-overview-modal">Overview</button>
-              <button class="ghost-button" data-modal="betbuddies-problem-modal">Problems</button>
-              <button class="ghost-button" data-modal="betbuddies-research-modal">Research</button>
-              <button class="ghost-button" data-modal="betbuddies-solution-modal">Solution</button>
-              <button class="ghost-button" data-modal="betbuddies-future-modal">Future</button>
-            </div>
-          </article>
-
-          <!-- Project 3 -->
-          <article class="project-card" data-tech="react,fastapi,python,faiss,rag">
-            <div class="card-top">
-              <h3>SynthLab 🧬</h3>
-              <p class="stack">React · FastAPI · Python · FAISS · RAG</p>
-              <p class="desc">Privacy-preserving synthetic data platform with multi-method generation, statistical
-                validation, fairness testing, and PDF literature analysis for healthcare workflows.</p>
-              <ul>
-                <li>Built multi-method synthesis (CTGAN, TVAE) with automated scoring and KS statistical testing</li>
-                <li>Designed privacy scoring system with Distance-to-Closest-Record metrics to quantify risk</li>
-              </ul>
-            </div>
-            <div class="card-actions">
-              <a href="https://github.com/vicngan/synthlab " target="_blank" rel="noreferrer noopener"
-                class="ghost-button">View Code</a>
-              <button class="ghost-button" data-modal="synthlab-demo-modal">Demo</button>
-              <button class="ghost-button" data-modal="synthlab-story-modal">Design Story</button>
-            </div>
-          </article>
-
-          <!-- Project 4 -->
-          <article class="project-card" data-tech="reactnative,nodejs,mongodb">
-            <div class="card-top">
-              <h3>Heartline Care Companion 💚</h3>
-              <p class="stack">React Native · Node.js · MongoDB · Bluetooth LE</p>
-              <p class="desc">A mobile care companion that keeps users connected to their wellness goals through gentle
-                reminders, scheduling, and mood check-ins.</p>
-              <ul>
-                <li>Architected adaptive UI that flexes routines based on user energy levels</li>
-                <li>Implemented charts visualization supporting interactive rendering of mood trends</li>
-              </ul>
-            </div>
-            <div class="card-actions">
-              <a href="https://github.com/vicngan/heartline_companion.py" target="_blank" rel="noreferrer noopener"
-                class="ghost-button">Code</a>
-              <a href="https://heartlinecare.netlify.app/" target="_blank" rel="noreferrer noopener"
-                class="ghost-button">Live</a>
-              <button class="ghost-button" data-modal="heartline-demo-modal">Demo</button>
-            </div>
-          </article>
-
-          <!-- Project 5 -->
-          <article class="project-card" data-tech="python,react,nodejs,mongodb">
-            <div class="card-top">
-              <h3>Heartline Smart Record 🩺</h3>
-              <p class="stack">Python · React · Node.js · MongoDB</p>
-              <p class="desc">A patient vitals tracking system that simulates an EMR for clinical data management,
-                inspired by real inpatient workflows.</p>
-              <ul>
-                <li>Built vitals tracking supporting full CRUD with data validation and abnormal vital flags</li>
-              </ul>
-            </div>
-            <div class="card-actions">
-              <a href="https://github.com/vicngan/smart_record.py" target="_blank" rel="noreferrer noopener"
-                class="ghost-button">View Code</a>
-              <button class="ghost-button" data-modal="smart-modal">Design Story</button>
-            </div>
-          </article>
-
-          <!-- Project 6 -->
-          <article class="project-card" data-tech="python,express,mongodb">
-            <div class="card-top">
-              <h3>Blossom Drift Journal 🌸</h3>
-              <p class="stack">Python · Tkinter · Express · MongoDB</p>
-              <p class="desc">A GUI-based mental health journaling app with customizable prompts and safe data storage.
-                Soft, calming visual theme layout.</p>
-              <ul>
-                <li>Implemented background multithreading enabling seamless background autosave without freezing UI</li>
-              </ul>
-            </div>
-            <div class="card-actions">
-              <a href="https://github.com/vicngan/my-care-journal-" target="_blank" rel="noreferrer noopener"
-                class="ghost-button">View Code</a>
-              <button class="ghost-button" data-modal="blossom-modal">Design Story</button>
-            </div>
-          </article>
-
-
-        </div>
-      </section>
-
-    </div> <!-- End side-by-side split -->
-
-
-    <section id="experience" class="section">
-      <div class="section-heading">
-        <h2>My Journey 🛤️</h2>
-        <p>Care-first work that informs every line of code.</p>
-      </div>
-      <div class="timeline">
-        <article class="timeline-card card">
-          <div class="timeline-dot"></div>
-          <div>
-            <h3>Research Assistant – UM Computational Medicine & Bioinformatics</h3>
-            <p class="timeline-subtext">2026 – Present</p>
-            <p>
-              Genomic AI Development
-            </p>
-            <ul>
-              <li>Developing a conversational AI interface for genomic foundation models, enabling researchers to query
-                DNA sequence predictions through natural language using React frontend and FastAPI backend architecture.
-              </li>
-              <li>Building an interactive genome browser component with real-time visualization of genomic regions,
-                annotations, and model predictions using D3.js and custom rendering algorithms.</li>
-              <li>Implementing RESTful API endpoints to bridge genomic foundation model outputs with user-facing
-                application, handling complex bioinformatics data transformations and query processing.</li>
-              <li>Collaborating with PhD researchers in Computational Biology to translate domain requirements into
-                scalable web application features supporting genomic research workflows.</li>
-            </ul>
-          </div>
-        </article>
-        <article class="timeline-card card">
-          <div class="timeline-dot"></div>
-          <div>
-            <h3>Research Assistant – Michigan Medicine Department of Pediatrics</h3>
-            <p class="timeline-subtext">May 2025 – Feb 2026</p>
-            <p>
-              ABC Growing Kids Project
-            </p>
-            <ul>
-              <li>Analyzed behavioral datasets using Python and data visualization tools to support evidence-based
-                infant feeding behavior research.</li>
-              <li>Achieved over 60% inter-rater reliability through video coding in Observer XT, ensuring high-fidelity
-                research outputs.</li>
-            </ul>
-          </div>
-        </article>
-        <article class="timeline-card card">
-          <div class="timeline-dot"></div>
-          <div>
-            <h3>Nurse Aide II – Michigan Medicine University Hospital</h3>
-            <p class="timeline-subtext">May 2025 – Jan 2026</p>
-            <p>
-              Support transplant and surgical patients by monitoring vitals, maintaining central
-              lines and drains, and documenting care using EPIC.
-            </p>
-            <ul>
-              <li>Monitored patient vitals and maintained 30+ central lines/drains to reduce infection risk.</li>
-              <li>Helped improve workflow and safety protocols, contributing to ~20% fewer fall-related injuries.</li>
-              <li>Documented patient data electronically in EPIC to support clinical decision-making.</li>
-            </ul>
-          </div>
-        </article>
-        <article class="timeline-card card">
-          <div class="timeline-dot"></div>
-          <div>
-            <h3>Research Assistant – EMU Center for Health Disparities &amp; CHOMP Lab</h3>
-            <p class="timeline-subtext">Aug 2024 – May 2025 </p>
-            <p>
-              Support research on community health and infant feeding behavior with a focus on data
-              accuracy and accessible communication.
-            </p>
-            <ul>
-              <li>Collected survey data and analyzed results using Excel for community health projects.</li>
-              <li>Co-wrote 2+ research summaries on health disparities and data representation.</li>
-              <li>
-                Created and translated 10+ community event flyers using Canva; collaborated with CMS Navigator
-                initiatives.
-              </li>
-            </ul>
-          </div>
-        </article>
-        <article class="timeline-card card">
-          <div class="timeline-dot"></div>
-          <div>
-            <h3>Medical Assistant – Trinity Health Domino’s Farm Urgent Care</h3>
-            <p class="timeline-subtext">Oct 2024 – Jun 2025</p>
-            <ul>
-              <li>Streamlined clinic workflows, increasing productivity by ~30%.</li>
-              <li>Helped reduce average patient waiting time by ~15%.</li>
-              <li>Supported clinical and lab tasks to ensure accurate data capture for operations and research.</li>
-            </ul>
-          </div>
-        </article>
       </div>
     </section>
 
-    <section id="involvement" class="section">
-      <div class="section-heading">
-        <h2>Community Board 📍</h2>
-        <p>Rooted in storytelling, culture, and care.</p>
-      </div>
-      <div class="card-grid leadership-grid">
-        <article class="card small-card">
-          <h3>Production Chair – GenAPA</h3>
-          <p>Plan, direct, and shoot promo videos/photoshoots for UM’s biggest cultural showcase.</p>
-          <p>Edit videos using Adobe Premiere Pro and collaborate across disciplines for event promotion.</p>
-        </article>
-        <article class="card small-card">
-          <h3>Advisory Student Board – UM Eisenberg Family Depression Center</h3>
-          <p>Advise on wellness programming, outreach, and website design.</p>
-          <p>Help connect campus mental health programs through peer engagement.</p>
-        </article>
-        <article class="card small-card">
-          <h3>Small Group Leader – AsAmHSC</h3>
-          <p>Mentor 10–12 Asian American high school students on identity, mental health, and readiness.</p>
-        </article>
-        <article class="card small-card">
-          <h3>Wolverine Ambassador – UM Admissions</h3>
-          <p>Lead campus tours and support new students with interactive materials and onboarding.</p>
-        </article>
+
+    <!-- ===== JOURNEY SCREEN ===== -->
+    <section id="journey" class="screen journey-screen">
+      <div class="screen-content-wrapper journey-wrapper">
+
+        <!-- Sticky header -->
+        <div class="journey-sticky-header">
+          <h1>My Story</h1>
+          <p>Engineering, design, and community care 🗺️</p>
+        </div>
+
+        <div class="story-layout-bento">
+          <!-- Left: Professional timeline (accordion) -->
+          <div class="story-bento-experience">
+            <h3 class="bento-section-title">Professional Journey</h3>
+            <p class="bento-hint">Click any role to expand</p>
+            <div class="journey-timeline">
+
+              <!-- Entry 1 -->
+              <div class="journey-item journey-accordion" id="jitem-gametime">
+                <div class="journey-meta">
+                  <div class="journey-date">2024 – Present</div>
+                  <div class="journey-dot"></div>
+                </div>
+                <div class="journey-body">
+                  <div class="journey-summary" data-expand="jitem-gametime">
+                    <div class="journey-info">
+                      <h4>Gametime United</h4>
+                      <p class="journey-role-tag">Product &amp; Research Intern</p>
+                      <p class="journey-teaser">Led sprint planning and user research for a sports fan engagement platform.</p>
+                    </div>
+                    <span class="journey-chevron">›</span>
+                  </div>
+                  <div class="journey-detail">
+                    <ul>
+                      <li>Planned and facilitated biweekly sprints using Jira and Agile methodology</li>
+                      <li>Conducted qualitative user research — interviews, synthesis, persona development</li>
+                      <li>Produced competitive analysis and feature opportunity maps</li>
+                      <li>Supported PRD writing and stakeholder presentations</li>
+                    </ul>
+                    <p class="journey-detail-tools">Tools: Jira · Figma · Notion · Miro · Google Analytics</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Entry 2 -->
+              <div class="journey-item journey-accordion" id="jitem-synthlab">
+                <div class="journey-meta">
+                  <div class="journey-date">2024 – 2025</div>
+                  <div class="journey-dot"></div>
+                </div>
+                <div class="journey-body">
+                  <div class="journey-summary" data-expand="jitem-synthlab">
+                    <div class="journey-info">
+                      <h4>Michigan Medicine — SynthLab</h4>
+                      <p class="journey-role-tag">Research Engineer · Computational Medicine</p>
+                      <p class="journey-teaser">Built privacy-preserving synthetic data infrastructure for pediatric AI research.</p>
+                    </div>
+                    <span class="journey-chevron">›</span>
+                  </div>
+                  <div class="journey-detail">
+                    <ul>
+                      <li>Multi-method synthetic data generation (GaussianCopula, CTGAN, TVAE)</li>
+                      <li>Statistical validation (KS-test, TVD, correlation heatmaps)</li>
+                      <li>Fairness audit layer for demographic subgroup bias detection</li>
+                      <li>FastAPI backend + FAISS-based RAG chatbot for dataset Q&amp;A</li>
+                      <li>React dashboard for distributional fidelity visualization</li>
+                    </ul>
+                    <p class="journey-detail-tools">Tools: Python · FastAPI · React · FAISS · SDV · Docker</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Entry 3 -->
+              <div class="journey-item journey-accordion" id="jitem-emu">
+                <div class="journey-meta">
+                  <div class="journey-date">2024 – Present</div>
+                  <div class="journey-dot"></div>
+                </div>
+                <div class="journey-body">
+                  <div class="journey-summary" data-expand="jitem-emu">
+                    <div class="journey-info">
+                      <h4>Eastern Michigan University</h4>
+                      <p class="journey-role-tag">Research Assistant · Community Health</p>
+                      <p class="journey-teaser">Supported infant feeding behavior research with data collection and reporting.</p>
+                    </div>
+                    <span class="journey-chevron">›</span>
+                  </div>
+                  <div class="journey-detail">
+                    <ul>
+                      <li>Research design, participant recruitment, IRB compliance support</li>
+                      <li>Collected and cleaned qualitative and quantitative data</li>
+                      <li>Prepared accessible summary reports for public health audiences</li>
+                    </ul>
+                    <p class="journey-detail-tools">Tools: Excel · SPSS · REDCap · Google Docs</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Entry 4 -->
+              <div class="journey-item journey-accordion" id="jitem-trinity">
+                <div class="journey-meta">
+                  <div class="journey-date">2024 – 2025</div>
+                  <div class="journey-dot"></div>
+                </div>
+                <div class="journey-body">
+                  <div class="journey-summary" data-expand="jitem-trinity">
+                    <div class="journey-info">
+                      <h4>Trinity Health</h4>
+                      <p class="journey-role-tag">Medical Assistant · Clinical Operations</p>
+                      <p class="journey-teaser">Streamlined workflows and reduced patient wait time by ~15%.</p>
+                    </div>
+                    <span class="journey-chevron">›</span>
+                  </div>
+                  <div class="journey-detail">
+                    <ul>
+                      <li>Documented patient vitals, history, and intake information</li>
+                      <li>Coordinated care documentation across departments using EMR systems</li>
+                      <li>Reduced average wait time by ~15% through proactive workflow coordination</li>
+                    </ul>
+                    <p class="journey-detail-tools">Tools: Epic EMR · Clinical Documentation Systems</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Right: Community & Leadership -->
+          <div class="story-bento-community">
+            <h3 class="bento-section-title">Community &amp; Leadership</h3>
+            <div class="community-mini-card">
+              <div class="community-icon">🎭</div>
+              <h4>Production Chair @ GenAPA</h4>
+              <p>Directing culturally focused content and promo videos for UM's annual showcase.</p>
+            </div>
+            <div class="community-mini-card">
+              <div class="community-icon">🧠</div>
+              <h4>Advisory Board @ UM Depression Center</h4>
+              <p>Advising on wellness programming and peer engagement platforms.</p>
+            </div>
+            <div class="community-mini-card">
+              <div class="community-icon">🌱</div>
+              <h4>Small Group Leader @ AsAmHSC</h4>
+              <p>Mentoring high school students on identity, mental health, and college readiness.</p>
+            </div>
+            <div class="community-mini-card community-card-edu">
+              <div class="community-icon">🎓</div>
+              <h4>University of Michigan</h4>
+              <p>B.S. CS &amp; Entrepreneurship · Expected 2027</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="contact" class="section no-bg no-border">
-      <div class="cafe-receipt">
-        <div class="receipt-clip"></div> <!-- Decorative Clip/Sticker Top -->
 
-        <div class="receipt-header">
-          <div class="receipt-title">ORDER #777</div>
-          <div class="receipt-sub">ITEM: MATCHA CHAT & CONNECT</div>
-          <div class="receipt-date">TIMESTAMP: 2026.03.17 🍵</div>
-        </div>
-        <div class="receipt-divider"></div>
 
-        <p class="receipt-intro">
-          Interested in health tech, mental health tools, or just chatting about CS? Let's order!
-        </p>
-        <div class="receipt-divider dotted"></div>
-
-        <!-- Socials as Add-ons -->
-        <div class="receipt-modifiers">
-          <span class="modifier-label">ADD-ONS / SOCIALS:</span>
-          <div class="modifier-links">
-            <a href="mailto:victoria.n.nguyen05@umich.edu">+ Email 💌</a>
-            <a href="https://www.linkedin.com/in/vicngan" target="_blank" rel="noopener">+ LinkedIn 🤝</a>
-            <a href="https://github.com/vicngan" target="_blank" rel="noopener">+ GitHub 💻</a>
-          </div>
-        </div>
-        <div class="receipt-divider dotted"></div>
-
-        <!-- Special Requests Checkbox/Chips -->
-        <div class="receipt-modifiers">
-          <span class="modifier-label">SPECIAL REQUESTS:</span>
-          <div class="modifier-chips">
-            <a href="https://calendly.com/victoria-n-nguyen05/new-meeting" target="_blank" rel="noreferrer noopener">☕
-              Book a matcha chat</a>
-            <a href="assets/V_Nguyen_Resume.pdf" target="_blank" rel="noreferrer noopener">📄 Download resume</a>
-          </div>
-        </div>
-        <div class="receipt-divider"></div>
-
-        <form class="contact-form-receipt" data-form>
-          <div class="receipt-item">
-            <span class="item-num">[01]</span>
-            <div class="item-details">
-              <label>CLIENT_NAME</label>
-              <input type="text" name="name" placeholder="..." required />
+    <section id="contact" class="screen">
+      <div class="screen-content-wrapper contact-wrapper">
+        <div class="contact-layout-split">
+          <div class="contact-column-receipt">
+            <div class="cafe-receipt" id="contact-receipt">
+              <div class="stamp-container" id="order-stamp-container">
+                <div class="order-stamp"></div>
+              </div>
+              <div class="receipt-header">
+                <div class="receipt-title">ORDER #777</div>
+                <div class="receipt-sub">ITEM: MATCHA CHAT</div>
+              </div>
+              <div class="receipt-divider"></div>
+              <form class="contact-form-receipt" id="cafe-order-form" data-form>
+                <div class="receipt-item">
+                  <span class="item-num">[01]</span>
+                  <div class="item-details">
+                    <label>NAME</label>
+                    <input type="text" name="name" placeholder="Your name..." required />
+                  </div>
+                </div>
+                <div class="receipt-item">
+                  <span class="item-num">[02]</span>
+                  <div class="item-details">
+                    <label>EMAIL</label>
+                    <input type="email" name="email" placeholder="you@email.com" required />
+                  </div>
+                </div>
+                <div class="receipt-item full">
+                  <span class="item-num">[03]</span>
+                  <div class="item-details">
+                    <label>MESSAGE</label>
+                    <textarea name="message" rows="4" placeholder="What are you brewing?" required></textarea>
+                  </div>
+                </div>
+                <div class="receipt-divider"></div>
+                <div class="receipt-footer">
+                  <div class="footer-row"><span>SUBTOTAL</span><span>$0.00</span></div>
+                  <div class="footer-row bold"><span>TOTAL CARE</span><span>100% ✨</span></div>
+                </div>
+              </form>
             </div>
           </div>
 
-          <div class="receipt-item">
-            <span class="item-num">[02]</span>
-            <div class="item-details">
-              <label>EMAIL_ADDRESS</label>
-              <input type="email" name="email" placeholder="you@email.com" required />
+          <div class="contact-column-action">
+            <div class="contact-cta-block">
+              <div class="contact-cta-icon">🍵</div>
+              <h2 class="contact-cta-title">Let's build something together</h2>
+              <p class="contact-cta-sub">Whether it's a product idea, collaboration, or just a matcha-fueled conversation — I'm always open to good work.</p>
+              <button type="submit" form="cafe-order-form" class="big-order-btn">Place Order ☕</button>
             </div>
-          </div>
-
-          <div class="receipt-item full">
-            <span class="item-num">[03]</span>
-            <div class="item-details">
-              <label>MESSAGE_NOTES</label>
-              <textarea name="message" rows="3" placeholder="What should we build together?" required></textarea>
-            </div>
-          </div>
-
-          <div class="receipt-divider"></div>
-
-          <div class="receipt-footer">
-            <div class="footer-row">
-              <span>SUBTOTAL</span>
-              <span>$0.00</span>
-            </div>
-            <div class="footer-row bold">
-              <span>TOTAL CARE</span>
-              <span>100% ✨</span>
-            </div>
-
-            <div class="receipt-barcode-wrap">
-              <div class="id-barcode" style="margin: 0.5rem auto; height: 35px; justify-content: center;">
-                <div class="bar"></div>
-                <div class="bar thin"></div>
-                <div class="bar"></div>
-                <div class="bar thick"></div>
-                <div class="bar"></div>
-                <div class="bar thin"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
+            <div class="contact-divider-line"></div>
+            <div class="contact-info-grid">
+              <div class="contact-info-item">
+                <span class="contact-info-label">Currently</span>
+                <span class="contact-info-value">Open to internships &amp; collabs</span>
+              </div>
+              <div class="contact-info-item">
+                <span class="contact-info-label">Based in</span>
+                <span class="contact-info-value">Ann Arbor, MI</span>
+              </div>
+              <div class="contact-info-item">
+                <span class="contact-info-label">Email</span>
+                <span class="contact-info-value">vicngan@umich.edu</span>
               </div>
             </div>
-
-            <button type="submit" class="submit-receipt">Place Order / Send</button>
-            <p class="form-status" role="status" aria-live="polite"></p>
+            <div class="contact-socials-tray">
+              <a href="https://www.linkedin.com/in/vicngan" target="_blank" class="contact-social-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+              <a href="https://github.com/vicngan" target="_blank" class="contact-social-link"><i class="fab fa-github"></i> GitHub</a>
+            </div>
           </div>
-        </form>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    Designed with care by Victoria Nguyen · © 2026
+  <!-- ========== UNIFIED MODAL SYSTEM ========== -->
+  <!-- Backdrop -->
+  <div class="modal-overlay" id="modal-overlay" aria-hidden="true"></div>
+
+  <!-- Generic Modal Shell (content injected by JS) -->
+  <div class="portfolio-modal" id="portfolio-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="portfolio-modal-inner">
+      <button class="portfolio-modal-close" id="modal-close-btn" aria-label="Close">✕</button>
+      <div class="portfolio-modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- ====== PROJECT MODAL DATA ====== -->
+  <!-- Each template is invisible, JS reads innerHTML and injects into modal-body -->
+
+  <template id="modal-synthlab">
+    <div class="pm-header">
+      <span class="pm-emoji">🧬</span>
+      <div>
+        <h2>SynthLab</h2>
+        <p class="pm-meta">Michigan Medicine · 2024–25 · Python, FastAPI, React, FAISS, SDV</p>
+      </div>
+    </div>
+    <section class="pm-section">
+      <h3>The Problem</h3>
+      <p>Clinical researchers couldn’t train AI models on real pediatric patient data due to HIPAA constraints — halting fairness and bias research before it started.</p>
+    </section>
+    <section class="pm-section">
+      <h3>My Role</h3>
+      <p>Research Engineer. I owned the full system design and implementation: from multi-method synthetic data generation (GaussianCopula, CTGAN, TVAE) to the validation pipeline and the React-based dashboard.</p>
+    </section>
+    <section class="pm-section">
+      <h3>What I Built</h3>
+      <ul>
+        <li>Synthetic data generation engine supporting 3 generation models with configurable parameters</li>
+        <li>Statistical fidelity validation suite (KS-test, TVD, correlation heatmaps)</li>
+        <li>Fairness audit layer — bias detection across demographic groups</li>
+        <li>FastAPI backend with FAISS-based RAG chatbot for dataset Q&A</li>
+        <li>React dashboard for visual exploration of generated vs. real distributions</li>
+      </ul>
+    </section>
+    <section class="pm-section">
+      <h3>Impact</h3>
+      <p>Enabled clinical teams to run model training datasets without exposing real patient records. Fairness testing flagged model bias across age and sex subgroups that would have previously gone undetected.</p>
+    </section>
+    <div class="pm-tags">
+      <span>Python</span><span>FastAPI</span><span>React</span><span>FAISS</span><span>SDV</span><span>Pandas</span><span>Docker</span><span>Git</span>
+    </div>
+  </template>
+
+  <template id="modal-betterschedule">
+    <div class="pm-header">
+      <span class="pm-emoji">⏳</span>
+      <div>
+        <h2>betterSchedule</h2>
+        <p class="pm-meta">Product Design · 2024 · Figma, UX Research, Agile</p>
+      </div>
+    </div>
+    <section class="pm-section">
+      <h3>The Problem</h3>
+      <p>Students juggle Atlas, Canvas, Google Calendar, and iMessage to manage their academic lives — creating planning fatigue, missed deadlines, and poor group coordination.</p>
+    </section>
+    <section class="pm-section">
+      <h3>My Role</h3>
+      <p>Product Lead & Designer. I led end-to-end product discovery, defined the PRD, ran 30+ user interviews, built persona maps, and designed high-fidelity Figma prototypes.</p>
+    </section>
+    <section class="pm-section">
+      <h3>Process</h3>
+      <ul>
+        <li>30+ interviews with U-M students — uncovered tool fragmentation as root cause</li>
+        <li>Defined 3 core personas and a user journey map</li>
+        <li>Built low-fi wireframes → tested → iterated into hi-fi Figma prototype</li>
+        <li>Wrote a full PRD: goals, user needs, features, success metrics</li>
+      </ul>
+    </section>
+    <section class="pm-section">
+      <h3>Key Features Designed</h3>
+      <ul>
+        <li>Auto syllabus import (PDF parsing → calendar events)</li>
+        <li>Smart scheduling assistant with AI study block suggestions</li>
+        <li>Shared availability for group collaboration</li>
+        <li>Focus tools (Pomodoro, mindfulness prompts)</li>
+      </ul>
+    </section>
+    <div class="pm-tags">
+      <span>Figma</span><span>User Research</span><span>Agile</span><span>Product Strategy</span><span>A/B Testing</span><span>Roadmapping</span>
+    </div>
+  </template>
+
+  <template id="modal-betbuddies">
+    <div class="pm-header">
+      <span class="pm-emoji">💰</span>
+      <div>
+        <h2>BetBuddies</h2>
+        <p class="pm-meta">Behavioral Design · 2024 · User Research, Strategy</p>
+      </div>
+    </div>
+    <section class="pm-section">
+      <h3>The Problem</h3>
+      <p>College students consistently fail to maintain habits — not from lack of motivation, but lack of consequence. Existing apps are too easy to ignore.</p>
+    </section>
+    <section class="pm-section">
+      <h3>My Role</h3>
+      <p>Product Researcher & Strategist. Designed the research methodology, led 50 interviews across two phases, synthesized findings, and built the full product concept and go/no-go decision framework.</p>
+    </section>
+    <section class="pm-section">
+      <h3>Research Findings</h3>
+      <ul>
+        <li>52% cite academic workload as the top habit disruptor</li>
+        <li>61% feel physically drained when goals fail over multiple weeks</li>
+        <li>Strong demand for social accountability and immediate feedback</li>
+      </ul>
+    </section>
+    <section class="pm-section">
+      <h3>The Solution</h3>
+      <p>A commitment-based accountability platform where users deposit money toward a goal, invite friends, and either earn their deposit back (success) or lose it (failure). Decision: <strong>Go</strong>.</p>
+    </section>
+    <div class="pm-tags">
+      <span>User Research</span><span>Behavioral Design</span><span>Product Strategy</span><span>A/B Testing</span><span>Figma</span>
+    </div>
+  </template>
+
+  <template id="modal-heartline">
+    <div class="pm-header">
+      <span class="pm-emoji">💚</span>
+      <div>
+        <h2>Heartline Care Companion</h2>
+        <p class="pm-meta">Mobile App · 2025 · React Native, Node.js, Figma</p>
+      </div>
+    </div>
+    <section class="pm-section">
+      <h3>The Problem</h3>
+      <p>After working in clinical settings, I saw how disconnected wellness tools are from the actual rhythms of care. Apps don’t adapt to how patients or care teams actually operate day to day.</p>
+    </section>
+    <section class="pm-section">
+      <h3>What I Built</h3>
+      <ul>
+        <li>React Native mobile app with warm, adaptive UI</li>
+        <li>Mood check-in system with pattern tracking</li>
+        <li>Gentle reminder engine based on user energy levels</li>
+        <li>Node.js + Express backend with user session management</li>
+      </ul>
+    </section>
+    <section class="pm-section">
+      <h3>Design Intent</h3>
+      <p>Borrowed patterns from clinical workflows — routine, consistency, and feedback loops — and wrapped them in an interface that feels comforting rather than clinical.</p>
+    </section>
+    <div class="pm-tags">
+      <span>React Native</span><span>Node.js</span><span>Express</span><span>Figma</span><span>User Research</span>
+    </div>
+  </template>
+
+  <template id="modal-smartrecord">
+    <div class="pm-header">
+      <span class="pm-emoji">🩺</span>
+      <div>
+        <h2>Smart Record App</h2>
+        <p class="pm-meta">Clinical Tool · 2025 · React, Python, Figma</p>
+      </div>
+    </div>
+    <section class="pm-section">
+      <h3>The Problem</h3>
+      <p>New care team members and students face a steep learning curve with EMR systems. Existing training is fragmented, intimidating, and disconnected from real clinical decisions.</p>
+    </section>
+    <section class="pm-section">
+      <h3>What I Built</h3>
+      <ul>
+        <li>React app that walks through realistic patient vitals flows</li>
+        <li>Highlighting system that flags concerning values with explanations</li>
+        <li>Decision tree that maps vitals data to clinical actions</li>
+        <li>Python backend for case data management</li>
+      </ul>
+    </section>
+    <section class="pm-section">
+      <h3>Design Intent</h3>
+      <p>Learning care shouldn’t feel intimidating. The UI is warm, progressive, and built around the actual mental model of a new care team member — not a developer’s convenience.</p>
+    </section>
+    <div class="pm-tags">
+      <span>React</span><span>Python</span><span>Figma</span><span>HTML/CSS</span><span>User Research</span><span>Clinical Design</span>
+    </div>
+  </template>
+
+  <!-- ====== JOURNEY MODAL DATA ====== -->
+
+  <template id="modal-journey-gametime">
+    <div class="pm-header">
+      <span class="pm-emoji">🏆</span>
+      <div>
+        <h2>Gametime United</h2>
+        <p class="pm-meta">Product &amp; Research Intern · 2024 – Present</p>
+      </div>
+    </div>
+    <section class="pm-section">
+      <h3>Role</h3>
+      <p>Embedded in the product and research team for a sports fan engagement platform. Led sprint ceremonies, conducted user research, and drove feature definition for core product areas.</p>
+    </section>
+    <section class="pm-section">
+      <h3>Contributions</h3>
+      <ul>
+        <li>Planned and facilitated biweekly sprints using Jira and Agile methodology</li>
+        <li>Conducted qualitative user research — interviews, synthesis, persona development</li>
+        <li>Produced competitive analysis and feature opportunity maps</li>
+        <li>Supported PRD writing and stakeholder presentations</li>
+        <li>Collaborated with engineering and design on user story definition</li>
+      </ul>
+    </section>
+    <section class="pm-section">
+      <h3>Tools</h3>
+      <p>Jira, Figma, Notion, Miro, Google Analytics</p>
+    </section>
+    <div class="pm-tags">
+      <span>Product Strategy</span><span>User Research</span><span>Agile/Scrum</span><span>Roadmapping</span><span>Jira</span>
+    </div>
+  </template>
+
+  <template id="modal-journey-synthlab">
+    <div class="pm-header">
+      <span class="pm-emoji">🤍</span>
+      <div>
+        <h2>Michigan Medicine — SynthLab</h2>
+        <p class="pm-meta">Research Engineer · Computational Medicine &amp; Pediatrics · 2024–2025</p>
+      </div>
+    </div>
+    <section class="pm-section">
+      <h3>Context</h3>
+      <p>Worked within the computational medicine and pediatrics research groups to solve a real clinical data access problem: AI models couldn’t be trained on real patient records without violating HIPAA.</p>
+    </section>
+    <section class="pm-section">
+      <h3>Technical Contributions</h3>
+      <ul>
+        <li>Designed and implemented multi-method synthetic data generation (GaussianCopula, CTGAN, TVAE)</li>
+        <li>Built statistical validation pipeline with KS-test, Total Variation Distance, and correlation analysis</li>
+        <li>Created FAISS-based RAG chatbot for dataset Q&amp;A</li>
+        <li>Developed React dashboard for visualizing distributional fidelity</li>
+        <li>Implemented fairness audit layer for demographic subgroup bias detection</li>
+      </ul>
+    </section>
+    <section class="pm-section">
+      <h3>Impact</h3>
+      <p>Enabled clinical AI research without exposing real patient data. Fairness layer detected bias across age and sex subgroups before model deployment.</p>
+    </section>
+    <div class="pm-tags">
+      <span>Python</span><span>FastAPI</span><span>React</span><span>FAISS</span><span>SDV</span><span>Pandas</span><span>Docker</span>
+    </div>
+  </template>
+
+  <template id="modal-journey-emu">
+    <div class="pm-header">
+      <span class="pm-emoji">📊</span>
+      <div>
+        <h2>Eastern Michigan University</h2>
+        <p class="pm-meta">Research Assistant · Community Health · 2024 – Present</p>
+      </div>
+    </div>
+    <section class="pm-section">
+      <h3>Role</h3>
+      <p>Supported faculty-led research on infant feeding behavior and community health outcomes for underserved populations in Southeast Michigan.</p>
+    </section>
+    <section class="pm-section">
+      <h3>Contributions</h3>
+      <ul>
+        <li>Assisted in research design, participant recruitment, and IRB compliance</li>
+        <li>Collected and cleaned qualitative and quantitative data</li>
+        <li>Maintained data accuracy standards across longitudinal tracking systems</li>
+        <li>Prepared accessible summary reports for public health audiences</li>
+      </ul>
+    </section>
+    <div class="pm-tags">
+      <span>Community Health</span><span>Data Collection</span><span>Research Design</span><span>Communication</span>
+    </div>
+  </template>
+
+  <template id="modal-journey-trinity">
+    <div class="pm-header">
+      <span class="pm-emoji">🏥</span>
+      <div>
+        <h2>Trinity Health</h2>
+        <p class="pm-meta">Medical Assistant · Clinical Operations · 2024–2025</p>
+      </div>
+    </div>
+    <section class="pm-section">
+      <h3>Role</h3>
+      <p>Worked as a medical assistant in an outpatient clinical setting, supporting providers and coordinating patient care workflows.</p>
+    </section>
+    <section class="pm-section">
+      <h3>Contributions</h3>
+      <ul>
+        <li>Measured and documented patient vitals, history, and intake information</li>
+        <li>Coordinated care documentation across departments using EMR systems</li>
+        <li>Reduced average patient wait time by ~15% through proactive workflow coordination</li>
+        <li>Assisted in scheduling and patient communication across clinical teams</li>
+      </ul>
+    </section>
+    <section class="pm-section">
+      <h3>What I Learned</h3>
+      <p>Seeing how care teams actually work in practice — the bottlenecks, the EMR friction, the communication gaps — directly shaped both SynthLab and the Smart Record App.</p>
+    </section>
+    <div class="pm-tags">
+      <span>Clinical Operations</span><span>Patient Care</span><span>EMR Systems</span><span>Coordination</span>
+    </div>
+  </template>
+
+  <!-- DASHBOARD STATUS BAR -->
+  <footer class="status-bar">
+    <div class="status-left">
+      <div class="status-item">
+        <i class="fas fa-wifi"></i> Connected: VIC_CAFE_GUEST
+      </div>
+      <div class="status-item">
+        <i class="fas fa-clock"></i> <span id="current-time">12:00 PM</span>
+      </div>
+    </div>
+    <div class="status-right">
+      <div class="status-item">
+        <i class="fas fa-heart"></i> <span>Currently Brewing: New Projects</span>
+      </div>
+    </div>
   </footer>
+  <!-- AUDIO ASSETS -->
+  <audio id="paper-flick-audio" src="https://cdn.freesound.org/previews/586/586395_12674900-lq.mp3" preload="auto"></audio>
 
-  <div class="modal" id="betterschedule-problem-modal">
-    <div class="modal-content">
-      <button class="modal-close" data-close>&times;</button>
 
-      <h2>betterSchedule — Problem Statement</h2>
-
-      <p>
-        Students experience a disconnect between academic planning platforms
-        (e.g., Atlas, Canvas) and daily execution tools (e.g., Google Calendar).
-        These systems do not integrate or adapt to individual workload patterns,
-        forcing students to manually reconstruct their schedules across fragmented tools.
-      </p>
-
-      <p>
-        This results in <strong>scheduling fatigue</strong>, increased cognitive load,
-        and inefficient coordination for group work. As a result, students lack
-        clear visibility into their true time commitments and struggle to manage
-        their workload in a way that aligns with their personal productivity style.
-      </p>
-
+  <!-- ========== UNIFIED MODAL SYSTEM ========== -->
+  <div class="modal-overlay" id="modal-overlay" aria-hidden="true"></div>
+  <div class="portfolio-modal" id="portfolio-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="portfolio-modal-inner">
+      <button class="portfolio-modal-close" id="modal-close-btn" aria-label="Close">✕</button>
+      <div class="portfolio-modal-body" id="modal-body"></div>
     </div>
   </div>
 
-  <div class="modal" id="betterschedule-prd-modal" aria-hidden="true">
-    <div class="modal-content modal-content--wide">
-      <button class="modal-close" data-close>&times;</button>
-      <h3>betterSchedule - Product Requirements Document (PRD)</h3>
-      <a class="btn primary"
-        href="https://www.figma.com/proto/BHBdNEiOi7MsnOvYYQCJDl/Project-1---victoria_nguyen?page-id=1%3A2&node-id=287-26364&starting-point-node-id=287%3A16632"
-        target="_blank" rel="noreferrer noopener">Open Interactive Prototype</a>
+  <template id="modal-synthlab">
+    <div class="pm-header"><span class="pm-emoji">🧬</span><div><h2>SynthLab</h2><p class="pm-meta">Michigan Medicine · 2024–25 · Python, FastAPI, React, FAISS, SDV</p></div></div>
+    <section class="pm-section"><h3>The Problem</h3><p>Clinical researchers couldn't train AI on real pediatric data due to HIPAA — halting fairness research before it started.</p></section>
+    <section class="pm-section"><h3>My Role</h3><p>Research Engineer. Full ownership: multi-method synthetic data generation, validation pipeline, and React dashboard.</p></section>
+    <section class="pm-section"><h3>What I Built</h3><ul><li>Synthetic data engine: GaussianCopula, CTGAN, TVAE</li><li>Validation: KS-test, TVD, correlation heatmaps</li><li>Fairness audit layer across demographic subgroups</li><li>FastAPI backend + FAISS RAG chatbot</li><li>React distributional fidelity dashboard</li></ul></section>
+    <section class="pm-section"><h3>Impact</h3><p>Enabled model training without real patient records. Bias flagged across age and sex subgroups before deployment.</p></section>
+    <div class="pm-tags"><span>Python</span><span>FastAPI</span><span>React</span><span>FAISS</span><span>SDV</span><span>Pandas</span><span>Docker</span></div>
+  </template>
 
-      <div class="modal-section">
-        <h4>Product Goals</h4>
-        <ul>
-          <li>Centralize academic planning and daily scheduling</li>
-          <li>Reduce time spent organizing schedules</li>
-          <li>Improve collaboration for group work</li>
-          <li>Provide intelligent scheduling assistance</li>
-        </ul>
-      </div>
+  <template id="modal-betterschedule">
+    <div class="pm-header"><span class="pm-emoji">⏳</span><div><h2>betterSchedule</h2><p class="pm-meta">Product Design · 2024 · Figma, UX Research, Agile</p></div></div>
+    <section class="pm-section"><h3>The Problem</h3><p>Students juggle 4+ tools to plan their academic lives — creating fragmentation, fatigue, and missed deadlines.</p></section>
+    <section class="pm-section"><h3>My Role</h3><p>Product Lead &amp; Designer. End-to-end discovery, PRD, 30+ user interviews, persona maps, hi-fi Figma prototype.</p></section>
+    <section class="pm-section"><h3>Key Features</h3><ul><li>Auto syllabus import → calendar events</li><li>AI study block suggestions</li><li>Shared availability for group coordination</li><li>Focus tools: Pomodoro + mindfulness prompts</li></ul></section>
+    <div class="pm-tags"><span>Figma</span><span>User Research</span><span>Agile</span><span>Strategy</span><span>A/B Testing</span><span>Roadmapping</span></div>
+  </template>
 
-      <div class="modal-section">
-        <h4>Users</h4>
-        <p>Students will use this product to:</p>
-        <ul>
-          <li>Import assignments and deadlines automatically</li>
-          <li>View their academic workload in one place</li>
-          <li>Block study time effectively</li>
-          <li>Coordinate schedules with teammates</li>
-        </ul>
-      </div>
+  <template id="modal-betbuddies">
+    <div class="pm-header"><span class="pm-emoji">💰</span><div><h2>BetBuddies</h2><p class="pm-meta">Behavioral Design · 2024 · User Research, Strategy</p></div></div>
+    <section class="pm-section"><h3>The Problem</h3><p>Students fail habits not from lack of motivation, but lack of consequence. Existing apps are easy to ignore.</p></section>
+    <section class="pm-section"><h3>Research</h3><ul><li>50 interviews across two phases</li><li>52% cite academic workload as top disruptor</li><li>Strong demand for social accountability + real stakes</li></ul></section>
+    <section class="pm-section"><h3>The Solution</h3><p>Commitment platform: deposit money, invite friends, earn it back on success or lose it on failure. Decision: <strong>Go</strong>.</p></section>
+    <div class="pm-tags"><span>User Research</span><span>Behavioral Design</span><span>Strategy</span><span>A/B Testing</span><span>Figma</span></div>
+  </template>
 
-      <div class="modal-section">
-        <h4>User Needs/Wants</h4>
-        <p>From interviews, students expressed desire for:</p>
-        <ul>
-          <li>Automated syllabus import</li>
-          <li>Better schedule visibility</li>
-          <li>Customizable and personalized UI</li>
-          <li>Easier collaboration tools</li>
-          <li>Intelligent planning support</li>
-        </ul>
-      </div>
+  <template id="modal-heartline">
+    <div class="pm-header"><span class="pm-emoji">💚</span><div><h2>Heartline Care Companion</h2><p class="pm-meta">Mobile App · 2025 · React Native, Node.js, Figma</p></div></div>
+    <section class="pm-section"><h3>The Problem</h3><p>Wellness apps are disconnected from how care actually works. They don't adapt to patient or care team rhythms.</p></section>
+    <section class="pm-section"><h3>What I Built</h3><ul><li>React Native app with warm, adaptive UI</li><li>Mood check-in + pattern tracking</li><li>Energy-based reminder engine</li><li>Node.js + Express backend</li></ul></section>
+    <div class="pm-tags"><span>React Native</span><span>Node.js</span><span>Express</span><span>Figma</span><span>User Research</span></div>
+  </template>
 
-      <div class="modal-section">
-        <h4>Assumptions</h4>
-        <p><strong>Before conducting interviews, I assumed:</strong></p>
-        <ul>
-          <li>Students struggled mainly with procrastination</li>
-          <li>Existing calendar tools were sufficient</li>
-        </ul>
-        <p><strong>However, interviews revealed that:</strong></p>
-        <ul>
-          <li>Students spend more time organizing schedules than executing tasks</li>
-          <li>Tool fragmentation causes planning fatigue</li>
-          <li>Collaboration and schedule visibility are major issues</li>
-        </ul>
-      </div>
-
-      <div class="modal-section">
-        <h4>Features</h4>
-        <h4>1. Auto Syllabus Sync</h4>
-        <p>Automatically extracts assignments and deadlines from syllabus PDFs.</p>
-        <p><strong>Goal:</strong> Eliminate manual entry.</p>
-        <p><strong>Use Case:</strong> Student uploads syllabus - deadlines are automatically added to schedule.</p>
-
-        <h4>2. Smart Scheduling Assistant</h4>
-        <p>AI-assisted planning that suggests study blocks based on workload and availability.</p>
-        <p><strong>Goal:</strong> Help students distribute work across their schedule.</p>
-
-        <h4>3. Collaboration Scheduling</h4>
-        <p>Shared availability and meeting coordination tools.</p>
-        <p><strong>Goal:</strong> Reduce communication overhead for group projects.</p>
-
-        <h4>4. Customizable Interface</h4>
-        <p>Themes, layouts, and aesthetic personalization.</p>
-        <p><strong>Goal:</strong> Allow students to tailor the interface to their preferences.</p>
-
-        <h4>5. Focus Tools</h4>
-        <p>Includes Pomodoro timer, motivational prompts, and mindfulness exercises.</p>
-        <p><strong>Goal:</strong> Support productivity and reduce burnout.</p>
-      </div>
-
-      <div class="modal-section">
-        <h4>Next Steps</h4>
-        <p>To further develop betterSchedule:</p>
-        <ul>
-          <li>Conduct usability testing on the prototype</li>
-          <li>Test syllabus parsing workflow</li>
-          <li>Validate collaboration features</li>
-        </ul>
-      </div>
-
-      <div class="modal-section">
-        <h4>Implementation Needs</h4>
-        <p>To build this product, development would require:</p>
-        <ul>
-          <li>Calendar API integration</li>
-          <li>PDF parsing system for syllabus imports</li>
-          <li>Collaboration backend</li>
-          <li>AI scheduling assistant</li>
-        </ul>
-      </div>
-
-      <div class="modal-section">
-        <h4>Future Improvements</h4>
-        <ul>
-          <li>Cross-platform sync across devices</li>
-          <li>Integration with university systems</li>
-          <li>Advanced workload analytics</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal" id="betterschedule-sitemap-modal" aria-hidden="true">
-    <div class="modal-content modal-content--wide">
-      <button class="modal-close" data-close>&times;</button>
-      <h3>betterSchedule</h3>
-      <div class="modal-section">
-        <h4>Sitemap</h4>
-        <img class="modal-image" src="assets/SiteMap.png" alt="betterSchedule sitemap" loading="lazy" />
-      </div>
-      <div class="modal-section">
-        <h4>User Journey Map</h4>
-        <img class="modal-image" src="assets/User Journey Map.png" alt="betterSchedule user journey map"
-          loading="lazy" />
-      </div>
-      <div class="modal-section">
-        <h4>Design Components</h4>
-        <img class="modal-image" src="assets/Design Components.png" alt="betterSchedule design components"
-          loading="lazy" />
-      </div>
-    </div>
-  </div>
-
-  <div class="modal" id="betterschedule-wireframes-modal" aria-hidden="true">
-    <div class="modal-content modal-content--wide">
-      <button class="modal-close" data-close>&times;</button>
-      <h3>betterSchedule — Wireframes</h3>
-      <div class="modal-section">
-        <h4>High Fidelity Design</h4>
-        <button class="image-zoom-button" type="button" data-zoomable aria-pressed="false"
-          aria-label="Toggle zoom for hi-fi wireframes">
-          <img class="modal-image" src="assets/Hi-fi Wireframes.png" alt="betterSchedule hi-fi wireframes"
-            loading="lazy" />
-        </button>
-      </div>
-      <div class="modal-section">
-        <h4>Low Fidelity Design</h4>
-        <button class="image-zoom-button" type="button" data-zoomable aria-pressed="false"
-          aria-label="Toggle zoom for lo-fi wireframes">
-          <img class="modal-image" src="assets/Lo-fi Wireframes .png" alt="betterSchedule lo-fi wireframes"
-            loading="lazy" />
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal" id="betbuddies-overview-modal" aria-hidden="true">
-    <div class="modal-content modal-content--wide">
-      <button class="modal-close" data-close>&times;</button>
-      <h3>BetBuddies — Overview</h3>
-
-      <div class="modal-section">
-        <h4>Project Overview</h4>
-        <p><strong>BetBuddies — Social Accountability Platform for Goal Retention</strong></p>
-        <p>
-          A product concept developed through 50+ user interviews to solve inconsistent habit formation
-          using financial commitment and social pressure.
-        </p>
-        <p><strong>Focus:</strong> Behavioral design, user research, product strategy.</p>
-      </div>
-
-      <div class="modal-section">
-        <h4>Key Insight</h4>
-        <p>
-          Users do not fail because they lack motivation — they fail because there is no immediate
-          consequence or reward.
-        </p>
-        <ul>
-          <li>Accountability is the missing reinforcement.</li>
-          <li>Social pressure creates follow-through.</li>
-          <li>Immediate feedback loops drive behavior change.</li>
-        </ul>
-      </div>
-
-      <div class="modal-section">
-        <h4>Ecosystem</h4>
-        <ul>
-          <li>Users (goal setters).</li>
-          <li>Friends (accountability).</li>
-          <li>Payment processors (transactions).</li>
-          <li>App stores (distribution).</li>
-          <li>External influences (social pressure, productivity culture).</li>
-        </ul>
-        <p><strong>Key Risk:</strong> Dependence on payment platforms as gatekeepers.</p>
-      </div>
-
-      <div class="modal-section">
-        <h4>Validation &amp; Decision</h4>
-        <ul>
-          <li>50 interviews conducted.</li>
-          <li>Majority do not use existing tools.</li>
-          <li>Strong demand for reminders, rewards, and tracking.</li>
-        </ul>
-        <p><strong>Decision:</strong> Go.</p>
-      </div>
-
-      <div class="modal-section">
-        <h4>Key Learnings</h4>
-        <ul>
-          <li>Users do not adopt tools that add friction.</li>
-          <li>Behavior change requires reinforcement loops.</li>
-          <li>Initial assumptions (gym goals) were wrong — research matters.</li>
-          <li>Product direction must evolve with user data.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal" id="betbuddies-problem-modal" aria-hidden="true">
-    <div class="modal-content modal-content--wide">
-      <button class="modal-close" data-close>&times;</button>
-      <h3>BetBuddies — Key Problems</h3>
-      <div class="modal-section">
-        <h4>The Problem</h4>
-        <p>
-          College students (18–22) consistently fail to maintain habits like sleep, despite existing tools
-          like reminders and trackers.
-        </p>
-        <ul>
-          <li>61% feel physically drained when goals fail.</li>
-          <li>52% cite academic workload as the primary disruption.</li>
-          <li>Most rely on self-discipline without structured tools.</li>
-        </ul>
-        <p><strong>Opportunity:</strong> Current solutions are high-friction and easy to ignore.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal" id="betbuddies-research-modal" aria-hidden="true">
-    <div class="modal-content modal-content--wide">
-      <button class="modal-close" data-close>&times;</button>
-      <h3>BetBuddies — User Research</h3>
-      <div class="modal-section">
-        <h4>Research Process</h4>
-        <p>50 interviews with University of Michigan students.</p>
-        <ul>
-          <li>25 broad goal interviews.</li>
-          <li>25 focused sleep interviews.</li>
-        </ul>
-      </div>
-      <div class="modal-section">
-        <h4>Key Findings</h4>
-        <ul>
-          <li>Sleep and wellness emerged as the top goal category.</li>
-          <li>Users want consistency, not just improvement.</li>
-          <li>No dominant solution exists in the market.</li>
-        </ul>
-      </div>
-      <div class="modal-section">
-        <h4>Pain Points</h4>
-        <ul>
-          <li>Academic workload: 52%.</li>
-          <li>Schedule inconsistency: 25%.</li>
-          <li>Social distractions: 17%.</li>
-          <li>Phone usage: 13%.</li>
-        </ul>
-      </div>
-      <div class="modal-section">
-        <h4>Personas</h4>
-        <p>
-          Personas (Ethan, Jason, Cynthia) revealed shared challenges across job seekers, students,
-          and wellness-focused users.
-        </p>
-        <ul>
-          <li>Rejection fatigue during job searches.</li>
-          <li>Habit inconsistency in sleep and wellness goals.</li>
-          <li>Lack of visible progress.</li>
-        </ul>
-        <p><strong>Needs:</strong> Small wins, accountability, immediate reinforcement.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal" id="betbuddies-solution-modal" aria-hidden="true">
-    <div class="modal-content modal-content--wide">
-      <button class="modal-close" data-close>&times;</button>
-      <h3>BetBuddies — Solution</h3>
-      <div class="modal-section">
-        <h4>Solution</h4>
-        <p>BetBuddies introduces a commitment-based system:</p>
-        <ul>
-          <li>Users deposit money toward a goal.</li>
-          <li>Invite friends for accountability.</li>
-          <li>Track progress daily.</li>
-          <li>Success returns the deposit; failure loses it.</li>
-        </ul>
-        <p><strong>Outcome:</strong> Combines financial stakes with social pressure to sustain habits.</p>
-      </div>
-      <div class="modal-section">
-        <h4>How It Works</h4>
-        <ol>
-          <li>Set a goal (example: sleep before 12 AM).</li>
-          <li>Deposit money.</li>
-          <li>Invite an accountability group.</li>
-          <li>Track progress.</li>
-          <li>Outcome: success returns money; failure triggers a penalty.</li>
-        </ol>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal" id="betbuddies-future-modal" aria-hidden="true">
-    <div class="modal-content modal-content--wide">
-      <button class="modal-close" data-close>&times;</button>
-      <h3>BetBuddies — Future Build</h3>
-      <div class="modal-section">
-        <h4>Future Build</h4>
-        <ul>
-          <li>UI mockups and prototype screens.</li>
-          <li>System architecture and MVP roadmap.</li>
-          <li>Monetization and go-to-market strategy.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="modal" id="synthlab-story-modal" aria-hidden="true">
-    <div class="modal-content">
-      <button class="modal-close" data-close>&times;</button>
-      <h3> Synthlab 🧬 </h3>
-      <p>
-        Working in clinical research taught me how hard it is to get clean, usable data —
-        and how much harder it gets when patient privacy is on the line.
-        SynthLab is my answer to that tension: a tool that generates statistically faithful synthetic datasets so
-        researchers can test,
-        validate, and iterate without ever touching real patient records.
-      </p>
-    </div>
-  </div>
-
-  <div class="modal" id="heartline-modal" aria-hidden="true">
-    <div class="modal-content">
-      <button class="modal-close" data-close>&times;</button>
-      <h3>Heartline Care Companion 💚</h3>
-      <p>
-        Inspired by the workflows and care routines I saw in the hospital, Heartline is my attempt to bring that same
-        sense of support and connection into a mobile app.
-        It’s designed to help users stay connected to their wellness goals through gentle reminders, scheduling, and
-        mood check-ins — all wrapped in a UI that flexes with their energy levels.
-      </p>
-    </div>
-  </div>
-
-  <div class="modal" id="smart-modal" aria-hidden="true">
-    <div class="modal-content">
-      <button class="modal-close" data-close>&times;</button>
-      <h3>Smart Record App 🩺</h3>
-      <p>
-        After working in health care for a couple of years, I've seen and work with different format of the EMR system.
-        I've seen the wonderful functions and how it all connect to one another, how it connects to patient's care team,
-        and how managable it can be.
-        But I've also seen its flaws, its design, and I wanted to do something that represents me and my needs.
-        Smart Record is designed to help students and new care team members understand inpatient documentation in a
-        safe, thoughtful way.
-        It walks through real vitals flows, highlights what’s concerning, and explains how each data point shapes
-        clinical decisions.
-        Because learning care shouldn’t feel intimidating
-      </p>
-    </div>
-  </div>
-
-  <div class="modal" id="blossom-modal" aria-hidden="true">
-    <div class="modal-content">
-      <button class="modal-close" data-close>&times;</button>
-      <h3>Blossom Drift Journal App 🌸</h3>
-      <p>
-        This is my first ever attempt on trying to build something and figuring out how everything works.
-        Blossom Drift is my experiment in building a journaling companion that validates emotions while
-        surfacing gentle insights. I'm prototyping guided prompts, optional mood data syncing, and a
-        "soft data" dashboard caregivers can reference when supporting loved ones.
-      </p>
-    </div>
-  </div>
-
-  <div class="modal video-modal" id="synthlab-demo-modal" aria-hidden="true">
-    <div class="modal-content modal-content--video">
-      <button class="modal-close" data-close>&times;</button>
-      <h3>SynthLab Demo 🧬</h3>
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/2g5cvh6bRTM" title="SynthLab Demo" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal video-modal" id="heartline-demo-modal" aria-hidden="true">
-    <div class="modal-content modal-content--video">
-      <button class="modal-close" data-close>&times;</button>
-      <h3>Heartline Care Companion Demo 💚</h3>
-      <div class="video-container">
-        <!-- Replace the src with your actual video URL (YouTube embed, Vimeo, or local video) -->
-        <iframe src="https://www.youtube.com/embed/hQRuj-UzGAA" title="Heartline Demo" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- 📋 Loyalty Stamp Card Widget -->
-  <div class="loyalty-card">
-    <div class="loyalty-header">
-      <span class="loyalty-title">🍵 CAFÉ CARD</span>
-      <span class="loyalty-sub">10 stamps = 1 free coffee</span>
-    </div>
-    <div class="loyalty-grid">
-      <div class="stamp-wrapper" data-tooltip="Stamp #1: 2020-2024: Pre-med nerd.">
-        <div class="stamp filled">1</div>
-      </div>
-      <div class="stamp-wrapper" data-tooltip="Stamp #2: 2024-Oct 2025: Started Biology/Premed @ UMich.">
-        <div class="stamp filled">2</div>
-      </div>
-      <div class="stamp-wrapper"
-        data-tooltip="Stamp #3: November 2025: Secretly falling in love with coding + first project">
-        <div class="stamp filled">3</div>
-      </div>
-      <div class="stamp-wrapper" data-tooltip="Stamp #4: January 2026: Started CS @ UMich ">
-        <div class="stamp filled">4</div>
-      </div>
-      <div class="stamp-wrapper"
-        data-tooltip="Stamp #5: March 2026: accepted my first tech summer internship @ Gametime!">
-        <div class="stamp filled">5</div>
-      </div>
-      <!-- Unfilled Stamps -->
-      <div class="stamp-wrapper" data-tooltip="Loading...">
-        <div class="stamp">6</div>
-      </div>
-      <div class="stamp-wrapper" data-tooltip="Loading...">
-        <div class="stamp">7</div>
-      </div>
-      <div class="stamp-wrapper" data-tooltip="Loading...">
-        <div class="stamp">8</div>
-      </div>
-      <div class="stamp-wrapper" data-tooltip="Loading...">
-        <div class="stamp">9</div>
-      </div>
-      <div class="stamp-wrapper" data-tooltip="Loading...">
-        <div class="stamp">10</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 💡 Now Brewing Status Bar -->
-  <div class="brewing-status">
-    <span class="pulse-dot"></span>
-    <span class="status-item">🍵 Brewing: Latte </span>
-    <span class="status-divider">|</span>
-    <span class="status-item">💻 Coding: Features</span>
-  </div>
+  <template id="modal-smartrecord">
+    <div class="pm-header"><span class="pm-emoji">🩺</span><div><h2>Smart Record App</h2><p class="pm-meta">Clinical Tool · 2025 · React, Python, Figma</p></div></div>
+    <section class="pm-section"><h3>The Problem</h3><p>New care team members face a steep EMR learning curve. Training is fragmented and disconnected from real decisions.</p></section>
+    <section class="pm-section"><h3>What I Built</h3><ul><li>React app walking through patient vitals flows</li><li>Flagging system with clinical explanations</li><li>Decision tree: vitals → actions</li><li>Python backend for case management</li></ul></section>
+    <div class="pm-tags"><span>React</span><span>Python</span><span>Figma</span><span>HTML/CSS</span><span>Clinical Design</span></div>
+  </template>
 
   <script src="script.js"></script>
 </body>
+
 
 </html>
