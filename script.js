@@ -70,19 +70,6 @@ const soundToggle = document.querySelector('[data-sound-toggle]');
 const particlesCanvas = document.getElementById('matcha-particles');
 const heroSection = document.getElementById('hero');
 
-// --- Custom Cursor ---
-const cursor = document.createElement('div');
-cursor.className = 'custom-cursor';
-document.body.appendChild(cursor);
-
-document.addEventListener('mousemove', (e) => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
-});
-
-document.addEventListener('mousedown', () => cursor.classList.add('clicking'));
-document.addEventListener('mouseup', () => cursor.classList.remove('clicking'));
-
 // --- Screen Switching Logic ---
 const switchScreen = (targetId) => {
   const targetScreen = document.getElementById(targetId);
@@ -163,38 +150,6 @@ window.addEventListener('load', () => {
   }
 });
 
-// --- Unified 30/70 Skills Interaction ---
-const projectCards = document.querySelectorAll('.project-row-card');
-const skillRows = document.querySelectorAll('.nutrition-label .label-row.indent');
-
-projectCards.forEach(card => {
-  card.addEventListener('mouseenter', () => {
-    const techTags = card.getAttribute('data-tech');
-    if (!techTags) return;
-    
-    const activeTech = techTags.split(',').map(t => t.trim().toLowerCase());
-    
-    skillRows.forEach(row => {
-      const skillName = row.getAttribute('data-skill');
-      if (skillName && activeTech.includes(skillName)) {
-        row.classList.remove('dimmed');
-        row.classList.add('highlighted');
-      } else {
-        row.classList.add('dimmed');
-        row.classList.remove('highlighted');
-      }
-    });
-
-    playFlickSound();
-  });
-
-  card.addEventListener('mouseleave', () => {
-    skillRows.forEach(row => {
-      row.classList.remove('dimmed');
-      row.classList.remove('highlighted');
-    });
-  });
-});
 
 
 // --- Status Bar Ticker ---
@@ -349,94 +304,9 @@ const observer = new IntersectionObserver(
   { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
 );
 
-sections.forEach((section) => {
+screens.forEach((section) => {
   section.classList.add('reveal');
   observer.observe(section);
-});
-
-const zoomButtons = document.querySelectorAll('[data-zoomable]');
-
-zoomButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    const isZoomed = button.classList.toggle('is-zoomed');
-    button.setAttribute('aria-pressed', String(isZoomed));
-  });
-});
-
-modalTriggers.forEach((button) => {
-  const modalId = button.getAttribute('data-modal');
-  const modal = document.getElementById(modalId);
-  if (!modal) return;
-  button.addEventListener('click', () => {
-    modal.setAttribute('data-open', 'true');
-    modal.setAttribute('aria-hidden', 'false');
-  });
-});
-
-modals.forEach((modal) => {
-  const closeBtn = modal.querySelector('[data-close]');
-  const closeModal = () => {
-    modal.removeAttribute('data-open');
-    modal.setAttribute('aria-hidden', 'true');
-    const zoomed = modal.querySelectorAll('[data-zoomable].is-zoomed');
-    zoomed.forEach((button) => {
-      button.classList.remove('is-zoomed');
-      button.setAttribute('aria-pressed', 'false');
-    });
-  };
-  closeBtn?.addEventListener('click', closeModal);
-  modal.addEventListener('click', (event) => {
-    if (event.target === modal) {
-      closeModal();
-    }
-  });
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && modal.getAttribute('data-open') === 'true') {
-      closeModal();
-    }
-  });
-});
-
-contactForm?.addEventListener('submit', async (event) => {
-  event.preventDefault();
-  if (!formStatus) return;
-
-  const submitButton = contactForm.querySelector('button[type="submit"]');
-  const formData = new FormData(contactForm);
-  const payload = {
-    name: formData.get('name'),
-    email: formData.get('email'),
-    message: formData.get('message'),
-  };
-
-  formStatus.textContent = 'Sending your note...';
-  submitButton?.setAttribute('disabled', 'true');
-
-  try {
-    const response = await fetch('https://formsubmit.co/ajax/YOUR_UNIQUE_FORM_ID_HERE', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-      body: JSON.stringify(payload),
-    });
-
-    if (!response.ok) {
-      throw new Error(`Form submission failed with status ${response.status}`);
-    }
-
-    formStatus.textContent = `Thanks${payload.name ? `, ${payload.name}` : ''}! Your note is on its way.`;
-    contactForm.reset();
-  } catch (error) {
-    console.error(error);
-    formStatus.textContent = 'Hmm, something went wrong. Feel free to email me directly instead!';
-  } finally {
-    submitButton?.removeAttribute('disabled');
-    setTimeout(() => {
-      formStatus.textContent = '';
-    }, 6000);
-  }
 });
 
 /* ================================
@@ -556,14 +426,6 @@ function highlightSkillRows(techList) {
     }
   });
 }
-
-allProjectCards().forEach(card => {
-  card.addEventListener('mouseenter', () => {
-    const tech = card.dataset.tech;
-    if (tech) highlightSkillRows(tech);
-  });
-  card.addEventListener('mouseleave', resetSkillRows);
-});
 
 // ================================
 // JOURNEY ACCORDION

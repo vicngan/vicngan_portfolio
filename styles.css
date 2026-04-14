@@ -850,7 +850,7 @@ a {
 .nutrition-label {
   background: var(--surface);
   color: var(--text);
-  border: 2px solid color-mix(in srgb, var(--text) 20%, transparent);
+  border: 2px solid rgba(44, 62, 53, 0.2);
   width: 100%;
   max-width: 360px;
   padding: 1.25rem 1.5rem;
@@ -2758,8 +2758,8 @@ a {
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.35);
   background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2846,8 +2846,8 @@ a {
   transform: translateY(-50%);
   width: 260px;
   background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   border-radius: 20px;
   padding: 0.75rem;
   box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
@@ -3841,8 +3841,8 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -4259,8 +4259,9 @@ a {
 .intro-info-card {
   flex: 1;
   background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(8px);
   border: 1px solid rgba(255,255,255,0.4);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   border-radius: 20px;
   padding: 2.5rem;
   box-shadow: 0 10px 30px rgba(0,0,0,0.03);
@@ -4368,8 +4369,8 @@ a {
   top: 1.2rem !important;
   right: 1.2rem !important;
   background: rgba(255, 255, 255, 0.15) !important;
-  backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   padding: 0.4rem 0.8rem !important;
   border-radius: 20px !important;
   font-size: 0.72rem !important;
@@ -4607,8 +4608,8 @@ a {
   right: 1.2rem;
   transform: translateY(-50%);
   background: rgba(253, 253, 247, 0.95);
-  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   border: 1px solid rgba(74, 125, 104, 0.15);
   width: 110px; /* Narrow profile */
   padding: 1rem 0.6rem;
@@ -4727,8 +4728,8 @@ a {
   bottom: 1.5rem;
   right: 1.5rem;
   background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.4);
   padding: 0.5rem 1rem;
   border-radius: 999px;
@@ -5687,8 +5688,8 @@ a {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.62);
-  backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   z-index: 9100;
   opacity: 0;
   pointer-events: none;
@@ -5946,6 +5947,7 @@ a {
   z-index: 200;
   background-color: var(--bg);
   background-image: none;
+  -webkit-backdrop-filter: none;
   backdrop-filter: none;
   padding: 1rem 0 0.75rem;
   border-bottom: 2px solid var(--border);
@@ -5993,6 +5995,7 @@ a {
   gap: 1rem;
   border-radius: 10px;
   transition: background 0.15s ease;
+  -webkit-user-select: none;
   user-select: none;
 }
 
