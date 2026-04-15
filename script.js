@@ -75,12 +75,19 @@ const switchScreen = (targetId) => {
   const targetScreen = document.getElementById(targetId);
   if (!targetScreen) return;
 
+  const currentScreen = document.querySelector('.screen.active');
+  if (currentScreen && currentScreen.id === targetId) return;
+
   // Play Paper Flick (Sound placeholder logic)
   playFlickSound();
 
-  // Update Screens
-  screens.forEach(s => s.classList.remove('active'));
-  targetScreen.classList.add('active');
+  if (currentScreen) {
+    currentScreen.classList.remove('active');
+  }
+
+  requestAnimationFrame(() => {
+    targetScreen.classList.add('active');
+  });
 
   // Update Nav
   navItems.forEach(item => {
