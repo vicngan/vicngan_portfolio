@@ -369,18 +369,106 @@ updateTime();
 
 
 // ================================
-// UNIFIED MODAL SYSTEM
+// TABBED MODAL SYSTEM
 // ================================
-let modalOverlay, portfolioModal, modalBody, modalCloseBtn;
+let modalOverlay, portfolioModal, modalCloseBtn;
 
-function openModal(templateId) {
-  const tpl = document.getElementById(templateId);
-  if (!tpl || !modalBody) return;
-  modalBody.innerHTML = tpl.innerHTML;
+// DOM refs for the modal shell parts
+let pmStickyEmoji, pmStickyTitle, pmStickyDiscipline,
+    pmMetaRow, pmSnapProblem, pmSnapSolution, pmSnapImpact,
+    pmTabNav, pmTabContent;
+
+let currentProjectData = null;
+
+function openModal(dataId) {
+  const dataScript = document.getElementById(dataId);
+  if (!dataScript) return;
+
+  let project;
+  try {
+    project = JSON.parse(dataScript.textContent);
+  } catch(e) {
+    console.error('Modal JSON parse error:', e);
+    return;
+  }
+  currentProjectData = project;
+
+  // Populate sticky header
+  pmStickyEmoji.textContent = project.emoji || '';
+  pmStickyTitle.textContent = project.title || '';
+  pmStickyDiscipline.textContent = project.discipline || '';
+
+  // Meta pills
+  pmMetaRow.innerHTML = '';
+  if (project.role) {
+    const rp = document.createElement('span');
+    rp.className = 'pm-meta-pill role';
+    rp.textContent = project.role;
+    pmMetaRow.appendChild(rp);
+  }
+  if (project.timeline) {
+    const tp = document.createElement('span');
+    tp.className = 'pm-meta-pill timeline';
+    tp.textContent = project.timeline;
+    pmMetaRow.appendChild(tp);
+  }
+
+  // Snapshot bar
+  pmSnapProblem.textContent  = project.snapshot?.problem  || '';
+  pmSnapSolution.textContent = project.snapshot?.solution || '';
+  pmSnapImpact.textContent   = project.snapshot?.impact   || '';
+
+  // Build tab nav + render first tab
+  pmTabNav.innerHTML = '';
+  if (project.tabs && project.tabs.length) {
+    project.tabs.forEach((tab, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'pm-tab-btn' + (i === 0 ? ' active' : '');
+      btn.textContent = tab.label;
+      btn.dataset.tabId = tab.id;
+      btn.addEventListener('click', () => switchTab(btn, tab.content));
+      pmTabNav.appendChild(btn);
+    });
+    renderTabContent(project.tabs[0].content);
+  }
+
+  // Open
   modalOverlay.classList.add('open');
   portfolioModal.classList.add('open');
   portfolioModal.removeAttribute('aria-hidden');
   document.body.style.overflow = 'hidden';
+
+  // Reset scroll
+  pmTabContent.scrollTop = 0;
+}
+
+function switchTab(activeBtn, content) {
+  // Update active state
+  pmTabNav.querySelectorAll('.pm-tab-btn').forEach(b => b.classList.remove('active'));
+  activeBtn.classList.add('active');
+
+  // Fade out → swap → fade in (via CSS animation on .pm-tab-panel)
+  pmTabContent.style.opacity = '0';
+  pmTabContent.style.transform = 'translateY(6px)';
+  pmTabContent.style.transition = 'opacity 0.12s ease, transform 0.12s ease';
+
+  setTimeout(() => {
+    renderTabContent(content);
+    pmTabContent.scrollTop = 0;
+    pmTabContent.style.opacity = '1';
+    pmTabContent.style.transform = 'translateY(0)';
+  }, 120);
+}
+
+function renderTabContent(htmlContent) {
+  pmTabContent.style.opacity = '1';
+  pmTabContent.style.transform = 'translateY(0)';
+  pmTabContent.style.transition = '';
+  const panel = document.createElement('div');
+  panel.className = 'pm-tab-panel';
+  panel.innerHTML = htmlContent;
+  pmTabContent.innerHTML = '';
+  pmTabContent.appendChild(panel);
 }
 
 function closeModal() {
@@ -389,10 +477,10 @@ function closeModal() {
   portfolioModal.classList.remove('open');
   portfolioModal.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
-  setTimeout(() => { if (modalBody) modalBody.innerHTML = ''; }, 300);
+  currentProjectData = null;
 }
 
-// Event delegation for all data-modal triggers (project cards)
+// Event delegation for project card clicks
 document.addEventListener('click', (e) => {
   const trigger = e.target.closest('[data-modal]');
   if (trigger) {
@@ -435,8 +523,8 @@ function highlightSkillRows(techList) {
 }
 
 // ================================
-// JOURNEY ACCORDION
-// Click to expand inline — one open at a time
+// ACCORDION (Journey + Community)
+// Groups are independent — only one open per group at a time
 // ================================
 function initAccordion() {
   document.querySelectorAll('[data-expand]').forEach(summary => {
@@ -446,15 +534,28 @@ function initAccordion() {
       if (!targetItem) return;
 
       const isCurrentlyOpen = targetItem.classList.contains('is-open');
+      const isCommunity = targetItem.classList.contains('community-accordion');
 
-      // Close all (only one open at a time)
-      document.querySelectorAll('.journey-accordion.is-open').forEach(item => {
-        item.classList.remove('is-open');
-      });
+      if (isCommunity) {
+        // Community group: close siblings, toggle target
+        document.querySelectorAll('.community-accordion.is-open').forEach(item => {
+          item.classList.remove('is-open');
+        });
+        if (!isCurrentlyOpen) targetItem.classList.add('is-open');
 
-      // Open if it wasn't already open
-      if (!isCurrentlyOpen) {
-        targetItem.classList.add('is-open');
+      } else {
+        // Journey group: close siblings, toggle target
+        document.querySelectorAll('.journey-accordion.is-open').forEach(item => {
+          item.classList.remove('is-open');
+        });
+        if (!isCurrentlyOpen) targetItem.classList.add('is-open');
+
+        // Drive the dim system: add has-active to timeline when something is open
+        const timeline = document.querySelector('.journey-timeline');
+        if (timeline) {
+          const anyOpen = timeline.querySelector('.journey-accordion.is-open');
+          timeline.classList.toggle('has-active', !!anyOpen);
+        }
       }
     });
   });
@@ -483,10 +584,18 @@ function initCollageLightbox() {
 // Init all interactive features on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
   // Resolve modal elements
-  modalOverlay   = document.getElementById('modal-overlay');
-  portfolioModal = document.getElementById('portfolio-modal');
-  modalBody      = document.getElementById('modal-body');
-  modalCloseBtn  = document.getElementById('modal-close-btn');
+  modalOverlay          = document.getElementById('modal-overlay');
+  portfolioModal        = document.getElementById('portfolio-modal');
+  modalCloseBtn         = document.getElementById('modal-close-btn');
+  pmStickyEmoji         = document.getElementById('pm-sticky-emoji');
+  pmStickyTitle         = document.getElementById('pm-sticky-title');
+  pmStickyDiscipline    = document.getElementById('pm-sticky-discipline');
+  pmMetaRow             = document.getElementById('pm-meta-row');
+  pmSnapProblem         = document.getElementById('pm-snap-problem');
+  pmSnapSolution        = document.getElementById('pm-snap-solution');
+  pmSnapImpact          = document.getElementById('pm-snap-impact');
+  pmTabNav              = document.getElementById('pm-tab-nav');
+  pmTabContent          = document.getElementById('pm-tab-content');
   if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
 
   // Flip card
