@@ -615,4 +615,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     card.addEventListener('mouseleave', resetSkillRows);
   });
+  // Project Filtering
+  const projectBtns = document.querySelectorAll('.project-filter-btn');
+  const projectCards = document.querySelectorAll('.project-row-card[data-category]');
+
+  projectBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+
+      // Update active state
+      projectBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Filter cards
+      projectCards.forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.style.display = 'flex';
+          // Small delay to allow display to apply before fading in
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0) scale(1)';
+          }, 30);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(10px) scale(0.98)';
+          // Wait for transition before hiding from flow
+          setTimeout(() => {
+            // Verify state to prevent race conditions during fast clicking
+            if (btn.classList.contains('active') && (filter !== 'all' && card.dataset.category !== filter)) {
+              card.style.display = 'none';
+            }
+          }, 300);
+        }
+      });
+    });
+  });
 });

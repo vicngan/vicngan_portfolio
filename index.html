@@ -473,11 +473,17 @@
             <div class="work-projects-header">
               <h1>Featured Work</h1>
               <p>Click a project to explore the full case study 🍽️</p>
+
+              <div class="project-tabs" style="display: flex; gap: 0.5rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                <button data-filter="all" class="project-filter-btn active">All</button>
+                <button data-filter="tech" class="project-filter-btn">Tech</button>
+                <button data-filter="product" class="project-filter-btn">Entrepreneurship</button>
+              </div>
             </div>
             <div class="project-cards-container">
 
               <div class="project-row-card" data-tech="research,strategy,figma,abtesting,agile,roadmap"
-                data-modal="modal-hopper" role="button" tabindex="0">
+                data-category="product" data-modal="modal-hopper" role="button" tabindex="0">
                 <div class="project-row-visual">
                   <div class="proj-emoji">🧭</div>
                 </div>
@@ -493,7 +499,7 @@
               </div>
 
               <div class="project-row-card" data-tech="research,strategy,figma,abtesting,agile,roadmap"
-                data-modal="modal-betbuddies" role="button" tabindex="0">
+                data-category="product" data-modal="modal-betbuddies" role="button" tabindex="0">
                 <div class="project-row-visual">
                   <div class="proj-emoji">💰</div>
                 </div>
@@ -502,14 +508,14 @@
                     <h3>BetBuddies</h3><span class="proj-year">Sep 2025 - Apr 2026</span>
                   </div>
                   <p class="tech-tags">User Research · Behavioral Design · Product Strategy · Experimentation</p>
-                  <p class="project-desc">Social accountability platform. Interviews. Combines financial stakes with
-                    peer pressure to sustain habits.</p>
+                  <p class="project-desc">Hybrid behavior-change platform. 100+ interviews. Combines sleep tracking with
+                    social accountability to drive consistency.</p>
                 </div>
                 <span class="proj-arrow">→</span>
               </div>
 
               <div class="project-row-card" data-tech="python,react,fastapi,faiss,sdv,pandas,docker,git"
-                data-modal="modal-synthlab" role="button" tabindex="0">
+                data-category="tech" data-modal="modal-synthlab" role="button" tabindex="0">
                 <div class="project-row-visual">
                   <div class="proj-emoji">🧬</div>
                 </div>
@@ -525,7 +531,7 @@
               </div>
 
               <div class="project-row-card" data-tech="figma,research,agile,strategy,abtesting,roadmap"
-                data-modal="modal-betterschedule" role="button" tabindex="0">
+                data-category="product" data-modal="modal-betterschedule" role="button" tabindex="0">
                 <div class="project-row-visual">
                   <div class="proj-emoji">⏳</div>
                 </div>
@@ -540,7 +546,7 @@
                 <span class="proj-arrow">→</span>
               </div>
 
-              <div class="project-row-card" data-tech="reactnative,figma,research,nodejs,express"
+              <div class="project-row-card" data-tech="reactnative,figma,research,nodejs,express" data-category="tech"
                 data-modal="modal-heartline" role="button" tabindex="0">
                 <div class="project-row-visual">
                   <div class="proj-emoji">💚</div>
@@ -556,8 +562,8 @@
                 <span class="proj-arrow">→</span>
               </div>
 
-              <div class="project-row-card" data-tech="react,python,figma,html,research" data-modal="modal-smartrecord"
-                role="button" tabindex="0">
+              <div class="project-row-card" data-tech="react,python,figma,html,research" data-category="tech"
+                data-modal="modal-smartrecord" role="button" tabindex="0">
                 <div class="project-row-visual">
                   <div class="proj-emoji">🩺</div>
                 </div>
@@ -1017,7 +1023,7 @@
     "emoji": "🧭",
     "title": "Hopper",
     "discipline": "Product Research · UX Strategy · Prototyping",
-    "role": "Lead Researcher & Strategist",
+    "role": "Lead Researcher & Designer",
     "timeline": "Jan 2026 – Apr 2026",
     "snapshot": {
       "problem": "Students waste time on trial-and-error with no real-time study space visibility",
@@ -1055,33 +1061,38 @@
     "emoji": "💰",
     "title": "BetBuddies",
     "discipline": "Entrepreneurship · User Research · Behavioral Design",
-    "role": "Product Researcher & Strategist",
+    "role": "Product Founder & Chief Marketing Officer",
     "timeline": "Sep 2025 – Apr 2026",
     "snapshot": {
-      "problem": "College students fail habits not from lack of motivation, but lack of real consequence",
-      "solution": "Commitment-based accountability platform with financial stakes and peer accountability",
-      "impact": "50+ interviews · 2-phase research · Go decision validated"
+      "problem": "College students struggle to maintain consistent sleep habits due to low awareness, low motivation, and lack of accountability",
+      "solution": "Hybrid behavior-change platform combining sleep tracking, social accountability, and low-stakes commitment systems",
+      "impact": "100+ interviews · 2 phases · Hybrid model validated · Go decision confirmed"
     },
     "tabs": [
       {
         "id": "situation",
         "label": "Situation",
-        "content": "<div class='pm-content-section'><h3>Overview</h3><p>BetBuddies is a social accountability platform that combines financial stakes with peer accountability to help college students maintain habits and follow through on goals.</p></div><div class='pm-content-section'><h3>Context</h3><p>Existing habit apps are frictionless to ignore. Without real stakes or social pressure, streaks and reminders fail to drive sustained behavior change — especially for college students with unpredictable schedules.</p></div><div class='pm-content-section'><h3>My Role</h3><ul><li>Designed the <strong>full research methodology</strong> across two phases</li><li>Led <strong>50+ interviews</strong> with college students</li><li>Synthesized findings into go/no-go product decision framework</li><li>Built the full product concept and positioning strategy</li></ul></div><div class='pm-content-section'><h3>Tools</h3><div class='pm-tag-row'><span>User Interviews</span><span>Survey Design</span><span>Behavioral Analysis</span><span>Product Strategy</span><span>Figma</span></div></div>"
+        "content": "<div class='pm-content-section'><div class='pm-img-frame' style='max-width: 70%; margin: 0 auto; border: none; background: transparent;'><img src='assets/projects/betbuddies_prototype.png' alt='BetBuddies Prototype' style='width: 100%; height: auto; border-radius: 8px;'/></div></div><div class='pm-content-section'><h3>Overview</h3><p>BetBuddies is a behavior-change platform designed to help college students build consistent sleep habits. It combines sleep tracking, social accountability, and low-stakes commitment systems to drive awareness, motivation, and long-term consistency.</p></div><div class='pm-content-section'><h3>Context</h3><p>Most existing sleep and habit apps are easy to ignore. While students already use alarms, trackers, and routines, these tools fail to drive sustained behavior change because they lack engagement, accountability, and meaningful feedback. This is especially problematic for college students, whose schedules are inconsistent and highly influenced by academic and social pressures.</p></div><div class='pm-content-section'><h3>My Role</h3><ul><li>Designed and executed 2-phase research strategy (discovery + validation)</li><li>Conducted 100+ user interviews with college students</li><li>Led experiment design and analysis (social + tracking validation)</li><li>Synthesized insights into go/no-go product decision framework</li><li>Defined product strategy and core feature set</li></ul></div><div class='pm-content-section'><h3>Tools</h3><div class='pm-tag-row'><span>User Interviews</span><span>Survey Design</span><span>Behavioral Analysis</span><span>Product Strategy</span><span>Figma</span></div></div>"
       },
       {
         "id": "research",
         "label": "Research",
-        "content": "<div class='pm-content-section'><h3>Problem Statement</h3><p class='pm-callout'>College students consistently fail to maintain habits — not from lack of motivation, but lack of consequence. Existing apps are too easy to ignore.</p></div><div class='pm-content-section'><h3>Research Findings</h3><div class='pm-insight-cards'><div class='pm-insight-card'><span class='pm-insight-num'>52%</span><p>cite academic workload as the top habit disruptor</p></div><div class='pm-insight-card'><span class='pm-insight-num'>61%</span><p>feel physically drained when goals fail over multiple consecutive weeks</p></div><div class='pm-insight-card'><span class='pm-insight-num'>↑ High</span><p>demand for social accountability and immediate, tangible feedback</p></div><div class='pm-insight-card'><span class='pm-insight-num'>✓ Strong</span><p>interest when financial stakes were introduced in concept testing</p></div></div></div><div class='pm-content-section'><h3>Research Methodology</h3><ul><li><strong>Phase 1:</strong> Exploratory interviews — understanding habit failure patterns</li><li><strong>Phase 2:</strong> Concept validation — testing accountability + financial stakes model</li><li>Triangulated qualitative interviews with quantitative survey data</li></ul></div>"
+        "content": "<div class='pm-content-section'><h3>Problem Statement</h3><p class='pm-callout'>College students consistently fail to maintain 7–8 hours of sleep, not due to lack of tools, but due to lack of sustained motivation, accountability, and awareness.</p></div><div class='pm-content-section'><h3>Key Insights</h3><div class='pm-insight-cards'><div class='pm-insight-card'><span class='pm-insight-num'>01</span><p>Students already use sleep tools but abandon them due to low engagement</p></div><div class='pm-insight-card'><span class='pm-insight-num'>02</span><p>Social influence significantly increases adoption and consistency</p></div><div class='pm-insight-card'><span class='pm-insight-num'>03</span><p>Tracking and data insights are required for long-term engagement</p></div><div class='pm-insight-card'><span class='pm-insight-num'>04</span><p>High-risk financial penalties reduce adoption — users prefer low-stakes accountability</p></div></div></div><div class='pm-content-section'><h3>Research Method</h3><ul><li>Phase 1: Exploratory interviews to understand habit failure patterns</li><li>Phase 2: Concept validation through experiments (social + tracking)</li><li>Mixed-method approach combining qualitative interviews and survey data</li></ul></div>"
       },
       {
         "id": "strategy",
         "label": "Strategy",
-        "content": "<div class='pm-content-section'><h3>The Solution</h3><p>A commitment-based accountability platform where users deposit money toward a goal, invite friends as accountability partners, and either earn their deposit back (success) or lose it to the group fund (failure).</p></div><div class='pm-content-section'><h3>Go / No-Go Framework</h3><p class='pm-callout' style='background:color-mix(in srgb, var(--matcha) 12%, var(--surface-alt));'><strong>Decision: GO ✓</strong> — Strong validated demand, clear differentiation from existing apps, financially sustainable model.</p></div><div class='pm-content-section'><h3>Key Design Decisions</h3><div class='pm-feature-grid'><div class='pm-feature-card'><span class='pm-feature-icon'>💸</span><h4>Financial Stakes</h4><p>Real money creates real commitment. Social pressure alone is not enough without consequence.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>👥</span><h4>Peer Accountability</h4><p>Friends verify completion. Community maintains accountability without external moderation.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>🎯</span><h4>Goal Specificity</h4><p>Goals must be concrete and verifiable to enable fair peer accountability checks.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>📊</span><h4>Progress Transparency</h4><p>Group visibility into streaks creates healthy social pressure and celebration.</p></div></div></div><div class='pm-content-section'><h3>Prototype</h3><div class='pm-img-frame'><img src='assets/projects/betbuddies_prototype.png' alt='App prototype' /></div></div><div class='pm-content-section'><h3>Working Prototype</h3><a class='pm-prototype-btn' href='https://grass-chrome-97636871.figma.site/home' target='_blank' rel='noopener noreferrer'>View Prototype ↗</a></div>"
+        "content": "<div class='pm-content-section'><h3>Solution</h3><p>BetBuddies uses a hybrid model that integrates tracking, social interaction, and accountability. Instead of relying on discipline alone, it aligns awareness (tracking), motivation (social), and consistency (accountability) into a single system.</p></div><div class='pm-content-section'><h3>Key Design Decisions</h3><div class='pm-feature-grid'><div class='pm-feature-card'><span class='pm-feature-icon'>📊</span><h4>Tracking</h4><p>Provides sleep data, trends, and insights to increase awareness and perceived value</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>👥</span><h4>Social</h4><p>Friend groups, challenges, and shared progress drive engagement and accountability</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>🎯</span><h4>Accountability</h4><p>Low-stakes bets or points increase commitment without introducing stress or risk</p></div></div></div><div class='pm-content-section'><h3>Experiments</h3><div class='pm-two-col'><div><p class='pm-col-label'>Experiment 1: Social Accountability</p><p>Users were significantly more likely to download and engage when friends were involved. <strong>Insight:</strong> Close social groups drive adoption and motivation.</p></div><div><p class='pm-col-label'>Experiment 2: Tracking vs Accountability</p><p>Users strongly preferred tracking + accountability over accountability alone. <strong>Insight:</strong> Data creates long-term engagement, not just motivation.</p></div></div></div><div class='pm-content-section'><h3>Prototype</h3><a class='pm-prototype-btn' href='https://grass-chrome-97636871.figma.site/home' target='_blank' rel='noopener noreferrer'>View Prototype ↗</a></div>"
       },
       {
         "id": "results",
         "label": "Results",
-        "content": "<div class='pm-content-section'><h3>Validated Outcomes</h3><div class='pm-insight-cards'><div class='pm-insight-card'><span class='pm-insight-num'>50+</span><p>interviews conducted across two structured research phases</p></div><div class='pm-insight-card'><span class='pm-insight-num'>2</span><p>research phases: discovery + concept validation completed</p></div><div class='pm-insight-card'><span class='pm-insight-num'>GO</span><p>product decision confirmed with strong demand signal and market differentiation</p></div></div></div><div class='pm-content-section'><h3>What I Learned</h3><div class='pm-reflection'><div class='pm-reflection-item'><span>💡</span><p>Behavior change requires <strong>real stakes</strong> — frictionless apps are too easy to abandon.</p></div><div class='pm-reflection-item'><span>🎯</span><p>Social accountability is most effective when paired with <strong>tangible consequence</strong>.</p></div><div class='pm-reflection-item'><span>🔄</span><p>Rigorous two-phase research gave the go/no-go decision <strong>genuine credibility</strong>.</p></div></div></div><div class='pm-content-section'><div class='pm-tag-row' style='border-top:1px solid var(--border); padding-top:1rem;'><span>User Research</span><span>Behavioral Design</span><span>Product Strategy</span><span>A/B Testing</span><span>Figma</span></div></div>"
+        "content": "<div class='pm-content-section'><h3>Validated Outcomes</h3><ul><li>50+ user interviews conducted</li><li>2 experiments validated core assumptions</li><li>Clear preference for hybrid model (tracking + social + accountability)</li><li>Strong demand signal → GO decision confirmed</li></ul></div><div class='pm-content-section'><h3>Product Insight</h3><p class='pm-callout' style='background:color-mix(in srgb, var(--matcha) 12%, var(--surface-alt));'>Behavior change is not driven by a single feature, but by the interaction of awareness, motivation, and accountability. The most effective solution was not maximizing one factor, but balancing all three.</p></div><div class='pm-content-section'><h3>What I Learned</h3><div class='pm-reflection'><div class='pm-reflection-item'><span>💡</span><p>Behavior change requires real engagement, not just tools.</p></div><div class='pm-reflection-item'><span>🎯</span><p>Social accountability is most effective when paired with data.</p></div><div class='pm-reflection-item'><span>🔄</span><p>Users prefer low-pressure systems over high-risk penalties.</p></div><div class='pm-reflection-item'><span>🚀</span><p>Strong product decisions come from iterative validation, not assumptions.</p></div></div></div><div class='pm-content-section'><div class='pm-tag-row' style='border-top:1px solid var(--border); padding-top:1rem;'><span>User Research</span><span>Behavioral Design</span><span>Product Strategy</span><span>Experimentation</span><span>Figma</span></div></div>"
+      },
+      {
+        "id": "pitch",
+        "label": "Pitch",
+        "content": "<div class='pm-content-section'><h3>Pitch Deck</h3><a class='pm-prototype-btn' href='https://www.canva.com/design/DAHEPTcKAfc/fzSqf8wV50zCmIxYRihyLQ/view?utm_content=DAHEPTcKAfc&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h327d0e9d93' target='_blank' rel='noopener noreferrer' style='margin-bottom: 1.5rem; display: inline-block;'>Click to see pitch ↗</a><div class='pm-img-frame'><img src='assets/projects/betbuddies_pitch.png' alt='BetBuddies Pitch Cover' /></div></div>"
       }
     ]
   }

@@ -586,6 +586,31 @@ a {
   border-radius: 99px;
 }
 
+/* --- PROJECT TABS --- */
+.project-filter-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 0.35rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: inherit;
+}
+
+.project-filter-btn:hover {
+  border-color: var(--matcha);
+  color: var(--text);
+}
+
+.project-filter-btn.active {
+  background: var(--matcha);
+  border-color: var(--matcha);
+  color: #fff;
+}
+
 .project-row-card {
   display: flex;
   gap: 1.25rem;
@@ -594,10 +619,11 @@ a {
   border-radius: 14px;
   border: 1px solid var(--border);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
   align-items: flex-start;
   flex-shrink: 0;
+  opacity: 1; /* For filtering */
 }
 
 .project-row-card:hover {
