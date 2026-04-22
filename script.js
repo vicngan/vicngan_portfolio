@@ -24,9 +24,9 @@ if (splashScreen) {
   ];
 
   // Staggered delays (ms) after page load before each line appears
-  const APPEAR_DELAYS  = [1500, 2000, 2550, 3100, 3650];
+  const APPEAR_DELAYS = [1500, 2000, 2550, 3100, 3650];
   // How long after appearing before each gets ticked ✓
-  const TICK_OFFSETS   = [400,  400,  400,  400,  500 ];
+  const TICK_OFFSETS = [400, 400, 400, 400, 500];
   // Auto-dismiss after the last tick + a short pause
   const AUTO_DISMISS_AFTER = 3650 + 500 + 800; // ~5s total
 
@@ -337,7 +337,7 @@ const stampContainer = document.getElementById('order-stamp-container');
 
 contactForm?.addEventListener('submit', async (e) => {
   e.preventDefault();
-  
+
   // Trigger Stamp
   if (stampContainer) {
     stampContainer.classList.add('active');
@@ -347,7 +347,7 @@ contactForm?.addEventListener('submit', async (e) => {
   // Simulate API call (Old logic)
   const submitButton = contactForm.querySelector('button[type="submit"]');
   submitButton?.setAttribute('disabled', 'true');
-  
+
   setTimeout(() => {
     alert('Order Received! Victoria will get back to you soon. 🍵');
     contactForm.reset();
@@ -375,8 +375,8 @@ let modalOverlay, portfolioModal, modalCloseBtn;
 
 // DOM refs for the modal shell parts
 let pmStickyEmoji, pmStickyTitle, pmStickyDiscipline,
-    pmMetaRow, pmSnapProblem, pmSnapSolution, pmSnapImpact,
-    pmTabNav, pmTabContent;
+  pmMetaRow, pmSnapProblem, pmSnapSolution, pmSnapImpact,
+  pmTabNav, pmTabContent;
 
 let currentProjectData = null;
 
@@ -387,7 +387,7 @@ function openModal(dataId) {
   let project;
   try {
     project = JSON.parse(dataScript.textContent);
-  } catch(e) {
+  } catch (e) {
     console.error('Modal JSON parse error:', e);
     return;
   }
@@ -414,9 +414,9 @@ function openModal(dataId) {
   }
 
   // Snapshot bar
-  pmSnapProblem.textContent  = project.snapshot?.problem  || '';
+  pmSnapProblem.textContent = project.snapshot?.problem || '';
   pmSnapSolution.textContent = project.snapshot?.solution || '';
-  pmSnapImpact.textContent   = project.snapshot?.impact   || '';
+  pmSnapImpact.textContent = project.snapshot?.impact || '';
 
   // Build tab nav + render first tab
   pmTabNav.innerHTML = '';
@@ -584,18 +584,18 @@ function initCollageLightbox() {
 // Init all interactive features on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
   // Resolve modal elements
-  modalOverlay          = document.getElementById('modal-overlay');
-  portfolioModal        = document.getElementById('portfolio-modal');
-  modalCloseBtn         = document.getElementById('modal-close-btn');
-  pmStickyEmoji         = document.getElementById('pm-sticky-emoji');
-  pmStickyTitle         = document.getElementById('pm-sticky-title');
-  pmStickyDiscipline    = document.getElementById('pm-sticky-discipline');
-  pmMetaRow             = document.getElementById('pm-meta-row');
-  pmSnapProblem         = document.getElementById('pm-snap-problem');
-  pmSnapSolution        = document.getElementById('pm-snap-solution');
-  pmSnapImpact          = document.getElementById('pm-snap-impact');
-  pmTabNav              = document.getElementById('pm-tab-nav');
-  pmTabContent          = document.getElementById('pm-tab-content');
+  modalOverlay = document.getElementById('modal-overlay');
+  portfolioModal = document.getElementById('portfolio-modal');
+  modalCloseBtn = document.getElementById('modal-close-btn');
+  pmStickyEmoji = document.getElementById('pm-sticky-emoji');
+  pmStickyTitle = document.getElementById('pm-sticky-title');
+  pmStickyDiscipline = document.getElementById('pm-sticky-discipline');
+  pmMetaRow = document.getElementById('pm-meta-row');
+  pmSnapProblem = document.getElementById('pm-snap-problem');
+  pmSnapSolution = document.getElementById('pm-snap-solution');
+  pmSnapImpact = document.getElementById('pm-snap-impact');
+  pmTabNav = document.getElementById('pm-tab-nav');
+  pmTabContent = document.getElementById('pm-tab-content');
   if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
 
   // Flip card

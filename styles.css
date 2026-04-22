@@ -248,22 +248,24 @@ a {
   height: 100%;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 160ms ease;
+  /* translateZ promotes all screens to GPU layers so they're pre-painted */
+  transform: translateZ(0);
   padding-top: 0;
   padding-bottom: 0;
   overflow: hidden;
   pointer-events: none;
   will-change: opacity;
   backface-visibility: hidden;
-  contain: layout paint;
   z-index: 0;
 }
 
 .screen.active {
   opacity: 1;
   visibility: visible;
+  transform: translateZ(0);
   pointer-events: auto;
   z-index: 10;
+  transition: opacity 200ms ease;
 }
 
 .section {
@@ -623,7 +625,8 @@ a {
   cursor: pointer;
   align-items: flex-start;
   flex-shrink: 0;
-  opacity: 1; /* For filtering */
+  opacity: 1;
+  /* For filtering */
 }
 
 .project-row-card:hover {
@@ -1294,7 +1297,8 @@ a {
 .timeline::before {
   content: "";
   position: absolute;
-  left: 147px; /* Centers exactly in the 16px gap between 140px Date and Title */
+  left: 147px;
+  /* Centers exactly in the 16px gap between 140px Date and Title */
   top: 0;
   bottom: 0;
   width: 2px;
@@ -1309,8 +1313,10 @@ a {
 .timeline-item::before {
   content: "";
   position: absolute;
-  left: 142px; /* 147px line offset - 5px radius */
-  top: 4px; /* Align slightly down with text baseline */
+  left: 142px;
+  /* 147px line offset - 5px radius */
+  top: 4px;
+  /* Align slightly down with text baseline */
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -3391,7 +3397,8 @@ a {
 
 /* Horizontal scrollable frame for long layouts (magazine-style) */
 .pm-img-frame {
-  display: flex; /* supports horizontal row wrapping */
+  display: flex;
+  /* supports horizontal row wrapping */
   width: fit-content;
   max-width: 100%;
   overflow-x: auto;
@@ -3403,7 +3410,8 @@ a {
   display: block;
   width: auto;
   height: auto;
-  max-height: 520px; /* Cap height to keep it in viewport */
+  max-height: 520px;
+  /* Cap height to keep it in viewport */
   flex-shrink: 0;
 }
 
@@ -3564,13 +3572,15 @@ a {
   background: #eee;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, z-index 0.2s;
-  overflow: hidden; /* acts as a strict frame boundary */
+  overflow: hidden;
+  /* acts as a strict frame boundary */
 }
 
 .collage-grid .placeholder img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* frames without stretching */
+  object-fit: cover;
+  /* frames without stretching */
   display: block;
 }
 
