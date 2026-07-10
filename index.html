@@ -1,1218 +1,404 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Victoria Nguyen · Portfolio</title>
+  <meta name="description" content="Victoria Nguyen — CS & Entrepreneurship @ University of Michigan, Co-Founder/CEO of ACASO, Michigan Medicine Researcher. Product-minded software engineer." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Karla:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/svg+xml" href="assets/icons/heart.svg" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
 <body>
-  <div class="dashboard-container">
-    <aside class="sidebar">
-      <div class="sidebar-logo">🍵</div>
-      <nav class="sidebar-nav">
-        <div class="nav-item active" data-target="hero">
-          <i class="fas fa-home"></i>
-          <span>Home</span>
-        </div>
-        <div class="nav-item" data-target="about">
-          <i class="fas fa-user"></i>
-          <span>About</span>
-        </div>
-        <div class="nav-item" data-target="work">
-          <i class="fas fa-layer-group"></i>
-          <span>Work</span>
-        </div>
-        <div class="nav-item" data-target="journey">
-          <i class="fas fa-map-marked-alt"></i>
-          <span>Journey</span>
-        </div>
-        <div class="nav-item" data-target="contact">
-          <i class="fas fa-envelope-open-text"></i>
-          <span>Contact</span>
-        </div>
-        <a href="assets/V_Nguyen_Resume_v2.pdf" target="_blank" class="nav-item">
-          <i class="fas fa-file-alt"></i>
-          <span>Resume</span>
-        </a>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <div class="bar">
+      <a href="#home" class="brand">Victoria Nguyen</a>
+      <nav class="nav">
+        <a href="#home" class="home" data-nav="home">home</a>
+        <a href="#gallery" data-nav="gallery">gallery</a>
+        <a href="#work" data-nav="work">my work</a>
+        <a href="#journey" data-nav="journey">journey</a>
+        <a href="#contact" data-nav="contact">contact</a>
       </nav>
-      <div class="header-actions" style="margin-top: auto;">
-        <button class="toggle-theme" aria-label="Toggle dark mode">
-          <span class="toggle-thumb"></span>
-        </button>
+      <div class="header-btns">
+        <a href="assets/V_Nguyen_MAINResume.pdf" target="_blank" rel="noopener" class="chip-btn">resume ↗</a>
+        <a href="https://www.linkedin.com/in/vicngan" target="_blank" rel="noopener" class="chip-btn alt">in</a>
+        <a href="https://github.com/vicngan" target="_blank" rel="noopener" class="chip-btn">gh</a>
       </div>
-    </aside>
+    </div>
+  </header>
+  <div class="header-spacer"></div>
 
-    <div class="main-content">
-      <!-- Splash Screen: Café Receipt -->
-      <div class="splash-screen" id="splash-screen" role="status" aria-live="polite"
-        aria-label="Loading Victoria's Portfolio">
-        <!-- Floating dots background -->
-        <div class="receipt-bg-dots" aria-hidden="true"></div>
+  <!-- ================= HOME / HERO ================= -->
+  <section id="home">
+    <div class="hero">
+      <div class="hero-copy">
+        <div class="hero-hi">hi, welcome to my little café —</div>
+        <h1>I'm Victoria. I build things based on vibes, passion, and creativity!</h1>
+        <p class="hero-bio">CS &amp; Entrepreneurship @ University of Michigan · Co-Founder/CEO of
+          <b>ACASO</b> · Michigan Medicine Researcher. Sippin' my cup of matcha and just vibin'</p>
 
-        <div class="splash-receipt">
-          <!-- Receipt clip at top -->
-          <div class="receipt-tear-top" aria-hidden="true">
-            <svg viewBox="0 0 320 18" preserveAspectRatio="none">
-              <path
-                d="M0,10 Q10,0 20,10 Q30,20 40,10 Q50,0 60,10 Q70,20 80,10 Q90,0 100,10 Q110,20 120,10 Q130,0 140,10 Q150,20 160,10 Q170,0 180,10 Q190,20 200,10 Q210,0 220,10 Q230,20 240,10 Q250,0 260,10 Q270,20 280,10 Q290,0 300,10 Q310,20 320,10"
-                fill="white" />
-            </svg>
+        <!-- music player -->
+        <div class="music" id="music">
+          <button class="play" id="music-toggle" aria-label="play playlist">▶</button>
+          <div>
+            <div class="track-title">lofi for late nights</div>
+            <div class="track-sub">victoria's working playlist · tap play ♡</div>
           </div>
-
-          <!-- Store header -->
-          <div class="receipt-store-header">
-            <div class="receipt-store-name">☕ VIC'S CAFÉ</div>
-            <div class="receipt-store-sub">Est. 2026 · Ann Arbor, MI</div>
-            <div class="receipt-divider dashes"></div>
-            <div class="receipt-order-label">ORDER RECEIVED</div>
-            <div class="receipt-order-item-main">Victoria's Portfolio</div>
-            <div class="receipt-divider dashes"></div>
-          </div>
-
-          <!-- Brewing checklist -->
-          <ul class="receipt-checklist" aria-label="Loading steps">
-            <li class="receipt-check" id="check-1" aria-live="polite">
-              <span class="check-box" aria-hidden="true">[ ]</span>
-              <span class="check-label">Brewing matcha...</span>
-            </li>
-            <li class="receipt-check" id="check-2" aria-live="polite">
-              <span class="check-box" aria-hidden="true">[ ]</span>
-              <span class="check-label">Warming your seat...</span>
-            </li>
-            <li class="receipt-check" id="check-3" aria-live="polite">
-              <span class="check-box" aria-hidden="true">[ ]</span>
-              <span class="check-label">Setting the vibe...</span>
-            </li>
-            <li class="receipt-check" id="check-4" aria-live="polite">
-              <span class="check-box" aria-hidden="true">[ ]</span>
-              <span class="check-label">Laying out the menu...</span>
-            </li>
-            <li class="receipt-check" id="check-5" aria-live="polite">
-              <span class="check-box" aria-hidden="true">[ ]</span>
-              <span class="check-label">Your table is ready ✨</span>
-            </li>
-          </ul>
-
-          <div class="receipt-divider dashes"></div>
-
-          <!-- Footer total -->
-          <div class="receipt-footer-row">
-            <span>TOTAL CARE</span><span>100% 🍵</span>
-          </div>
-          <div class="receipt-footer-row bold">
-            <span>THANK YOU!</span><span>Come back soon</span>
-          </div>
-
-          <div class="receipt-divider dashes"></div>
-          <div class="receipt-barcode-row" aria-hidden="true">
-            <div class="splash-barcode">
-              <span></span><span></span><span></span><span></span><span></span>
-              <span></span><span></span><span></span><span></span><span></span>
-              <span></span><span></span><span></span><span></span><span></span>
-            </div>
-          </div>
-          <div class="receipt-skip">click anywhere to skip →</div>
-
-          <!-- Receipt tear at bottom -->
-          <div class="receipt-tear-bottom" aria-hidden="true">
-            <svg viewBox="0 0 320 18" preserveAspectRatio="none">
-              <path
-                d="M0,8 Q10,18 20,8 Q30,-2 40,8 Q50,18 60,8 Q70,-2 80,8 Q90,18 100,8 Q110,-2 120,8 Q130,18 140,8 Q150,-2 160,8 Q170,18 180,8 Q190,-2 200,8 Q210,18 220,8 Q230,-2 240,8 Q250,18 260,8 Q270,-2 280,8 Q290,18 300,8 Q310,-2 320,8"
-                fill="white" />
-            </svg>
-          </div>
+          <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        </div>
+        <div id="spotify-embed" hidden>
+          <iframe title="Victoria's working playlist" style="border-radius:12px" width="100%" height="152"
+            frameborder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+            data-src="https://open.spotify.com/embed/playlist/7yGJd2Zslsprets7KYdMPz?utm_source=generator"></iframe>
         </div>
       </div>
 
-      <div class="ambient ambient-top" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+      <!-- blob barista at the counter -->
+      <div class="barista">
+        <div class="barista-bubble">
+          <span class="hand">welcome in!! I'm Bubby :) <br>scroll down for a great journey — I'll come with you ♡</span>
+          <div class="bubble-tail"></div>
+        </div>
+        <div style="position:relative;height:150px;z-index:1">
+          <div class="blob-body" style="position:absolute;bottom:-6px;left:78px;width:132px;height:122px"></div>
+          <div style="position:absolute;bottom:110px;left:140px;width:4px;height:14px;background:#5c7a5a;border-radius:2px"></div>
+          <div style="position:absolute;bottom:120px;left:130px;width:16px;height:10px;background:#5c7a5a;border-radius:50% 50% 50% 0;transform:rotate(-30deg)"></div>
+          <div style="position:absolute;bottom:120px;left:144px;width:16px;height:10px;background:#5c7a5a;border-radius:50% 50% 0 50%;transform:rotate(30deg)"></div>
+          <div style="position:absolute;bottom:66px;left:104px;width:26px;height:22px;border:2.5px solid rgba(51,64,47,.85);border-radius:9px;background:rgba(255,255,255,.25)"></div>
+          <div style="position:absolute;bottom:66px;left:142px;width:26px;height:22px;border:2.5px solid rgba(51,64,47,.85);border-radius:9px;background:rgba(255,255,255,.25)"></div>
+          <div style="position:absolute;bottom:75px;left:130px;width:12px;height:3px;background:rgba(51,64,47,.85);border-radius:2px"></div>
+          <div class="blob-eye" style="position:absolute;bottom:71px;left:113px;width:7px;height:9px"></div>
+          <div class="blob-eye" style="position:absolute;bottom:71px;left:151px;width:7px;height:9px"></div>
+          <div style="position:absolute;bottom:50px;left:129px;width:16px;height:9px;border:2.5px solid #33402f;border-top:none;border-radius:0 0 10px 10px"></div>
+          <div style="position:absolute;bottom:57px;left:94px;width:12px;height:6px;border-radius:50%;background:#d98f77;opacity:.55"></div>
+          <div style="position:absolute;bottom:57px;left:166px;width:12px;height:6px;border-radius:50%;background:#d98f77;opacity:.55"></div>
+          <div style="position:absolute;bottom:70px;left:200px;width:26px;height:10px;background:#8ba888;border-radius:6px;transform-origin:left center;animation:wave 1.8s ease-in-out infinite"></div>
+          <div style="position:absolute;bottom:38px;left:62px;width:28px;height:10px;background:#8ba888;border-radius:6px;transform:rotate(-16deg)"></div>
+          <div style="position:absolute;bottom:46px;left:46px;width:24px;height:18px;background:#fffdf6;border:2px solid #33402f;border-radius:2px 2px 9px 9px"></div>
+          <div style="position:absolute;bottom:66px;left:51px;width:4px;height:9px;border-radius:2px;background:#c9c2ae;animation:steam 2.2s ease-out infinite"></div>
+          <div style="position:absolute;bottom:66px;left:60px;width:4px;height:9px;border-radius:2px;background:#c9c2ae;animation:steam 2.2s 1.1s ease-out infinite"></div>
+        </div>
+        <div class="counter"></div>
       </div>
-      <div class="ambient ambient-bottom" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
+    </div>
+
+    <!-- sticker strip -->
+    <div class="stickers">
+      <!-- boba sticker (easter egg) -->
+      <div class="sticker drag-sticker" data-skey="boba" data-say="boba break!! taro, 50% sweet, extra pearls" title="drag me or click me"
+        style="--r:-6deg;position:relative;width:46px;height:60px;transform:rotate(-6deg);animation:floaty 4s .3s ease-in-out infinite">
+        <div style="position:absolute;bottom:0;left:4px;width:36px;height:46px;border-radius:6px 6px 15px 15px;background:#efdcc3;border:2px solid #37402f"></div>
+        <div style="position:absolute;bottom:5px;left:11px;width:7px;height:7px;border-radius:50%;background:#37402f"></div>
+        <div style="position:absolute;bottom:5px;left:22px;width:7px;height:7px;border-radius:50%;background:#37402f"></div>
+        <div style="position:absolute;bottom:13px;left:16px;width:7px;height:7px;border-radius:50%;background:#37402f"></div>
+        <div style="position:absolute;top:0;left:20px;width:5px;height:22px;background:#8ba888;border-radius:3px;transform:rotate(8deg)"></div>
+      </div>
+      <!-- matcha cup sticker -->
+      <div class="drag-sticker" data-skey="matcha" title="drag me"
+        style="--r:4deg;position:relative;width:46px;height:46px;transform:rotate(4deg);animation:floaty 4.6s .8s ease-in-out infinite">
+        <div style="position:absolute;bottom:0;left:4px;width:36px;height:26px;border-radius:4px 4px 12px 12px;background:#fffdf6;border:2px solid #37402f"></div>
+        <div style="position:absolute;bottom:16px;left:6px;width:32px;height:8px;background:#a8c3a0;border-radius:3px"></div>
+        <div style="position:absolute;bottom:30px;left:14px;width:5px;height:9px;border-radius:3px;background:#c9c2ae;animation:steam 2.4s ease-out infinite"></div>
+        <div style="position:absolute;bottom:30px;left:24px;width:5px;height:9px;border-radius:3px;background:#c9c2ae;animation:steam 2.4s 1.2s ease-out infinite"></div>
       </div>
 
-      <!-- ===== HOME SCREEN ===== -->
-      <section id="hero" class="screen active">
-        <div class="screen-content-wrapper">
-          <div class="hero-editorial-layout">
+      <!-- sushi (salmon nigiri) sticker -->
+      <div class="sticker drag-sticker" data-skey="sushi" data-say="sushi run?? salmon nigiri, always 🍣" title="drag me or click me"
+        style="--r:-5deg;transform:rotate(-5deg);animation:floaty 4.2s .5s ease-in-out infinite">
+        <svg width="52" height="40" viewBox="0 0 52 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="5" y="27" width="42" height="10" rx="5" fill="#4a4a42" stroke="#37402f" stroke-width="2"/>
+          <rect x="9" y="17" width="34" height="16" rx="8" fill="#fffdf6" stroke="#37402f" stroke-width="2.5"/>
+          <rect x="6" y="7" width="40" height="14" rx="7" fill="#e6a086" stroke="#37402f" stroke-width="2.5"/>
+          <path d="M14 11h24M14 16h24" stroke="#f3c7b6" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
 
-            <!-- LEFT: Identity block -->
-            <div class="hero-editorial-text">
-              <div class="hero-portrait-avatar">
-                <img src="assets/pics/Headshot.jpg" alt="Victoria Nguyen" />
-              </div>
-              <p class="hero-intro-line">Hi, I'm</p>
-              <h1 class="hero-name">Victoria Nguyen</h1>
-              <h2 class="hero-edu">Software Engineer &amp; Product Thinker</h2>
-              <p class="hero-uni">University of Michigan</p>
-              <p class="hero-bio">
-                From AI in healthcare to behavioral design platforms, I build things that are intentional, human, and
-                worth using.
-              </p>
-              <div class="hero-buttons">
-                <button class="btn primary nav-link-btn" data-target="work">View Work</button>
+      <!-- camera sticker -->
+      <div class="sticker drag-sticker" data-skey="camera" data-say="say cheese!! 📸 caught in 4k" title="drag me or click me"
+        style="--r:3deg;transform:rotate(3deg);animation:floaty 4.7s .9s ease-in-out infinite">
+        <svg width="54" height="42" viewBox="0 0 54 42" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="10" y="5" width="15" height="8" rx="2" fill="#8ba888" stroke="#37402f" stroke-width="2.5"/>
+          <rect x="4" y="11" width="46" height="27" rx="6" fill="#8ba888" stroke="#37402f" stroke-width="2.5"/>
+          <circle cx="27" cy="25" r="9.5" fill="#cddcc6" stroke="#37402f" stroke-width="2.5"/>
+          <circle cx="27" cy="25" r="4" fill="#5c7a5a"/>
+          <circle cx="42" cy="18" r="2.6" fill="#e0a25c"/>
+        </svg>
+      </div>
 
-                <div class="hero-links">
-                  <a href="https://linkedin.com/in/victoriangannguyen" target="_blank">LinkedIn</a>
-                  <a href="https://github.com/victoriangannguyen" target="_blank">GitHub</a>
-                </div>
-              </div>
-            </div>
+      <!-- headphones sticker -->
+      <div class="sticker drag-sticker" data-skey="headphones" data-say="now playing: lofi for late nights ♡" title="drag me or click me"
+        style="--r:-4deg;transform:rotate(-4deg);animation:floaty 4.4s 1.3s ease-in-out infinite">
+        <svg width="50" height="44" viewBox="0 0 50 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M7 32V25a18 18 0 0 1 36 0v7" fill="none" stroke="#37402f" stroke-width="3" stroke-linecap="round"/>
+          <rect x="3" y="27" width="12" height="16" rx="4" fill="#8ba888" stroke="#37402f" stroke-width="2.5"/>
+          <rect x="35" y="27" width="12" height="16" rx="4" fill="#8ba888" stroke="#37402f" stroke-width="2.5"/>
+          <circle cx="22" cy="22" r="2.8" fill="#37402f"/>
+          <path d="M24.6 22V12" stroke="#37402f" stroke-width="2" stroke-linecap="round"/>
+          <path d="M24.6 12q5 1 5 5" fill="none" stroke="#37402f" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
 
-            <!-- RIGHT: Visual collage -->
-            <div class="collage-wrapper">
-              <div class="collage-grid">
-                <div class="placeholder c1">
-                  <img src="assets/pics/p1.png" alt="placeholder">
-                </div>
-                <div class="placeholder c2">
-                  <img src="assets/pics/p4.png" alt="placeholder">
-                </div>
-                <div class="placeholder c3">
-                  <img src="assets/pics/p7.png" alt="placeholder">
-                </div>
-                <div class="placeholder c4">
-                  <img src="assets/pics/p3.png" alt="placeholder">
-                </div>
-                <div class="placeholder c5">
-                  <img src="assets/pics/p9.png" alt="placeholder">
-                </div>
-                <div class="placeholder c6">
-                  <img src="assets/pics/p11.png" alt="placeholder">
-                </div>
-                <div class="placeholder c7">
-                  <img src="assets/pics/p5.png" alt="placeholder">
-                </div>
-                <div class="placeholder c8">
-                  <img src="assets/pics/p14.png" alt="placeholder">
-                </div>
-                <div class="placeholder c9">
-                  <img src="assets/pics/p15.png" alt="placeholder">
-                </div>
-                <div class="placeholder c10">
-                  <img src="assets/pics/p13.png" alt="placeholder">
-                </div>
-              </div>
-            </div>
+      <!-- boarding pass sticker -->
+      <div class="sticker drag-sticker" data-skey="ticket" data-say="DTW → anywhere ✈ let's go" title="drag me or click me"
+        style="--r:4deg;transform:rotate(4deg);animation:floaty 5s .2s ease-in-out infinite">
+        <svg width="92" height="40" viewBox="0 0 92 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="2" y="6" width="88" height="30" rx="7" fill="#fffdf6" stroke="#37402f" stroke-width="2.5"/>
+          <line x1="66" y1="8" x2="66" y2="34" stroke="#37402f" stroke-width="1.5" stroke-dasharray="3 3"/>
+          <text x="11" y="19" font-family="Karla, sans-serif" font-size="10" font-weight="800" fill="#37402f">DTW →</text>
+          <text x="11" y="31" font-family="Caveat, cursive" font-size="13" fill="#7a9678">anywhere</text>
+          <text x="72" y="26" font-family="Karla, sans-serif" font-size="13" font-weight="800" fill="#7a9678">A2</text>
+        </svg>
+      </div>
 
+      <!-- matcha ice-cream sticker -->
+      <div class="sticker drag-sticker" data-skey="icecream" data-say="matcha soft serve > everything 🍦" title="drag me or click me"
+        style="--r:-3deg;transform:rotate(-3deg);animation:floaty 4.5s 1.6s ease-in-out infinite">
+        <svg width="44" height="54" viewBox="0 0 44 54" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M11 25 22 51 33 25Z" fill="#e3c48f" stroke="#37402f" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M15 30h13M17 36h9M19 42h4" stroke="#bd944f" stroke-width="1.2" stroke-linecap="round"/>
+          <circle cx="22" cy="21" r="13" fill="#cfe0c8" stroke="#37402f" stroke-width="2.5"/>
+          <circle cx="17" cy="19" r="1.6" fill="#8ba888"/>
+          <circle cx="27" cy="17" r="1.6" fill="#8ba888"/>
+          <circle cx="23" cy="25" r="1.6" fill="#8ba888"/>
+          <circle cx="22" cy="7" r="4" fill="#d98f77" stroke="#37402f" stroke-width="2"/>
+          <path d="M22 4q3-3 6-1" fill="none" stroke="#5c7a5a" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <!-- 11:11 tag (easter egg) -->
+      <div class="tag-1111 sticker drag-sticker" data-skey="wish" data-say="eyes closed... ✦ wish made ✦" title="drag me or make a wish">11:11 ✦ make a wish</div>
+      <div class="note">psst — drag these around · some do things too ↑</div>
+    </div>
+  </section>
+
+  <!-- ================= GALLERY ================= -->
+  <section id="gallery" class="gallery">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>the photo wall</h2>
+        <span class="sub">drag them around ♡</span>
+      </div>
+      <div class="photo-wall" id="photo-wall">
+        <div class="polaroid" data-key="p1" style="left:2%;top:34px;z-index:1">
+          <div class="frame" style="transform:rotate(-4deg)">
+            <div style="width:170px;height:132px"><img src="assets/pics/boat.jpg" alt="spontaneous adventures" draggable="false"></div>
+            <div class="cap">spontaneous adventures</div>
           </div>
         </div>
-      </section>
-
-      <!-- ===== ABOUT SCREEN ===== -->
-      <section id="about" class="screen" style="overflow: hidden;">
-        <div class="about-wrapper">
-          <!-- LEFT SIDEBAR -->
-          <aside class="about-sidebar">
-            <div class="card">
-              <h4>✨ About me</h4>
-              <div class="pills">
-                <span>Design</span>
-                <span>Tech</span>
-                <span>Aesthetic</span>
-                <span>Wellness</span>
-                <span>Community</span>
-              </div>
-            </div>
-            <div class="card">
-              <h4>🎧 Playlist</h4>
-              <div class="playlist">
-                <iframe src="https://open.spotify.com/embed/playlist/7yGJd2Zslsprets7KYdMPz" width="100%" height="152"
-                  frameborder="0"
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-              </div>
-            </div>
-            <div class="card">
-              <h4>📸 Moments</h4>
-              <div class="placeholder-box">
-                <img src="assets/pics/p12.png" alt="placeholder">
-              </div>
-            </div>
-            <div class="card">
-              <h4>☕ Currently</h4>
-              <p>Building: GFM v2</p>
-              <p>Learning: Systems Design</p>
-            </div>
-          </aside>
-
-          <!-- MAIN CONTENT -->
-          <div class="about-scroll">
-            <main class="about-main">
-              <h1>Welcome to my journey!</h1>
-
-              <p class="signature">
-                My Motto: To create technology that takes ideas beyond concepts and into people’s heart.
-              </p>
-
-              <p>
-                Currently a CS + Entrepreneurship student at the University of Michigan,
-                I am striving to turn ideas into intentional, scalable systems,
-                to create technology that moves beyond concepts and into people’s everyday lives,
-                where it can make a meaningful, lasting impact.
-              </p>
-
-              <section>
-                <h5>BACKSTORY</h5>
-
-                <p>
-                  I didn’t start in tech — I started around people.
-                </p>
-
-                <p>
-                  Being in clinical environments, I saw how individuals could spend days, even months,
-                  stuck in systems that didn’t fully work for them — waiting for answers, being overlooked,
-                  and navigating something much bigger than themselves.
-                </p>
-
-                <p>
-                  That experience changed how I think about impact.
-                </p>
-
-                <p>
-                  <strong>Helping people one-on-one wasn’t enough if the system itself was broken.</strong>
-                </p>
-
-                <p>
-                  So I chose software. I didn't just want to build, I wanted to create change at scale.
-                </p>
-              </section>
-
-              <section>
-                <h5>WHY I BUILD</h5>
-
-                <p>
-                  Technology gives ideas reach.
-                </p>
-
-                <p>
-                  It allows something small — a thought, a frustration, a “what if” —
-                  to become something real that people can rely on in their daily lives.
-                </p>
-
-                <p>
-                  I’m driven by that transformation.
-                </p>
-
-                <p>
-                  Not just building products, but building systems that feel intuitive,
-                  accessible, and genuinely useful.
-                </p>
-              </section>
-
-              <section>
-                <h5>PRINCIPLES</h5>
-
-                <div class="principles">
-                  <div>
-                    🎯 <span><strong>Start with real problems</strong><br />
-                      Build from reality, not assumptions.</span>
-                  </div>
-
-                  <div>
-                    ⚡ <span><strong>Turn ideas into reality</strong><br />
-                      Execution matters more than intention.</span>
-                  </div>
-
-                  <div>
-                    🤝 <span><strong>Design for everyone</strong><br />
-                      Go beyond usability — prioritize accessibility and clarity.</span>
-                  </div>
-
-                  <div>
-                    🌱 <span><strong>Think beyond yourself</strong><br />
-                      Build things that scale and create lasting impact.</span>
-                  </div>
-                </div>
-              </section>
-
-              <section>
-                <h5>HOW I WORK</h5>
-
-                <p>
-                  I work at the intersection of systems, design, and storytelling.
-                </p>
-
-                <p>
-                  I’m collaborative when building with others, but I’m also comfortable
-                  taking ownership and pushing ideas forward independently.
-                </p>
-
-                <p>
-                  My process is iterative and intentional:
-                </p>
-
-                <p class="process">
-                  <strong>Concept → Design → Build → Test → Iterate → Expand</strong>
-                </p>
-
-                <p>
-                  I move quickly — not just to ship, but to learn, refine, and make something better.
-                </p>
-              </section>
-
-              <section>
-                <h5>LOOKING FORWARD</h5>
-
-                <p>
-                  I don’t want to be defined by one industry.
-                </p>
-
-                <p>
-                  I want to be someone who creates — across spaces, across problems,
-                  wherever there’s an opportunity to improve how people live.
-                </p>
-
-                <p>
-                  At the core of everything I do:
-                </p>
-
-                <p class="closing">
-                  <strong>I take ideas and make them real — at a scale bigger than myself.</strong>
-                </p>
-              </section>
-            </main>
+        <div class="polaroid" data-key="p2" style="left:22%;top:150px;z-index:2">
+          <div class="frame" style="transform:rotate(2.5deg)">
+            <div style="width:170px;height:132px"><img src="assets/pics/angie.JPG" alt="angie the dog" draggable="false"></div>
+            <div class="cap">my fav girl ♡</div>
           </div>
         </div>
-      </section>
-
-      <!-- ===== WORK SCREEN ===== -->
-      <section id="work" class="screen unified-work-screen">
-        <div class="work-screen-inner">
-
-          <!-- 30% Left: Skills (sticky nutrition label) -->
-          <div class="work-column-skills">
-            <div class="nutrition-label">
-              <div class="label-header">Nutrition Facts</div>
-              <p class="label-serving">Serving: unlimited</p>
-              <div class="label-divider thick"></div>
-              <div class="label-row bold">Skills Stack <span>% Proficiency</span></div>
-              <div class="label-divider medium"></div>
-
-              <div class="label-section">
-                <div class="label-row bold">Languages</div>
-                <div class="label-divider thin"></div>
-                <div class="label-row indent" data-skill="python">Python <span>95%</span></div>
-                <div class="label-row indent" data-skill="javascript">JavaScript <span>95%</span></div>
-                <div class="label-row indent" data-skill="typescript">TypeScript <span>90%</span></div>
-                <div class="label-row indent" data-skill="cpp">C++ <span>88%</span></div>
-                <div class="label-row indent" data-skill="sql">SQL <span>85%</span></div>
-                <div class="label-row indent" data-skill="html">HTML / CSS <span>92%</span></div>
-                <div class="label-row indent" data-skill="bash">Bash <span>78%</span></div>
-              </div>
-              <div class="label-divider thin"></div>
-
-              <div class="label-section">
-                <div class="label-row bold">Frameworks</div>
-                <div class="label-divider thin"></div>
-                <div class="label-row indent" data-skill="react">React <span>92%</span></div>
-                <div class="label-row indent" data-skill="fastapi">FastAPI <span>88%</span></div>
-                <div class="label-row indent" data-skill="nodejs">Node.js <span>82%</span></div>
-                <div class="label-row indent" data-skill="express">Express <span>80%</span></div>
-                <div class="label-row indent" data-skill="reactnative">React Native <span>75%</span></div>
-                <div class="label-row indent" data-skill="tailwind">TailwindCSS <span>88%</span></div>
-              </div>
-              <div class="label-divider thin"></div>
-
-              <div class="label-section">
-                <div class="label-row bold">Data &amp; AI</div>
-                <div class="label-divider thin"></div>
-                <div class="label-row indent" data-skill="pandas">Pandas / NumPy <span>88%</span></div>
-                <div class="label-row indent" data-skill="faiss">FAISS / RAG <span>80%</span></div>
-                <div class="label-row indent" data-skill="sdv">SDV / Synth <span>82%</span></div>
-                <div class="label-row indent" data-skill="plotly">Plotly / D3 <span>78%</span></div>
-                <div class="label-row indent" data-skill="llm">LLM APIs <span>85%</span></div>
-              </div>
-              <div class="label-divider thin"></div>
-
-              <div class="label-section">
-                <div class="label-row bold">Product &amp; Design</div>
-                <div class="label-divider thin"></div>
-                <div class="label-row indent" data-skill="agile">Agile / Scrum <span>90%</span></div>
-                <div class="label-row indent" data-skill="research">User Research <span>92%</span></div>
-                <div class="label-row indent" data-skill="figma">Figma <span>90%</span></div>
-                <div class="label-row indent" data-skill="figma">Prototyping <span>90%</span></div>
-                <div class="label-row indent" data-skill="strategy">Strategy <span>88%</span></div>
-                <div class="label-row indent" data-skill="abtesting">A/B Testing <span>82%</span></div>
-                <div class="label-row indent" data-skill="roadmap">Roadmapping <span>85%</span></div>
-              </div>
-              <div class="label-divider thin"></div>
-
-              <div class="label-section">
-                <div class="label-row bold">Tools &amp; Infra</div>
-                <div class="label-divider thin"></div>
-                <div class="label-row indent" data-skill="git">Git / GitHub <span>95%</span></div>
-                <div class="label-row indent" data-skill="docker">Docker <span>75%</span></div>
-                <div class="label-row indent" data-skill="mongodb">MongoDB <span>78%</span></div>
-                <div class="label-row indent" data-skill="cloud">Google Cloud <span>72%</span></div>
-                <div class="label-row indent" data-skill="jira">Jira <span>85%</span></div>
-                <div class="label-row indent" data-skill="jupyter">Jupyter <span>80%</span></div>
-              </div>
-
-              <div class="label-divider thick"></div>
-              <p class="label-footnote">Hover a project to see relevant skills.✨</p>
-            </div>
-          </div>
-
-
-          <!-- 65% Right: Projects (scrollable) -->
-          <div class="work-column-projects">
-            <div class="work-projects-header">
-              <h1>Featured Work</h1>
-              <p>Click a project to explore the full case study 🍽️</p>
-
-              <div class="project-tabs" style="display: flex; gap: 0.5rem; margin-top: 1.5rem; flex-wrap: wrap;">
-                <button data-filter="all" class="project-filter-btn active">All</button>
-                <button data-filter="tech" class="project-filter-btn">Tech</button>
-                <button data-filter="product" class="project-filter-btn">Entrepreneurship</button>
-              </div>
-            </div>
-            <div class="project-cards-container">
-
-              <div class="project-row-card" data-tech="research,strategy,figma,abtesting,agile,roadmap"
-                data-category="product" data-modal="modal-hopper" role="button" tabindex="0">
-                <div class="project-row-visual">
-                  <div class="proj-emoji">🧭</div>
-                </div>
-                <div class="project-row-details">
-                  <div class="project-row-top">
-                    <h3>Hopper</h3><span class="proj-year">Jan 2026 - Apr 2026</span>
-                  </div>
-                  <p class="tech-tags">Product Research · UX Strategies · Prototyping </p>
-                  <p class="project-desc">Study Space discovery. Observational research. Defined product features and
-                    design. Metric tracking.</p>
-                </div>
-                <span class="proj-arrow">→</span>
-              </div>
-
-              <div class="project-row-card" data-tech="research,strategy,figma,abtesting,agile,roadmap"
-                data-category="product" data-modal="modal-betbuddies" role="button" tabindex="0">
-                <div class="project-row-visual">
-                  <div class="proj-emoji">💰</div>
-                </div>
-                <div class="project-row-details">
-                  <div class="project-row-top">
-                    <h3>BetBuddies</h3><span class="proj-year">Sep 2025 - Apr 2026</span>
-                  </div>
-                  <p class="tech-tags">User Research · Behavioral Design · Product Strategy · Experimentation</p>
-                  <p class="project-desc">Hybrid behavior-change platform. 100+ interviews. Combines sleep tracking with
-                    social accountability to drive consistency.</p>
-                </div>
-                <span class="proj-arrow">→</span>
-              </div>
-
-              <div class="project-row-card" data-tech="python,react,fastapi,faiss,sdv,pandas,docker,git"
-                data-category="tech" data-modal="modal-synthlab" role="button" tabindex="0">
-                <div class="project-row-visual">
-                  <div class="proj-emoji">🧬</div>
-                </div>
-                <div class="project-row-details">
-                  <div class="project-row-top">
-                    <h3>SynthLab</h3><span class="proj-year">Dec 2025 - Feb 2026</span>
-                  </div>
-                  <p class="tech-tags">Python · FastAPI · React · FAISS · SDV</p>
-                  <p class="project-desc">Privacy-preserving synthetic data for pediatric healthcare. Multi-method
-                    generation, statistical validation, fairness testing.</p>
-                </div>
-                <span class="proj-arrow">→</span>
-              </div>
-
-              <div class="project-row-card" data-tech="figma,research,agile,strategy,abtesting,roadmap"
-                data-category="product" data-modal="modal-betterschedule" role="button" tabindex="0">
-                <div class="project-row-visual">
-                  <div class="proj-emoji">⏳</div>
-                </div>
-                <div class="project-row-details">
-                  <div class="project-row-top">
-                    <h3>betterSchedule</h3><span class="proj-year">Sep 2025-Dec 2025</span>
-                  </div>
-                  <p class="tech-tags">Figma · UX Research · Agile · Product Strategy · Roadmapping</p>
-                  <p class="project-desc">Academic scheduling platform redesign from user interviews. Adaptive
-                    time-blocking, syllabus sync, smart prioritization.</p>
-                </div>
-                <span class="proj-arrow">→</span>
-              </div>
-
-              <div class="project-row-card" data-tech="reactnative,figma,research,nodejs,express" data-category="tech"
-                data-modal="modal-heartline" role="button" tabindex="0">
-                <div class="project-row-visual">
-                  <div class="proj-emoji">💚</div>
-                </div>
-                <div class="project-row-details">
-                  <div class="project-row-top">
-                    <h3>Heartline Care Companion</h3><span class="proj-year">Nov 2025 - Dec 2025</span>
-                  </div>
-                  <p class="tech-tags">React Native · Node.js · Python </p>
-                  <p class="project-desc">Wellness mobile app designed around hospital care routines. Gentle reminders,
-                    mood check-ins, adaptive UI.</p>
-                </div>
-                <span class="proj-arrow">→</span>
-              </div>
-
-              <div class="project-row-card" data-tech="react,python,figma,html,research" data-category="tech"
-                data-modal="modal-smartrecord" role="button" tabindex="0">
-                <div class="project-row-visual">
-                  <div class="proj-emoji">🩺</div>
-                </div>
-                <div class="project-row-details">
-                  <div class="project-row-top">
-                    <h3>Smart Record App</h3><span class="proj-year">Nov 2025 - Dec 2025</span>
-                  </div>
-                  <p class="tech-tags">React · Python · Clinical Design</p>
-                  <p class="project-desc">Clinical documentation tool for care team onboarding. Walks through vitals
-                    flows and patient decision points.</p>
-                </div>
-                <span class="proj-arrow">→</span>
-              </div>
-
-            </div>
+        <div class="polaroid" data-key="p3" style="left:43%;top:26px;z-index:3">
+          <div class="frame" style="transform:rotate(-1.5deg)">
+            <div style="width:170px;height:132px"><img src="assets/pics/sky.JPG" alt="skylines at night" draggable="false"></div>
+            <div class="cap">best views of the world</div>
           </div>
         </div>
-      </section>
-
-
-      <!-- ===== JOURNEY SCREEN ===== -->
-      <section id="journey" class="screen journey-screen">
-        <div class="screen-content-wrapper journey-wrapper">
-
-          <!-- Sticky header -->
-          <div class="journey-sticky-header">
-            <h1>My Story</h1>
-            <p>Engineering, design, and community care 🗺️</p>
-          </div>
-
-          <div class="story-layout-bento">
-            <!-- Left: Professional timeline -->
-            <div class="story-bento-experience">
-              <div class="timeline journey-timeline">
-
-                <!-- Entry 1 -->
-                <div class="timeline-item journey-item journey-accordion" id="jitem-gametime">
-                  <div class="journey-meta">
-                    <div class="journey-date">Incoming 06/2026</div>
-
-                  </div>
-                  <div class="journey-body">
-                    <div class="journey-summary" data-expand="jitem-gametime">
-                      <div class="journey-info">
-                        <h4>Gametime United</h4>
-                        <p class="journey-role-tag">Full-Stack Software Intern </p>
-                        <p class="journey-teaser">Incoming Summer Intern</p>
-                      </div>
-                      <span class="journey-chevron">›</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Entry 2 -->
-                <div class="timeline-item journey-item journey-accordion" id="jitem-bio">
-                  <div class="journey-meta">
-                    <div class="journey-date">01/2026 – Present</div>
-
-                  </div>
-                  <div class="journey-body">
-                    <div class="journey-summary" data-expand="jitem-bio">
-                      <div class="journey-info">
-                        <h4>Michigan Medicine — Department of Computational Biology</h4>
-                        <p class="journey-role-tag">Research Assistant </p>
-                        <p class="journey-teaser">Genomic Agent Platform Development</p>
-                      </div>
-                      <span class="journey-chevron">›</span>
-                    </div>
-                    <div class="journey-detail">
-                      <ul>
-                        <li>Built V1 of an AI-powered genomic chat platform by developing a React/TypeScript interface and designing a Supabase Postgres database for session persistence, enabling queued interactions, inline result visualization, and full reconstruction of past analyses</li>
-                        <li>Defined product requirements for a conversational AI system that allows researchers to query DNA binding predictions across the 3B+ base-pair human genome, translating complex ML outputs into intuitive user interactions</li>
-                        <li>Partnered with PhD researchers to transform model outputs into interpretable features, including motif highlight maps and multi-layer genomic visualizations, improving accessibility of prediction results</li>
-                        <li>Drove iterative development through structured researcher feedback loops, refining UX and streamlining workflows for genomic data exploration and analysis</li>
-                      </ul>
-                      <p class="journey-detail-tools">Tools: React · TypeScript · Supabase · Python · FastAPI</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Entry 3 -->
-                <div class="timeline-item journey-item journey-accordion" id="jitem-peds">
-                  <div class="journey-meta">
-                    <div class="journey-date">04/2025 – 02/2026</div>
-
-                  </div>
-                  <div class="journey-body">
-                    <div class="journey-summary" data-expand="jitem-peds">
-                      <div class="journey-info">
-                        <h4>Michigan Medicine - Department of Pediatrics </h4>
-                        <p class="journey-role-tag">Research Assistant</p>
-                        <p class="journey-teaser">Supported infant feeding behavior research with data collection and
-                          reporting.</p>
-                      </div>
-                      <span class="journey-chevron">›</span>
-                    </div>
-                    <div class="journey-detail">
-                      <ul>
-                        <li>Built Python data pipelines to clean and standardize large behavioral datasets</li>
-                        <li>Eliminated data loss and recovered 15+ hours of manual work per week.</li>
-                        <li>Achieved 90%+ inter-rater reliability in Observer XT behavioral coding</li>
-                        <li>Analyzed 60+ pediatric feeding interaction recordings to extract structured behavioral
-                          metrics</li>
-                      </ul>
-                      <p class="journey-detail-tools">Tools: Python · Pandas · NumPy · ObserverXT · Data Analysis</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Entry 4 -->
-                <div class="timeline-item journey-item journey-accordion" id="jitem-mm">
-                  <div class="journey-meta">
-                    <div class="journey-date">05/2025 - 01/2026</div>
-
-                  </div>
-                  <div class="journey-body">
-                    <div class="journey-summary" data-expand="jitem-mm">
-                      <div class="journey-info">
-                        <h4>Michigan Medicine University Hospital</h4>
-                        <p class="journey-role-tag">Nursing Assistant II</p>
-                        <p class="journey-teaser">MM Transplant/ Gastrointestinal Surgery Inpatient Unit</p>
-                      </div>
-                      <span class="journey-chevron">›</span>
-                    </div>
-                    <div class="journey-detail">
-                      <ul>
-                        <li>Monitored vitals and managed 30+ central lines/drains per shift, providing insight into EMR
-                          workflows and clinical data requirements</li>
-                        <li>Coordinated care documentation across departments using EMR/EPIC systems</li>
-                        <li>Demonstrated an ability to handle complex, high-stakes information similar to managing code
-                          and system data.</li>
-                        <li>Collaborated with interdisciplinary teams in high-acuity environments, strengthening systems
-                          thinking and communication</li>
-                      </ul>
-                      <p class="journey-detail-tools">Tools: Epic EMR · Clinical Documentation Systems · Patient
-                        Services · Critical Care</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Entry 5 -->
-                <div class="timeline-item journey-item journey-accordion" id="jitem-urop">
-                  <div class="journey-meta">
-                    <div class="journey-date">08/2024 - 05/2025</div>
-
-                  </div>
-                  <div class="journey-body">
-                    <div class="journey-summary" data-expand="jitem-urop">
-                      <div class="journey-info">
-                        <h4>Eastern Michigan University - UROP Program</h4>
-                        <p class="journey-role-tag">Research Assistant</p>
-                        <p class="journey-teaser">Asian American Health Equity and Resources</p>
-                      </div>
-                      <span class="journey-chevron">›</span>
-                    </div>
-                    <div class="journey-detail">
-                      <ul>
-                        <li>Collected survey data and performed analysis with Excel</li>
-                        <li>Contributed to writing over 2 research summaries and articles on community health and data
-                          representation</li>
-                        <li>Created and translated over 10 community event flyers using Canva and collaborated with CMS
-                          Navigator initiatives</li>
-                        <li>Presented a project on Firearm Ownership at the U-M 2025 Spring Symposium</li>
-                      </ul>
-                      <p class="journey-detail-tools">Tools: Survey Analysis · Excel · Canva · Community Research</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Entry 6 -->
-                <div class="timeline-item journey-item journey-accordion" id="jitem-trinityhealth">
-                  <div class="journey-meta">
-                    <div class="journey-date">10/2024 - 07/2025</div>
-
-                  </div>
-                  <div class="journey-body">
-                    <div class="journey-summary" data-expand="jitem-trinityhealth">
-                      <div class="journey-info">
-                        <h4>Trinity Health</h4>
-                        <p class="journey-role-tag">Medical Assistant</p>
-                        <p class="journey-teaser">Domino's Farm Urgent Care</p>
-                      </div>
-                      <span class="journey-chevron">›</span>
-                    </div>
-                    <div class="journey-detail">
-                      <ul>
-                        <li>Streamlined workflow and productivity by 30% and reduced average patient waiting time by 15%
-                        </li>
-                        <li>Assisted clinicians with lab work, recording vitals, and procedures</li>
-                        <li>Contributing to improved patient care through accurate documentation and reliable data
-                          handling</li>
-                      </ul>
-                      <p class="journey-detail-tools">Tools: Epic EMR · Clinical Documentation Systems · Patient
-                        Services · Laboratory</p>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-            <!-- Right: Community & Leadership -->
-            <div class="story-bento-community">
-              <h3 class="bento-section-title">Community &amp; Leadership</h3>
-
-              <!-- Card 1 -->
-              <div class="community-mini-card community-accordion" id="comm-genapa">
-                <div class="community-card-summary" data-expand="comm-genapa">
-                  <div class="community-card-left">
-                    <div class="community-icon">🎭</div>
-                    <div>
-                      <h4>Production Chair @ GenAPA</h4>
-                      <p class="community-teaser">Directing culturally focused content and promo videos for UM's annual
-                        showcase.</p>
-                    </div>
-                  </div>
-                  <span class="community-chevron">›</span>
-                </div>
-                <div class="community-card-detail">
-                  <ul>
-                    <li>Directed <strong>10+ promotional and showcase videos</strong> for UM's annual GenAPA cultural
-                      showcase</li>
-                    <li>Led a cross-functional creative team across filming, editing, and production logistics</li>
-                    <li>Coordinated with org leadership to align storytelling with cultural programming goals</li>
-                    <li>Managed production timelines and creative direction from concept through final cut</li>
-                  </ul>
-                </div>
-              </div>
-
-              <!-- Card 2 -->
-              <div class="community-mini-card community-accordion" id="comm-depression">
-                <div class="community-card-summary" data-expand="comm-depression">
-                  <div class="community-card-left">
-                    <div class="community-icon">🧠</div>
-                    <div>
-                      <h4>Advisory Board @ UM Depression Center</h4>
-                      <p class="community-teaser">Advising on wellness programming and peer engagement platforms.</p>
-                    </div>
-                  </div>
-                  <span class="community-chevron">›</span>
-                </div>
-                <div class="community-card-detail">
-                  <ul>
-                    <li>Advise on <strong>student-facing wellness programming</strong> and peer support initiatives</li>
-                    <li>Contribute to evaluation of digital engagement tools and outreach strategy</li>
-                    <li>Represent student perspectives in program development and research alignment</li>
-                    <li>Bridge clinical and community voices to improve resource accessibility</li>
-                  </ul>
-                </div>
-              </div>
-
-              <!-- Card 3 -->
-              <div class="community-mini-card community-accordion" id="comm-asam">
-                <div class="community-card-summary" data-expand="comm-asam">
-                  <div class="community-card-left">
-                    <div class="community-icon">🌱</div>
-                    <div>
-                      <h4>Small Group Leader @ AsAmHSC</h4>
-                      <p class="community-teaser">Mentoring high school students on identity, mental health, and college
-                        readiness.</p>
-                    </div>
-                  </div>
-                  <span class="community-chevron">›</span>
-                </div>
-                <div class="community-card-detail">
-                  <ul>
-                    <li>Mentored <strong>high school students</strong> through weekly small group sessions on identity,
-                      culture, and belonging</li>
-                    <li>Facilitated conversations on mental health and self-advocacy in academic environments</li>
-                    <li>Developed session curriculum and activities focused on college readiness and goal setting</li>
-                    <li>Built trust-based relationships that supported students through key transition periods</li>
-                  </ul>
-                </div>
-              </div>
-
-            </div>
+        <div class="polaroid" data-key="p4" style="left:63%;top:170px;z-index:4">
+          <div class="frame" style="transform:rotate(3.5deg)">
+            <div style="width:170px;height:132px"><img src="assets/pics/bbq.JPG" alt="sushi & kbbq nights" draggable="false"></div>
+            <div class="cap">bigback nights</div>
           </div>
         </div>
-      </section>
-
-
-      <section id="contact" class="screen">
-        <div class="screen-content-wrapper contact-wrapper">
-          <div class="contact-layout-split">
-            <div class="contact-column-receipt">
-              <div class="cafe-receipt" id="contact-receipt">
-                <div class="stamp-container" id="order-stamp-container">
-                  <div class="order-stamp"></div>
-                </div>
-                <div class="receipt-header">
-                  <div class="receipt-title">ORDER #777</div>
-                  <div class="receipt-sub">ITEM: MATCHA CHAT</div>
-                </div>
-                <div class="receipt-divider"></div>
-                <form class="contact-form-receipt" id="cafe-order-form" data-form>
-                  <div class="receipt-item">
-                    <span class="item-num">[01]</span>
-                    <div class="item-details">
-                      <label>NAME</label>
-                      <input type="text" name="name" placeholder="Your name..." required />
-                    </div>
-                  </div>
-                  <div class="receipt-item">
-                    <span class="item-num">[02]</span>
-                    <div class="item-details">
-                      <label>EMAIL</label>
-                      <input type="email" name="email" placeholder="you@email.com" required />
-                    </div>
-                  </div>
-                  <div class="receipt-item full">
-                    <span class="item-num">[03]</span>
-                    <div class="item-details">
-                      <label>MESSAGE</label>
-                      <textarea name="message" rows="4" placeholder="What are you brewing?" required></textarea>
-                    </div>
-                  </div>
-                  <div class="receipt-divider"></div>
-                  <div class="receipt-footer">
-                    <div class="footer-row"><span>SUBTOTAL</span><span>$0.00</span></div>
-                    <div class="footer-row bold"><span>TOTAL CARE</span><span>100% ✨</span></div>
-                  </div>
-                </form>
-              </div>
-            </div>
-
-            <div class="contact-column-action">
-              <div class="contact-cta-block">
-                <div class="contact-cta-icon">🍵</div>
-                <h2 class="contact-cta-title">Let's build something together</h2>
-                <p class="contact-cta-sub">Whether it's a product idea, collaboration, or just a matcha-fueled
-                  conversation — I'm always open to good work.</p>
-                <button type="submit" form="cafe-order-form" class="big-order-btn">Place Order ☕</button>
-              </div>
-              <div class="contact-divider-line"></div>
-              <div class="contact-info-grid">
-                <div class="contact-info-item">
-                  <span class="contact-info-label">Currently</span>
-                  <span class="contact-info-value">Open to internships &amp; collabs</span>
-                </div>
-                <div class="contact-info-item">
-                  <span class="contact-info-label">Based in</span>
-                  <span class="contact-info-value">Ann Arbor, MI</span>
-                </div>
-                <div class="contact-info-item">
-                  <span class="contact-info-label">Email</span>
-                  <span class="contact-info-value">victoria.n.nguyen@gmail.com</span>
-                </div>
-              </div>
-              <div class="contact-socials-tray">
-                <a href="https://www.linkedin.com/in/vicngan" target="_blank" rel="noopener noreferrer"
-                  class="contact-social-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="https://github.com/vicngan" target="_blank" rel="noopener noreferrer"
-                  class="contact-social-link"><i class="fab fa-github"></i> GitHub</a>
-              </div>
-            </div>
+        <div class="polaroid" data-key="p5" style="left:81%;top:40px;z-index:5">
+          <div class="frame" style="transform:rotate(-3deg)">
+            <div style="width:150px;height:118px"><img src="assets/pics/fam.JPG" alt="my people" draggable="false"></div>
+            <div class="cap">my people ♡</div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MY WORK ================= -->
+  <section id="work" class="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>my work</h2>
+        <span class="sub">everything on the menu is handmade</span>
+      </div>
+
+      <!-- featured: ACASO -->
+      <div class="featured" data-project="acaso" role="button" tabindex="0">
+        <div style="flex:1">
+          <div class="badges">
+            <span class="badge-a">HOUSE SPECIAL ✦ STARTUP</span>
+            <span class="badge-b">co-founder &amp; CEO · may 2026 – present</span>
+          </div>
+          <h3>ACASO</h3>
+          <p>AI-powered financial operations platform — document processing, invoice &amp; contract
+            auditing. Leading product strategy, customer discovery, UX, and full-stack build.</p>
+          <div class="tags">
+            <span>product strategy</span><span>AI document processing</span><span>full-stack</span><span>UX/UI</span>
+          </div>
+        </div>
+        <div class="shot"><img src="assets/pics/ACASO.svg" alt="ACASO logo"></div>
+      </div>
+
+      <!-- filters -->
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">all</button>
+        <button class="filter-btn" data-filter="tech">tech</button>
+        <button class="filter-btn" data-filter="product">entrepreneurship</button>
+        <span class="note">click any card for the full story ↓</span>
+      </div>
+
+      <!-- project cards (rendered by script.js) -->
+      <div class="card-grid" id="card-grid"></div>
+    </div>
+  </section>
+
+  <!-- ================= JOURNEY ================= -->
+  <section id="journey" class="journey">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>the journey</h2>
+        <span class="sub">a long, slow steep — still brewing</span>
+      </div>
+      <div class="journey-cols">
+        <!-- timeline (rendered by script.js) + education -->
+        <div class="timeline" id="timeline"></div>
+
+        <!-- campus & community -->
+        <div class="community">
+          <div class="lead">campus &amp; community ♡</div>
+          <div class="org">
+            <div class="name">GenAPA · Production Chair</div>
+            <div class="desc">Creative direction, event branding &amp; video for the annual cultural showcase</div>
+          </div>
+          <div class="org">
+            <div class="name">Mental Health on College Campuses Conf. · Planning Committee</div>
+            <div class="desc">Speaker coordination &amp; student engagement</div>
+          </div>
+          <div class="org">
+            <div class="name">Eisenberg Family Depression Center · Student Advisory Board</div>
+            <div class="desc">Student wellness, outreach &amp; program development</div>
+          </div>
+          <div class="org">
+            <div class="name">AsAmHSC · Small Group Leader</div>
+            <div class="desc">Mentoring high schoolers on identity, mental health &amp; college readiness</div>
+          </div>
+          <div class="org">
+            <div class="name">Vietnamese Student Association · Member</div>
+            <div class="desc">Community, culture &amp; way too much good food</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="contact-card">
+        <div class="contact-intro">
+          <div class="lead">the best part of any café is the people —</div>
+          <h2>say hello!</h2>
+          <p>Whether it's startups, AI, product design, or the best boba in Ann Arbor — I'd
+            genuinely love to chat. Leave a note and it lands straight in my inbox.</p>
+          <div class="contact-links">
+            <a href="mailto:victoria.n.nguyen@gmail.com" class="c-btn primary">email me</a>
+            <a href="https://www.linkedin.com/in/vicngan" target="_blank" rel="noopener" class="c-btn ghost">linkedin</a>
+            <a href="https://github.com/vicngan" target="_blank" rel="noopener" class="c-btn ghost">github</a>
+            <a href="assets/V_Nguyen_MAINResume.pdf" target="_blank" rel="noopener" class="c-btn ghost">resume ↗</a>
+          </div>
+          <div class="contact-meta">
+            <span><b>Based in</b> · Ann Arbor, MI</span>
+            <span><b>Currently</b> · open to internships &amp; collabs</span>
+            <span><b>Email</b> · <a href="mailto:victoria.n.nguyen@gmail.com">victoria.n.nguyen@gmail.com</a></span>
+          </div>
+        </div>
+
+        <!-- contact form (delivers to email via Web3Forms) -->
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/mojogyre" method="POST">
+          <div class="cf-head">leave a note ✎<span>drop your name &amp; a message — I'll reply soon ♡</span></div>
+          <input type="hidden" name="_subject" value="New message from your portfolio ✿">
+          <!-- honeypot: hidden from humans, catches bots -->
+          <input type="text" name="_gotcha" tabindex="-1" aria-hidden="true" style="display:none">
+          <label class="cf-field"><span>Name</span>
+            <input type="text" name="name" required placeholder="your name..."></label>
+          <label class="cf-field"><span>Email</span>
+            <input type="email" name="email" required placeholder="you@email.com"></label>
+          <label class="cf-field"><span>Message</span>
+            <textarea name="message" rows="4" required placeholder="what are you brewing?"></textarea></label>
+          <button type="submit" class="cf-send">send ☕</button>
+          <div class="cf-status" id="cf-status" role="status" aria-live="polite"></div>
+
+          <!-- mini blob peeking over the form -->
+          <div class="cf-blob" aria-hidden="true">
+            <div class="blob-body" style="position:absolute;bottom:0;left:20px;width:104px;height:96px"></div>
+            <div style="position:absolute;bottom:86px;left:68px;width:4px;height:11px;background:#5c7a5a;border-radius:2px"></div>
+            <div style="position:absolute;bottom:94px;left:60px;width:13px;height:8px;background:#5c7a5a;border-radius:50% 50% 50% 0;transform:rotate(-30deg)"></div>
+            <div style="position:absolute;bottom:94px;left:71px;width:13px;height:8px;background:#5c7a5a;border-radius:50% 50% 0 50%;transform:rotate(30deg)"></div>
+            <div style="position:absolute;bottom:52px;left:40px;width:21px;height:18px;border:2.5px solid rgba(51,64,47,.85);border-radius:8px;background:rgba(255,255,255,.25)"></div>
+            <div style="position:absolute;bottom:52px;left:71px;width:21px;height:18px;border:2.5px solid rgba(51,64,47,.85);border-radius:8px;background:rgba(255,255,255,.25)"></div>
+            <div style="position:absolute;bottom:59px;left:61px;width:10px;height:3px;background:rgba(51,64,47,.85);border-radius:2px"></div>
+            <div class="blob-eye" style="position:absolute;bottom:56px;left:47px;width:6px;height:8px"></div>
+            <div class="blob-eye" style="position:absolute;bottom:56px;left:78px;width:6px;height:8px"></div>
+            <div style="position:absolute;bottom:40px;left:60px;width:13px;height:8px;border:2.5px solid #33402f;border-top:none;border-radius:0 0 9px 9px"></div>
+            <div style="position:absolute;bottom:64px;left:118px;width:22px;height:9px;background:#8ba888;border-radius:6px;transform-origin:left center;animation:wave 1.8s ease-in-out infinite"></div>
+          </div>
+        </form>
+      </div>
+      <div class="footer-note">made with matcha, lofi &amp; 11:11 wishes · © 2026 Victoria Nguyen</div>
+    </div>
+  </section>
+
+  <!-- ================= FIXED DIRECTOR BLOB ================= -->
+  <div class="director" id="director">
+    <div class="director-bubble" id="director-bubble">
+      <span id="director-text">hi again!! keep scrolling ♡</span>
+      <div class="tail"></div>
+    </div>
+    <div class="director-blob" id="director-blob" title="click me!">
+      <div class="blob-body" style="position:absolute;bottom:0;left:34px;width:98px;height:90px;box-shadow:0 4px 10px rgba(60,50,30,.22)"></div>
+      <div style="position:absolute;bottom:80px;left:80px;width:4px;height:11px;background:#5c7a5a;border-radius:2px"></div>
+      <div style="position:absolute;bottom:88px;left:72px;width:13px;height:8px;background:#5c7a5a;border-radius:50% 50% 50% 0;transform:rotate(-30deg)"></div>
+      <div style="position:absolute;bottom:88px;left:83px;width:13px;height:8px;background:#5c7a5a;border-radius:50% 50% 0 50%;transform:rotate(30deg)"></div>
+      <div style="position:absolute;bottom:48px;left:52px;width:20px;height:17px;border:2.5px solid rgba(51,64,47,.85);border-radius:8px;background:rgba(255,255,255,.25)"></div>
+      <div style="position:absolute;bottom:48px;left:82px;width:20px;height:17px;border:2.5px solid rgba(51,64,47,.85);border-radius:8px;background:rgba(255,255,255,.25)"></div>
+      <div style="position:absolute;bottom:55px;left:72px;width:10px;height:3px;background:rgba(51,64,47,.85);border-radius:2px"></div>
+      <div class="blob-eye" style="position:absolute;bottom:52px;left:58px;width:6px;height:8px"></div>
+      <div class="blob-eye" style="position:absolute;bottom:52px;left:88px;width:6px;height:8px"></div>
+      <div style="position:absolute;bottom:37px;left:71px;width:13px;height:8px;border:2.5px solid #33402f;border-top:none;border-radius:0 0 9px 9px"></div>
+      <div style="position:absolute;bottom:44px;left:44px;width:10px;height:5px;border-radius:50%;background:#d98f77;opacity:.55"></div>
+      <div style="position:absolute;bottom:44px;left:100px;width:10px;height:5px;border-radius:50%;background:#d98f77;opacity:.55"></div>
+      <div style="position:absolute;bottom:52px;left:126px;width:20px;height:8px;background:#8ba888;border-radius:6px;transform-origin:left center;animation:wave 1.8s ease-in-out infinite"></div>
     </div>
   </div>
 
-  <!-- ========== UNIFIED MODAL SYSTEM ========== -->
-  <div class="modal-overlay" id="modal-overlay" aria-hidden="true"></div>
-
-  <!-- Tabbed Modal Shell -->
-  <div class="portfolio-modal" id="portfolio-modal" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="portfolio-modal-inner" id="portfolio-modal-inner">
-
-      <!-- STICKY HEADER — always visible, ✕ lives here -->
-      <div class="pm-sticky-header" id="pm-sticky-header">
-        <div class="pm-sticky-hero">
-          <span class="pm-sticky-emoji" id="pm-sticky-emoji"></span>
-          <div class="pm-sticky-text">
-            <h2 class="pm-sticky-title" id="pm-sticky-title"></h2>
-            <p class="pm-sticky-discipline" id="pm-sticky-discipline"></p>
-          </div>
+  <!-- ================= PROJECT CASE-STUDY MODAL ================= -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" id="modal" role="dialog" aria-modal="true">
+      <div class="modal-head">
+        <div class="modal-mono" id="modal-mono"></div>
+        <div class="modal-titles">
+          <div class="modal-title" id="modal-title"></div>
+          <div class="modal-meta" id="modal-meta"></div>
         </div>
-        <button class="pm-close-btn" id="modal-close-btn" aria-label="Close modal">✕</button>
+        <button class="modal-close" id="modal-close" aria-label="close">✕</button>
       </div>
-
-      <!-- META PILLS — role + timeline -->
-      <div class="pm-meta-row" id="pm-meta-row"></div>
-
-      <!-- SNAPSHOT BAR — Problem → Solution → Impact -->
-      <div class="pm-snapshot-bar" id="pm-snapshot-bar">
-        <div class="pm-snapshot-col">
-          <span class="pm-snapshot-label">PROBLEM</span>
-          <p class="pm-snapshot-text" id="pm-snap-problem"></p>
-        </div>
-        <div class="pm-snapshot-divider"></div>
-        <div class="pm-snapshot-col">
-          <span class="pm-snapshot-label">SOLUTION</span>
-          <p class="pm-snapshot-text" id="pm-snap-solution"></p>
-        </div>
-        <div class="pm-snapshot-divider"></div>
-        <div class="pm-snapshot-col">
-          <span class="pm-snapshot-label">IMPACT</span>
-          <p class="pm-snapshot-text" id="pm-snap-impact"></p>
-        </div>
+      <div class="modal-pills">
+        <span class="pill role" id="modal-role"></span>
+        <span class="pill dates" id="modal-dates"></span>
       </div>
-
-      <!-- TAB NAV -->
-      <div class="pm-tab-nav" id="pm-tab-nav"></div>
-
-      <!-- TAB CONTENT ZONE (only this scrolls) -->
-      <div class="pm-tab-content" id="pm-tab-content"></div>
-
+      <div class="modal-psi" id="modal-psi"></div>
+      <div class="modal-tabs" id="modal-tabs"></div>
+      <div class="modal-body" id="modal-body"></div>
     </div>
   </div>
-
-  <!-- ====== PROJECT DATA (JSON in script tags) ====== -->
-
-  <!-- betterSchedule -->
-  <script type="application/json" id="modal-betterschedule">
-  {
-    "emoji": "⏳",
-    "title": "betterSchedule",
-    "discipline": "Product Design · UX Research · Figma · Agile",
-    "role": "Product Lead & Designer",
-    "timeline": "Sep 2025 – Dec 2025",
-    "snapshot": {
-      "problem": "Tool fragmentation causes planning fatigue and missed deadlines",
-      "solution": "One unified academic planning platform with intelligent scheduling",
-      "impact": "10+ interviews · 3 personas · Full PRD delivered"
-    },
-    "tabs": [
-      {
-        "id": "situation",
-        "label": "Situation",
-        "content": "<div class='pm-content-section'><h3>Overview</h3><p>betterSchedule is an academic planning platform designed to reduce tool fragmentation and help students manage their workload in one place.</p></div><div class='pm-content-section'><h3>Context</h3><p>Students juggle platforms like Canvas, Google Calendar, and messaging apps to stay on top of assignments, deadlines, and group work. This scattered workflow leads to planning fatigue, missed deadlines, and inefficient coordination.</p></div><div class='pm-content-section'><h3>My Role</h3><ul><li>Led end-to-end product discovery as <strong>Product Lead &amp; Designer</strong></li><li>Defined PRD, product goals, and feature roadmap</li><li>Conducted research and translated insights into design decisions</li></ul></div><div class='pm-content-section'><h3>Tools</h3><div class='pm-tag-row'><span>Figma</span><span>User Interviews</span><span>Persona Mapping</span><span>Agile Iteration</span></div></div>"
-      },
-      {
-        "id": "problem",
-        "label": "Problem",
-        "content": "<div class='pm-content-section'><h3>Problem Statement</h3><p class='pm-callout'>Students spend more time organizing their schedules than executing tasks due to fragmented tools and lack of intelligent planning support.</p></div><div class='pm-content-section'><h3>How I Got There</h3><ul><li>Conducted <strong>10+ interviews</strong> with U-M students</li><li>Observed reliance on multiple disconnected tools in real time</li><li>Identified a consistent pattern: planning overhead &gt; actual work</li></ul></div><div class='pm-content-section'><h3>Goal</h3><p>Design a system that centralizes academic planning and reduces friction in managing time, tasks, and collaboration.</p></div><div class='pm-content-section'><h3>Pain Points Uncovered</h3><ul><li>Constant switching between apps breaks focus and flow</li><li>No unified view of total workload across courses</li><li>Difficulty coordinating schedules with group members</li><li>No intelligent support to prioritize or distribute work</li></ul></div><div class='pm-content-section'><h3>Target Users</h3><ul><li>College students managing multiple simultaneous classes</li><li>Group-based learners coordinating schedules</li><li>High-workload users needing more structure</li></ul></div>"
-      },
-      {
-        "id": "actions",
-        "label": "Actions",
-        "content": "<div class='pm-content-section'><h3>Product Strategy &amp; Feature Decisions</h3><div class='pm-feature-grid'><div class='pm-feature-card'><span class='pm-feature-icon'>📥</span><h4>Auto Syllabus Import</h4><p>Eliminates manual entry — the largest friction point. Tradeoff: technical complexity vs. major UX gain.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>🧠</span><h4>Smart Scheduling Assistant</h4><p>Helps users distribute workload effectively. Designed as assistive (not fully automated) to maintain user trust.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>📅</span><h4>Shared Availability</h4><p>Replaces fragmented coordination across messaging apps. Focused on scheduling, not communication.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>🍅</span><h4>Focus Tools</h4><p>Bridges gap between planning and execution. Supports sustained productivity via Pomodoro and mindfulness prompts.</p></div></div></div><div class='pm-content-section'><h3>Design System Choices</h3><ul><li>Clean, minimal UI to reduce cognitive load</li><li>Calendar-first interface for immediate familiarity</li><li>Modular components for long-term scalability</li><li>Soft visual hierarchy to prevent overwhelm</li></ul><div class='pm-img-frame' style='margin-top:1rem'><img src='assets/projects/p1_site.png' alt='Site Map' /></div></div><div class='pm-content-section'><h3>Low-Fidelity Exploration</h3><div class='pm-img-frame'><img src='assets/projects/lofi_p1.png' alt='Lo-fi wireframes' /></div><p style='margin-top:0.75rem; font-size:0.84rem; color:var(--muted)'>Tested dashboard, calendar integration, and task layout. Validated navigation and feature placement.</p></div><div class='pm-content-section'><h3>Iteration Through Feedback</h3><div class='pm-two-col'><div><p class='pm-col-label'>Testing Insights</p><ul><li>Users preferred automation over manual input</li><li>Overly complex features created confusion</li><li>Collaboration needed to feel seamless</li></ul></div><div><p class='pm-col-label'>Design Changes</p><ul><li>Prioritized automation (syllabus import first)</li><li>Simplified dashboard structure significantly</li><li>Refined collaboration into shared availability view</li></ul></div></div></div><div class='pm-content-section'><h3>High-Fidelity Design</h3><div class='pm-img-frame'><img src='assets/projects/hifi_p1.png' alt='Hi-fi designs' /></div></div>"
-      },
-      {
-        "id": "results",
-        "label": "Results",
-        "content": "<div class='pm-content-section'><h3>Final Outcome</h3><div class='pm-img-frame'><img src='assets/projects/betterschedule_prototype.png' alt='Final designs' /></div><p style='margin-top:0.75rem; font-size:0.84rem;'>A system that reduces planning friction, improves workload visibility, and supports both individual and collaborative productivity.</p></div><div class='pm-content-section'><h3>Working Prototype</h3><a class='pm-prototype-btn' href='https://www.figma.com/proto/BHBdNEiOi7MsnOvYYQCJDl/Project-1---victoria_nguyen?node-id=287-16635&p=f&t=j5KAQsBTreu8zi1B-1&scaling=scale-down&content-scaling=fixed&page-id=1%3A2&starting-point-node-id=287%3A16632&show-proto-sidebar=1' target='_blank' rel='noopener noreferrer'>View Prototype ↗</a></div><div class='pm-content-section'><h3>Follow-Up Roadmap</h3><ul><li>Expand AI personalization based on individual patterns</li><li>Integrate deeper with platforms like Canvas and Atlas</li><li>Improve automation accuracy for syllabus parsing</li></ul></div><div class='pm-content-section'><h3>What I Learned</h3><div class='pm-reflection'><div class='pm-reflection-item'><span>💡</span><p>The core issue was <strong>system friction</strong>, not procrastination — students wanted to do the work.</p></div><div class='pm-reflection-item'><span>🎯</span><p>Simplicity is more impactful than feature quantity — cutting features improved usability.</p></div><div class='pm-reflection-item'><span>🔄</span><p>Good products <strong>reduce decision-making effort</strong>, not just the number of steps.</p></div></div></div><div class='pm-content-section'><div class='pm-tag-row' style='border-top:1px solid var(--border); padding-top:1rem;'><span>Figma</span><span>User Research</span><span>Agile</span><span>Product Strategy</span><span>Roadmapping</span></div></div>"
-      }
-    ]
-  }
-  </script>
-
-  <!-- Hopper -->
-  <script type="application/json" id="modal-hopper">
-  {
-    "emoji": "🧭",
-    "title": "Hopper",
-    "discipline": "Product Research · UX Strategy · Prototyping",
-    "role": "Lead Researcher & Designer",
-    "timeline": "Jan 2026 – Apr 2026",
-    "snapshot": {
-      "problem": "Students waste time on trial-and-error with no real-time study space visibility",
-      "solution": "Real-time environment discovery platform with crowd, noise & seating indicators",
-      "impact": "Observational research across 5+ locations · Full product direction defined"
-    },
-    "tabs": [
-      {
-        "id": "situation",
-        "label": "Situation",
-        "content": "<div class='pm-content-section'><h3>Overview</h3><p>Hopper is a real-time study space discovery platform that helps students make faster, more confident decisions about where to study.</p></div><div class='pm-content-section'><h3>Context</h3><p>Students rely on trial-and-error when selecting study spaces, often using static tools that don't reflect real-time conditions. This leads to wasted time, disrupted focus, and inconsistent productivity.</p></div><div class='pm-content-section'><h3>My Role</h3><ul><li>Led <strong>product research and behavioral analysis</strong> across multiple campus locations</li><li>Defined product direction and feature prioritization framework</li><li>Translated research insights into UX strategy and prototypes</li></ul></div><div class='pm-content-section'><h3>Tools</h3><div class='pm-tag-row'><span>Observational Research</span><span>Interviews</span><span>Behavioral Analysis</span><span>Figma</span></div></div>"
-      },
-      {
-        "id": "research",
-        "label": "Research",
-        "content": "<div class='pm-content-section'><h3>Problem Statement</h3><p class='pm-callout'>Students lack visibility into real-time study environments, forcing inefficient trial-and-error decision-making that breaks focus and wastes time.</p></div><div class='pm-content-section'><h3>Research Methods</h3><ul><li>In-person <strong>observational research</strong> across libraries, cafés, and common areas</li><li>Tracked decision hesitation patterns and space-switching behavior</li><li>Found students frequently leave quickly if a space doesn't meet expectations on arrival</li></ul></div><div class='pm-content-section'><h3>Key Insights</h3><div class='pm-insight-cards'><div class='pm-insight-card'><span class='pm-insight-num'>01</span><p>Students rarely know what a space <em>feels like</em> before arriving</p></div><div class='pm-insight-card'><span class='pm-insight-num'>02</span><p>Decision-making is driven by <strong>environment factors</strong> — not just location</p></div><div class='pm-insight-card'><span class='pm-insight-num'>03</span><p>Trial-and-error creates friction and <strong>breaks study flow</strong> before it starts</p></div><div class='pm-insight-card'><span class='pm-insight-num'>04</span><p>No existing tool surfaces real-time crowd, noise, or seating data</p></div></div></div><div class='pm-content-section'><h3>Pain Points</h3><ul><li>No real-time crowd or noise visibility before arriving</li><li>High cost of an incorrect decision — lost time, disrupted state</li><li>Lack of standardized comparison across spaces</li></ul></div><div class='pm-content-section'><h3>Target Users</h3><ul><li>Students studying in public and shared environments</li><li>Users sensitive to environmental conditions (noise, crowd)</li><li>Productivity-focused individuals with variable schedules</li></ul></div>"
-      },
-      {
-        "id": "design",
-        "label": "Design",
-        "content": "<div class='pm-content-section'><h3>Strategic Reframe</h3><div class='pm-callout' style='background:color-mix(in srgb, var(--matcha) 10%, var(--surface-alt));'><p><strong>Initial assumption:</strong> users choose based on location</p><p style='margin-top:0.5rem'><strong>Research revealed:</strong> users choose based on environment feel</p><p style='margin-top:0.75rem; font-size:0.82rem; color:var(--muted)'>Reframe: from <em>\"find a place\"</em> → <em>\"know what a place feels like before going\"</em></p></div></div><div class='pm-content-section'><h3>Feature Decisions</h3><div class='pm-feature-grid'><div class='pm-feature-card'><span class='pm-feature-icon'>👥</span><h4>Real-Time Crowd &amp; Seating</h4><p>Addresses biggest uncertainty. Reduces wasted trips before they happen.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>🔊</span><h4>Noise Level Indicators</h4><p>Key factor in productivity. Visual indicators for quick, scannable interpretation.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>⚡</span><h4>Smart Filtering</h4><p>Enables fast narrowing of options. Designed to avoid overwhelming users with choices.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>🗺️</span><h4>Map + List Hybrid</h4><p>Map supports discovery. List supports comparison and decision-making.</p></div></div></div><div class='pm-content-section'><h3>Design System Choices</h3><ul><li>Clean, minimal UI to reduce cognitive load</li><li>Integrated discovery to reduce navigation friction</li><li>Modular design for future feature expansion</li><li>Standardized environmental indicators for quick scan-ability</li></ul><div class='pm-img-frame' style='margin-top:1rem'><img src='assets/projects/p2_site.png' alt='Site Map' /></div></div><div class='pm-content-section'><h3>Lo-Fidelity Exploration</h3><div class='pm-img-frame'><img src='assets/projects/lofi_p2.png' alt='Lo-fi wireframes' /></div></div><div class='pm-content-section'><h3>Iteration Through Feedback</h3><div class='pm-two-col'><div><p class='pm-col-label'>Testing Findings</p><ul><li>Too much information slowed decisions</li><li>Map-first flow created friction</li><li>Users prioritized quick evaluation signals</li></ul></div><div><p class='pm-col-label'>Design Changes</p><ul><li>Shifted to card-based interface</li><li>Prioritized top signals (crowd, noise, seating)</li><li>Reduced navigation steps to key decision</li></ul></div></div></div><div class='pm-content-section'><h3>Hi-Fi Design</h3><div class='pm-img-frame'><img src='assets/projects/hifi_p2.png' alt='Hi-fi designs' /></div></div>"
-      },
-      {
-        "id": "results",
-        "label": "Results",
-        "content": "<div class='pm-content-section'><h3>Final Outcome</h3><div class='pm-img-frame'><img src='assets/projects/hopper_prototype.png' alt='Final designs' /></div><p style='margin-top:0.75rem; font-size:0.84rem;'>A product direction that reduces decision time, minimizes trial-and-error, and improves study session consistency.</p></div><div class='pm-content-section'><h3>Working Prototype</h3><a class='pm-prototype-btn' href='https://www.figma.com/proto/5FR4OZzjIcEkWsQ1ADRFL9/Project-2---victoria-nguyen?node-id=126-1792&t=ZpxeV1erFJveLsFx-1&scaling=scale-down&content-scaling=fixed&page-id=126%3A439&starting-point-node-id=126%3A1786&show-proto-sidebar=1&fuid=1563092725869860287' target='_blank' rel='noopener noreferrer'>View Prototype ↗</a></div><div class='pm-content-section'><h3>Follow-Up Roadmap</h3><ul><li>Integrate real-time data sources (WiFi density, check-in signals)</li><li>Address backend challenges (latency, data accuracy)</li><li>Explore social features — friend location sharing, space reviews</li></ul></div><div class='pm-content-section'><h3>What I Learned</h3><div class='pm-reflection'><div class='pm-reflection-item'><span>💡</span><p>The core problem was <strong>uncertainty</strong>, not discovery — students knew where spaces existed.</p></div><div class='pm-reflection-item'><span>🎯</span><p>Users prioritize <strong>better decisions</strong> over more options — reduce choice anxiety first.</p></div><div class='pm-reflection-item'><span>🔄</span><p>Effective UX reduces <strong>hesitation</strong>, not just the number of steps in a flow.</p></div></div></div><div class='pm-content-section'><div class='pm-tag-row' style='border-top:1px solid var(--border); padding-top:1rem;'><span>User Research</span><span>Product Thinking</span><span>UX Strategy</span><span>Behavioral Insights</span><span>Figma</span></div></div>"
-      }
-    ]
-  }
-  </script>
-
-  <!-- BetBuddies -->
-  <script type="application/json" id="modal-betbuddies">
-  {
-    "emoji": "💰",
-    "title": "BetBuddies",
-    "discipline": "Entrepreneurship · User Research · Behavioral Design",
-    "role": "Product Founder & Chief Marketing Officer",
-    "timeline": "Sep 2025 – Apr 2026",
-    "snapshot": {
-      "problem": "College students struggle to maintain consistent sleep habits due to low awareness, low motivation, and lack of accountability",
-      "solution": "Hybrid behavior-change platform combining sleep tracking, social accountability, and low-stakes commitment systems",
-      "impact": "100+ interviews · 2 phases · Hybrid model validated · Go decision confirmed"
-    },
-    "tabs": [
-      {
-        "id": "situation",
-        "label": "Situation",
-        "content": "<div class='pm-content-section'><div class='pm-img-frame' style='max-width: 70%; margin: 0 auto; border: none; background: transparent;'><img src='assets/projects/betbuddies_prototype.png' alt='BetBuddies Prototype' style='width: 100%; height: auto; border-radius: 8px;'/></div></div><div class='pm-content-section'><h3>Overview</h3><p>BetBuddies is a behavior-change platform designed to help college students build consistent sleep habits. It combines sleep tracking, social accountability, and low-stakes commitment systems to drive awareness, motivation, and long-term consistency.</p></div><div class='pm-content-section'><h3>Context</h3><p>Most existing sleep and habit apps are easy to ignore. While students already use alarms, trackers, and routines, these tools fail to drive sustained behavior change because they lack engagement, accountability, and meaningful feedback. This is especially problematic for college students, whose schedules are inconsistent and highly influenced by academic and social pressures.</p></div><div class='pm-content-section'><h3>My Role</h3><ul><li>Designed and executed 2-phase research strategy (discovery + validation)</li><li>Conducted 100+ user interviews with college students</li><li>Led experiment design and analysis (social + tracking validation)</li><li>Synthesized insights into go/no-go product decision framework</li><li>Defined product strategy and core feature set</li></ul></div><div class='pm-content-section'><h3>Tools</h3><div class='pm-tag-row'><span>User Interviews</span><span>Survey Design</span><span>Behavioral Analysis</span><span>Product Strategy</span><span>Figma</span></div></div>"
-      },
-      {
-        "id": "research",
-        "label": "Research",
-        "content": "<div class='pm-content-section'><h3>Problem Statement</h3><p class='pm-callout'>College students consistently fail to maintain 7–8 hours of sleep, not due to lack of tools, but due to lack of sustained motivation, accountability, and awareness.</p></div><div class='pm-content-section'><h3>Key Insights</h3><div class='pm-insight-cards'><div class='pm-insight-card'><span class='pm-insight-num'>01</span><p>Students already use sleep tools but abandon them due to low engagement</p></div><div class='pm-insight-card'><span class='pm-insight-num'>02</span><p>Social influence significantly increases adoption and consistency</p></div><div class='pm-insight-card'><span class='pm-insight-num'>03</span><p>Tracking and data insights are required for long-term engagement</p></div><div class='pm-insight-card'><span class='pm-insight-num'>04</span><p>High-risk financial penalties reduce adoption — users prefer low-stakes accountability</p></div></div></div><div class='pm-content-section'><h3>Research Method</h3><ul><li>Phase 1: Exploratory interviews to understand habit failure patterns</li><li>Phase 2: Concept validation through experiments (social + tracking)</li><li>Mixed-method approach combining qualitative interviews and survey data</li></ul></div>"
-      },
-      {
-        "id": "strategy",
-        "label": "Strategy",
-        "content": "<div class='pm-content-section'><h3>Solution</h3><p>BetBuddies uses a hybrid model that integrates tracking, social interaction, and accountability. Instead of relying on discipline alone, it aligns awareness (tracking), motivation (social), and consistency (accountability) into a single system.</p></div><div class='pm-content-section'><h3>Key Design Decisions</h3><div class='pm-feature-grid'><div class='pm-feature-card'><span class='pm-feature-icon'>📊</span><h4>Tracking</h4><p>Provides sleep data, trends, and insights to increase awareness and perceived value</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>👥</span><h4>Social</h4><p>Friend groups, challenges, and shared progress drive engagement and accountability</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>🎯</span><h4>Accountability</h4><p>Low-stakes bets or points increase commitment without introducing stress or risk</p></div></div></div><div class='pm-content-section'><h3>Experiments</h3><div class='pm-two-col'><div><p class='pm-col-label'>Experiment 1: Social Accountability</p><p>Users were significantly more likely to download and engage when friends were involved. <strong>Insight:</strong> Close social groups drive adoption and motivation.</p></div><div><p class='pm-col-label'>Experiment 2: Tracking vs Accountability</p><p>Users strongly preferred tracking + accountability over accountability alone. <strong>Insight:</strong> Data creates long-term engagement, not just motivation.</p></div></div></div><div class='pm-content-section'><h3>Prototype</h3><a class='pm-prototype-btn' href='https://grass-chrome-97636871.figma.site/home' target='_blank' rel='noopener noreferrer'>View Prototype ↗</a></div>"
-      },
-      {
-        "id": "results",
-        "label": "Results",
-        "content": "<div class='pm-content-section'><h3>Validated Outcomes</h3><ul><li>50+ user interviews conducted</li><li>2 experiments validated core assumptions</li><li>Clear preference for hybrid model (tracking + social + accountability)</li><li>Strong demand signal → GO decision confirmed</li></ul></div><div class='pm-content-section'><h3>Product Insight</h3><p class='pm-callout' style='background:color-mix(in srgb, var(--matcha) 12%, var(--surface-alt));'>Behavior change is not driven by a single feature, but by the interaction of awareness, motivation, and accountability. The most effective solution was not maximizing one factor, but balancing all three.</p></div><div class='pm-content-section'><h3>What I Learned</h3><div class='pm-reflection'><div class='pm-reflection-item'><span>💡</span><p>Behavior change requires real engagement, not just tools.</p></div><div class='pm-reflection-item'><span>🎯</span><p>Social accountability is most effective when paired with data.</p></div><div class='pm-reflection-item'><span>🔄</span><p>Users prefer low-pressure systems over high-risk penalties.</p></div><div class='pm-reflection-item'><span>🚀</span><p>Strong product decisions come from iterative validation, not assumptions.</p></div></div></div><div class='pm-content-section'><div class='pm-tag-row' style='border-top:1px solid var(--border); padding-top:1rem;'><span>User Research</span><span>Behavioral Design</span><span>Product Strategy</span><span>Experimentation</span><span>Figma</span></div></div>"
-      },
-      {
-        "id": "pitch",
-        "label": "Pitch",
-        "content": "<div class='pm-content-section'><h3>Pitch Deck</h3><a class='pm-prototype-btn' href='https://www.canva.com/design/DAHEPTcKAfc/fzSqf8wV50zCmIxYRihyLQ/view?utm_content=DAHEPTcKAfc&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h327d0e9d93' target='_blank' rel='noopener noreferrer' style='margin-bottom: 1.5rem; display: inline-block;'>Click to see pitch ↗</a><div class='pm-img-frame'><img src='assets/projects/betbuddies_pitch.png' alt='BetBuddies Pitch Cover' /></div></div>"
-      }
-    ]
-  }
-  </script>
-
-  <!-- SynthLab -->
-  <script type="application/json" id="modal-synthlab">
-  {
-    "emoji": "🧬",
-    "title": "SynthLab",
-    "discipline": "Healthcare AI · Python · FastAPI · React · FAISS · SDV",
-    "role": "Full-Stack Engineer & Researcher",
-    "timeline": "Dec 2025 – Feb 2026",
-    "snapshot": {
-      "problem": "Clinical researchers can't use real patient data for ML, blocking fairness testing",
-      "solution": "Privacy-preserving synthetic data generation pipeline with statistical validation",
-      "impact": "Multi-method generation · FAISS retrieval · Async FastAPI backend built"
-    },
-    "tabs": [
-      {
-        "id": "overview",
-        "label": "Overview",
-        "content": "<div class='pm-content-section'><h3>Context</h3><p>Clinical researchers often can't use real patient data due to privacy constraints (HIPAA), which limits experimentation with machine learning models — especially for fairness and bias analysis in pediatric care.</p></div><div class='pm-content-section'><h3>My Role</h3><ul><li>Built the <strong>end-to-end synthetic data generation pipeline</strong></li><li>Designed statistical validation workflows for realism testing</li><li>Implemented FastAPI backend with caching and async processing</li><li>Integrated FAISS-based retrieval system for research queries</li></ul></div><div class='pm-content-section'><h3>Stack</h3><div class='pm-tag-row'><span>Python</span><span>FastAPI</span><span>React</span><span>FAISS</span><span>SDV</span><span>Pandas</span><span>Docker</span></div></div>"
-      },
-      {
-        "id": "build",
-        "label": "Build",
-        "content": "<div class='pm-content-section'><h3>What I Built</h3><div class='pm-feature-grid'><div class='pm-feature-card'><span class='pm-feature-icon'>🔬</span><h4>Synthetic Data Pipeline</h4><p>Built using SDV models (CTGAN, TVAE) to generate realistic but privacy-safe patient data.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>📊</span><h4>Validation Workflows</h4><p>Statistical comparison of synthetic vs. real data distributions for realism and fairness.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>⚡</span><h4>FastAPI Backend</h4><p>Async processing with caching layer to reduce latency on expensive generation calls.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>🔍</span><h4>FAISS Retrieval</h4><p>Vector-based search enabling researchers to query datasets and related research efficiently.</p></div></div></div><div class='pm-content-section'><h3>Demo Video</h3><div class='pm-video-frame'><iframe width='100%' height='315' src='https://www.youtube.com/embed/2g5cvh6bRTM' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div></div>"
-      },
-      {
-        "id": "results",
-        "label": "Results",
-        "content": "<div class='pm-content-section'><h3>Outcome</h3><p>Helped enable safe dataset simulation and made ML experimentation more accessible without exposing sensitive patient data — a critical step toward fairer pediatric AI models.</p></div><div class='pm-content-section'><h3>What I Learned</h3><div class='pm-reflection'><div class='pm-reflection-item'><span>💡</span><p>Privacy constraints are <strong>design constraints</strong> — building around them requires creative architecture.</p></div><div class='pm-reflection-item'><span>🎯</span><p>Statistical validation is as important as generation quality — realism must be measurable.</p></div><div class='pm-reflection-item'><span>🔄</span><p>Async design patterns drastically improve UX for computationally expensive ML pipelines.</p></div></div></div><div class='pm-content-section'><div class='pm-tag-row' style='border-top:1px solid var(--border); padding-top:1rem;'><span>Python</span><span>FastAPI</span><span>React</span><span>FAISS</span><span>SDV</span><span>Pandas</span><span>Docker</span></div></div>"
-      }
-    ]
-  }
-  </script>
-
-  <!-- Heartline -->
-  <script type="application/json" id="modal-heartline">
-  {
-    "emoji": "💚",
-    "title": "Heartline Care Companion",
-    "discipline": "Healthcare UX · React Native · Node.js · Figma",
-    "role": "Full-Stack Engineer & Designer",
-    "timeline": "Nov 2025 – Dec 2025",
-    "snapshot": {
-      "problem": "Wellness apps are disconnected from the actual rhythms of clinical care routines",
-      "solution": "Adaptive mobile companion built around hospital care patterns and patient needs",
-      "impact": "React Native app · Mood tracking · Gentle reminder engine built"
-    },
-    "tabs": [
-      {
-        "id": "overview",
-        "label": "Overview",
-        "content": "<div class='pm-content-section'><h3>The Problem</h3><p>After working in clinical settings, I saw how disconnected wellness tools are from the actual rhythms of care. Apps don't adapt to how patients or care teams actually operate day to day — their energy levels, shift patterns, and recovery states.</p></div><div class='pm-content-section'><h3>My Role</h3><ul><li>Designed and built the <strong>full React Native mobile app</strong> with warm adaptive UI</li><li>Architected Node.js + Express backend with user session management</li><li>Led design decisions rooted in clinical workflow patterns</li></ul></div><div class='pm-content-section'><h3>Stack</h3><div class='pm-tag-row'><span>React Native</span><span>Node.js</span><span>Express</span><span>Figma</span><span>User Research</span></div></div>"
-      },
-      {
-        "id": "build",
-        "label": "Build",
-        "content": "<div class='pm-content-section'><h3>What I Built</h3><div class='pm-feature-grid'><div class='pm-feature-card'><span class='pm-feature-icon'>📱</span><h4>Adaptive UI</h4><p>React Native mobile app with warm, comforting interface that adapts tone to user energy level.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>😌</span><h4>Mood Check-In System</h4><p>Pattern tracking over time to surface trends and trigger personalized support prompts.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>🔔</span><h4>Reminder Engine</h4><p>Gentle, context-aware reminders that respect user energy levels and care routines.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>🔒</span><h4>Session Management</h4><p>Node.js + Express backend with secure user sessions and persistent tracking data.</p></div></div></div><div class='pm-content-section'><h3>Demo Video</h3><div class='pm-video-frame'><iframe width='100%' height='315' src='https://www.youtube.com/embed/hQRuj-UzGAA' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div></div>"
-      },
-      {
-        "id": "results",
-        "label": "Results",
-        "content": "<div class='pm-content-section'><h3>Design Intent &amp; Outcome</h3><p>Borrowed patterns from clinical workflows — routine, consistency, and feedback loops — and wrapped them in an interface that feels comforting rather than clinical. The goal was to reduce friction around self-care, not add another source of obligation.</p></div><div class='pm-content-section'><h3>What I Learned</h3><div class='pm-reflection'><div class='pm-reflection-item'><span>💡</span><p>Clinical experience gave me <strong>real empathy for users</strong> — I had lived the problem before building the solution.</p></div><div class='pm-reflection-item'><span>🎯</span><p>Comfort in UI is a <strong>design discipline</strong> — tone, color, and copy choices all contribute to emotional safety.</p></div><div class='pm-reflection-item'><span>🔄</span><p>Full-stack ownership forces you to make better <strong>architecture decisions</strong> early.</p></div></div></div><div class='pm-content-section'><div class='pm-tag-row' style='border-top:1px solid var(--border); padding-top:1rem;'><span>React Native</span><span>Node.js</span><span>Express</span><span>Figma</span><span>User Research</span></div></div>"
-      }
-    ]
-  }
-  </script>
-
-  <!-- Smart Record App -->
-  <script type="application/json" id="modal-smartrecord">
-  {
-    "emoji": "🩺",
-    "title": "Smart Record App",
-    "discipline": "Clinical Tool · React · Python · UX Design",
-    "role": "Engineer & Designer",
-    "timeline": "Nov 2025 – Dec 2025",
-    "snapshot": {
-      "problem": "New care team members face a steep, fragmented EMR learning curve with no guided onboarding",
-      "solution": "Interactive clinical documentation simulator walking through real patient vitals flows",
-      "impact": "Vitals decision tree built · Clinical flagging system designed · React + Python full-stack"
-    },
-    "tabs": [
-      {
-        "id": "overview",
-        "label": "Overview",
-        "content": "<div class='pm-content-section'><h3>The Problem</h3><p>New care team members and students face a steep learning curve with EMR systems. Existing training is fragmented, intimidating, and disconnected from real clinical decisions — driving errors and slowing onboarding.</p></div><div class='pm-content-section'><h3>My Role</h3><ul><li>Built a <strong>React app</strong> simulating realistic patient vitals flows</li><li>Designed clinical decision tree mapping vitals to care actions</li><li>Developed Python backend for case data management</li><li>Led UI design with clinical empathy and progressive disclosure</li></ul></div><div class='pm-content-section'><h3>Stack</h3><div class='pm-tag-row'><span>React</span><span>Python</span><span>Figma</span><span>HTML/CSS</span><span>Clinical Design</span></div></div>"
-      },
-      {
-        "id": "build",
-        "label": "Build",
-        "content": "<div class='pm-content-section'><h3>What I Built</h3><div class='pm-feature-grid'><div class='pm-feature-card'><span class='pm-feature-icon'>📋</span><h4>Vitals Flow Simulator</h4><p>React app walking users through realistic patient vitals scenarios with step-by-step guidance.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>⚠️</span><h4>Clinical Flagging System</h4><p>Highlighting system that flags concerning values with contextual explanations and safe ranges.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>🌳</span><h4>Decision Tree</h4><p>Maps vitals data to appropriate clinical actions — helping new staff develop correct mental models.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>🐍</span><h4>Python Backend</h4><p>Case data management and scenario loading for flexible, multi-patient simulation.</p></div></div></div><div class='pm-content-section'><h3>Design Intent</h3><p>Learning care shouldn't feel intimidating. The UI is warm, progressive, and built around the actual mental model of a new care team member — not a developer's convenience.</p></div>"
-      },
-      {
-        "id": "results",
-        "label": "Results",
-        "content": "<div class='pm-content-section'><h3>Outcome</h3><p>Created a training tool that makes clinical documentation learning accessible, contextual, and less intimidating — reducing the gap between classroom knowledge and bedside application.</p></div><div class='pm-content-section'><h3>What I Learned</h3><div class='pm-reflection'><div class='pm-reflection-item'><span>💡</span><p>Domain expertise is a <strong>design superpower</strong> — clinical experience made every decision more grounded.</p></div><div class='pm-reflection-item'><span>🎯</span><p>Progressive disclosure reduces overwhelm — show only what's needed <strong>at the right moment</strong>.</p></div><div class='pm-reflection-item'><span>🔄</span><p>Real empathy for users means <strong>living in their context</strong>, not just interviewing them.</p></div></div></div><div class='pm-content-section'><div class='pm-tag-row' style='border-top:1px solid var(--border); padding-top:1rem;'><span>React</span><span>Python</span><span>Figma</span><span>HTML/CSS</span><span>User Research</span><span>Clinical Design</span></div></div>"
-      }
-    ]
-  }
-  </script>
-
-  <!-- DASHBOARD STATUS BAR -->
-  <footer class="status-bar">
-    <div class="status-left">
-      <div class="status-item">
-        <i class="fas fa-wifi"></i> Connected: VIC_CAFE_GUEST
-      </div>
-      <div class="status-item">
-        <i class="fas fa-clock"></i> <span id="current-time">12:00 PM</span>
-      </div>
-    </div>
-    <div class="status-right">
-      <div class="status-item">
-        <i class="fas fa-heart"></i> <span>Currently Brewing: New Projects</span>
-      </div>
-    </div>
-  </footer>
-  <!-- AUDIO ASSETS -->
-  <audio id="paper-flick-audio" src="https://cdn.freesound.org/previews/586/586395_12674900-lq.mp3"
-    preload="auto"></audio>
 
   <script src="script.js"></script>
 </body>
