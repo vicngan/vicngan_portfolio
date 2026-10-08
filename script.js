@@ -7,20 +7,56 @@
 /* ---------------- PROJECT DATA ---------------- */
 const PROJECTS = [
   {
-    id: 'acaso', title: 'ACASO', mono: 'Ac', type: 'product',
-    meta: 'Startup · AI Financial Operations',
-    role: 'Co-Founder & CEO', dates: 'May 2026 – Present',
-    blurb: 'AI-powered financial operations platform — document processing, invoice & contract auditing.',
-    tags: ['Product Strategy', 'AI', 'Full-stack', 'UX/UI'],
+    id: 'invar', title: 'INVAR', mono: 'In', type: 'product', logo: 'assets/invar-mark.svg',
+    meta: 'Startup · Inside-Out Analytics for Product-Led Teams',
+    role: 'CEO', dates: '',
+    blurb: 'Inside-out analytics that connects customer data with team conversations to explain why a metric moved — and whether the fix worked.',
+    tags: ['Startup Leadership', 'AI Analytics', 'Product Strategy'],
     snapshot: {
-      problem: 'Finance teams audit invoices & contracts by hand — slow, costly, error-prone',
-      solution: 'AI-powered document processing that automates invoice & contract auditing',
-      impact: 'Product strategy, UX, and full-stack build led end-to-end from zero',
+      problem: 'Dashboards show that a metric moved, not why — teams guess, ship fixes, and never check if they worked',
+      solution: 'Connects PostHog, Stripe, HubSpot & Slack to find root causes, recommend owned fixes, and measure outcomes',
+      impact: 'Leading the company · Running a 10–12 team design-partner pilot · First finding within 24 hours',
     },
     tabs: [
-      { label: 'Situation', html: `<div class='pm-content-section'><h3>Overview</h3><p>ACASO is an AI-powered financial operations platform for processing, auditing, and understanding financial documents.</p></div><div class='pm-content-section'><h3>My Role</h3><ul><li>Co-founded the company and lead as <strong>CEO</strong></li><li>Drive product strategy and customer discovery</li><li>Design the UX/UI and build the platform full-stack</li></ul></div><div class='pm-content-section'><h3>Tools</h3><div class='pm-tag-row'><span>Product Strategy</span><span>Customer Discovery</span><span>AI Document Processing</span><span>UX/UI</span><span>Full-stack</span></div></div>` },
-      { label: 'Product', html: `<div class='pm-content-section'><h3>What We Built</h3><p>An AI document pipeline for invoice and contract auditing — extracting, validating, and flagging financial documents so teams catch issues before they cost money.</p></div>` },
-      { label: 'Building it', html: `<div class='pm-content-section'><h3>Startup Lessons</h3><p>Building from zero: talking to customers before writing code, shipping small, and letting discovery reshape the roadmap.</p></div>` },
+      { label: 'Situation', html: `<div class='pm-content-section'><h3>Overview</h3><p>INVAR is inside-out analytics for product-led companies of 30–150 people. It's built on one idea: <strong>every problem shows up twice</strong> — once as a metric change, and once as a spike in the questions your team asks in Slack.</p></div><div class='pm-content-section'><h3>My Role</h3><ul><li>Lead the company as <strong>CEO</strong></li><li>Run the design-partner pilot program and customer conversations</li><li>Set product direction, positioning, and trust &amp; privacy principles</li></ul></div><div class='pm-content-section'><h3>Integrations</h3><div class='pm-tag-row'><span>PostHog</span><span>Stripe</span><span>HubSpot</span><span>Slack</span><span>Jira</span><span>Linear</span><span>GitHub Issues</span></div></div><div class='pm-content-section'><h3>Website</h3><a class='pm-prototype-btn' href='https://www.invarhq.com/' target='_blank' rel='noopener'>Visit invarhq.com ↗</a></div>` },
+      { label: 'Product', html: `<div class='pm-content-section'><h3>What We're Building</h3><div class='pm-feature-grid'><div class='pm-feature-card'><span class='pm-feature-icon'>🔍</span><h4>Investigations</h4><p>Ask why a metric changed in plain language. Get ranked causes across usage, revenue, acquisition, team load &amp; cost — every number linked to its query.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>🎯</span><h4>Recommendations</h4><p>Each fix has an owner, a target metric, and a baseline. Tickets go to Jira, Linear, or GitHub only after a person approves.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>📈</span><h4>Outcome Tracking</h4><p>Target metrics are measured against baseline, with a recorded verdict on whether the fix worked.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>💬</span><h4>AskRight</h4><p>A Slack app that answers repeat questions from approved docs, routes new ones to the right person, and flags knowledge gaps.</p></div></div></div><div class='pm-content-section'><h3>Honest Labels</h3><p class='pm-callout'>Every claim is tagged Fact, Correlation, Hypothesis, or Tested. "Caused" is only used when a holdout or experiment backs it.</p></div>` },
+      { label: 'Trust & Pilot', html: `<div class='pm-content-section'><h3>Built for Trust</h3><ul><li>Slack message text is discarded after answering — only metadata is kept</li><li>Each company gets its own warehouse and encryption key</li><li>Answers respect existing permissions</li><li>Not a tool for monitoring individuals or scoring employees</li></ul></div><div class='pm-content-section'><h3>Design-Partner Pilot</h3><p>Taking 10–12 teams: connect in under 15 minutes, first finding on day 1–2, target metric agreed in week 2, checkpoint at day 30, review at day 60. Unlimited viewers and askers — no per-seat fees.</p></div>` },
+    ],
+  },
+  {
+    id: 'acaso', title: 'ACASO', mono: 'Ac', type: 'product', logo: 'assets/acaso-app-icon-dark.svg', logoFill: true,
+    meta: 'Startup · AI Operating Partner · Pre-Seed',
+    role: 'Co-Founder & COO', dates: '',
+    blurb: 'AI agents that learn how a small company runs and improve its back office over time — finance, ops, sales & support.',
+    tags: ['Strategy', 'Finance', 'Marketing', 'AI Agents'],
+    snapshot: {
+      problem: 'Small companies need a whole back office but can\'t hire one — and point AI tools don\'t talk to each other',
+      solution: 'AI agents that interview every employee, map how work gets done, implement fixes, and keep improving',
+      impact: 'Pre-seed stage · Leading marketing, finance & strategy · Building toward first founding customers',
+    },
+    tabs: [
+      { label: 'Situation', html: `<div class='pm-content-section'><h3>Overview</h3><p>ACASO is <strong>your AI operating partner</strong>: AI agents that learn a company's operations and improve them over time, with consulting-grade insight. Built for 10–50 person companies with no back-office team.</p></div><div class='pm-content-section'><h3>The Problem</h3><p class='pm-callout'>It's 11 p.m. and the founder is still buried in work — typing the same numbers into three systems, rebuilding schedules by hand, chasing quotes, answering the same customer questions.</p></div><div class='pm-content-section'><h3>My Role</h3><ul><li>Co-founded the company and serve as <strong>COO</strong></li><li>Lead <strong>marketing, finance, and strategy</strong></li><li>Built the financial model, market sizing, and pre-seed pitch</li></ul></div><div class='pm-content-section'><h3>Focus Areas</h3><div class='pm-tag-row'><span>Strategy</span><span>Financial Modeling</span><span>Go-to-Market</span><span>Fundraising</span><span>AI Agents</span></div></div>` },
+      { label: 'Product', html: `<div class='pm-content-section'><h3>A Loop, Not a Project</h3><div class='pm-feature-grid'><div class='pm-feature-card'><span class='pm-feature-icon'>🎙️</span><h4>Interview</h4><p>Agents talk with every employee about how they work, what slows them down, and where effort goes.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>🗺️</span><h4>Map</h4><p>Every interview feeds one company brain — a single map of how work actually gets done.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>🛠️</span><h4>Improve</h4><p>The brain finds what to fix. We build the plan and put it in place with the team.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>🔄</span><h4>Adapt</h4><p>Agents stay with each employee, track what every change did, and find the next fix.</p></div></div></div><div class='pm-content-section'><h3>No Evidence. No Action.</h3><p>Every action cites its source, a policy engine no agent can override sets the limits, and big or unusual decisions stop for a person. Autonomy is earned per workflow — people review everything in month 1, only exceptions by month 3.</p></div>` },
+      { label: 'Business', html: `<div class='pm-content-section'><h3>Business Model</h3><ul><li><strong>Interview &amp; Map</strong> — fixed fee</li><li><strong>Improve</strong> — priced per improvement</li><li><strong>Adapt</strong> — monthly subscription, the recurring core</li></ul><p class='pm-callout'>Consultants leave. Agents stay.</p></div><div class='pm-content-section'><h3>Website</h3><a class='pm-prototype-btn' href='https://acasohq.com/' target='_blank' rel='noopener'>Visit acasohq.com ↗</a></div>` },
+    ],
+  },
+  {
+    id: 'hopper', title: 'Hoppr', mono: 'Ho', type: 'tech', logo: 'assets/hoppr-mark-trim.png',
+    meta: 'Consumer App · Personalized Recommendations · Ann Arbor Beta',
+    role: 'Lead Developer · Researcher & Designer', dates: 'Jan 2026 – Present',
+    blurb: 'Tell it your mood, get one pick — a taste-learning app that finds your next favorite place nearby. Grew out of my Hopper research.',
+    tags: ['Full-stack', 'Recommendations', 'User Research', 'Figma'],
+    snapshot: {
+      problem: 'Choosing where to go is decision fatigue — too many options, and groups can never agree',
+      solution: 'Mood-based search that narrows ~400 nearby places to one pick, learns your taste, and finds group overlap',
+      impact: 'Evolved from study-space research into a live waitlist & beta launching in Ann Arbor',
+    },
+    tabs: [
+      { label: 'Hoppr', html: `<div class='pm-content-section'><h3>Overview</h3><p><strong>Your next favorite place is probably nearby.</strong> Hoppr is for anyone who can't decide where to go — dinner, drinks, a show, or a night out. Say what you're in the mood for and Hoppr narrows hundreds of nearby places down to one pick.</p></div><div class='pm-content-section'><h3>My Role</h3><ul><li>Owned the <strong>entire development scope</strong> — built the product end to end, from waitlist to beta</li><li>Carried the research and design work from Hopper into the new direction</li></ul></div><div class='pm-content-section'><h3>Features</h3><div class='pm-feature-grid'><div class='pm-feature-card'><span class='pm-feature-icon'>✨</span><h4>Mood-Based Search</h4><p>Describe the vibe; get one confident recommendation instead of a list of 400.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>🧠</span><h4>Learns Your Taste</h4><p>Answers, saves, and ratings shape a "% your taste" match score over time.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>🍜</span><h4>What to Order</h4><p>Suggests a dish once you get there, so the decision doesn't stop at the door.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>👯</span><h4>Group Decisions</h4><p>Everyone picks separately and Hoppr finds the overlap.</p></div></div></div><div class='pm-content-section'><h3>Launch</h3><p>Free during beta, starting in Ann Arbor — with a referral-based waitlist and optional SMS alerts.</p><a class='pm-prototype-btn' href='https://hopwithhoppr.com/' target='_blank' rel='noopener'>Visit hopwithhoppr.com ↗</a></div>` },
+      { label: 'Origins', html: `<div class='pm-content-section'><h3>Where It Started</h3><p>Hoppr began as <strong>Hopper</strong> (Jan – Apr 2026), a research and design project on how students choose study spaces. The core insight — people don't lack options, they lack confidence in the choice — became the foundation for Hoppr.</p></div><div class='pm-content-section'><h3>Overview</h3><p>Hopper was a real-time study space discovery concept that helps students make faster, more confident decisions about where to study.</p></div><div class='pm-content-section'><h3>Context</h3><p>Students rely on trial-and-error when selecting study spaces, often using static tools that don't reflect real-time conditions. This leads to wasted time, disrupted focus, and inconsistent productivity.</p></div><div class='pm-content-section'><h3>My Role</h3><ul><li>Led <strong>product research and behavioral analysis</strong> across multiple campus locations</li><li>Defined product direction and feature prioritization framework</li><li>Translated research insights into UX strategy and prototypes</li></ul></div><div class='pm-content-section'><h3>Tools</h3><div class='pm-tag-row'><span>Observational Research</span><span>Interviews</span><span>Behavioral Analysis</span><span>Figma</span></div></div>` },
+      { label: 'Research', html: `<div class='pm-content-section'><h3>Problem Statement</h3><p class='pm-callout'>Students lack visibility into real-time study environments, forcing inefficient trial-and-error decision-making that breaks focus and wastes time.</p></div><div class='pm-content-section'><h3>Research Methods</h3><ul><li>In-person <strong>observational research</strong> across libraries, cafés, and common areas</li><li>Tracked decision hesitation patterns and space-switching behavior</li><li>Found students frequently leave quickly if a space doesn't meet expectations on arrival</li></ul></div><div class='pm-content-section'><h3>Key Insights</h3><div class='pm-insight-cards'><div class='pm-insight-card'><span class='pm-insight-num'>01</span><p>Students rarely know what a space <em>feels like</em> before arriving</p></div><div class='pm-insight-card'><span class='pm-insight-num'>02</span><p>Decision-making is driven by <strong>environment factors</strong> — not just location</p></div><div class='pm-insight-card'><span class='pm-insight-num'>03</span><p>Trial-and-error creates friction and <strong>breaks study flow</strong> before it starts</p></div><div class='pm-insight-card'><span class='pm-insight-num'>04</span><p>No existing tool surfaces real-time crowd, noise, or seating data</p></div></div></div><div class='pm-content-section'><h3>Target Users</h3><ul><li>Students studying in public and shared environments</li><li>Users sensitive to environmental conditions (noise, crowd)</li><li>Productivity-focused individuals with variable schedules</li></ul></div>` },
+      { label: 'Design', html: `<div class='pm-content-section'><h3>Feature Decisions</h3><div class='pm-feature-grid'><div class='pm-feature-card'><span class='pm-feature-icon'>👥</span><h4>Real-Time Crowd &amp; Seating</h4><p>Addresses biggest uncertainty. Reduces wasted trips before they happen.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>🔊</span><h4>Noise Level Indicators</h4><p>Key factor in productivity. Visual indicators for quick, scannable interpretation.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>⚡</span><h4>Smart Filtering</h4><p>Enables fast narrowing of options. Designed to avoid overwhelming users with choices.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>🗺️</span><h4>Map + List Hybrid</h4><p>Map supports discovery. List supports comparison and decision-making.</p></div></div></div><div class='pm-content-section'><h3>Site Map</h3><div class='pm-img-frame'><img src='assets/projects/p2_site.png' alt='Site map' loading='lazy'></div></div><div class='pm-content-section'><h3>Lo-Fidelity Exploration</h3><div class='pm-img-frame'><img src='assets/projects/lofi_p2.png' alt='Lo-fi wireframes' loading='lazy'></div></div><div class='pm-content-section'><h3>Hi-Fi Design</h3><div class='pm-img-frame'><img src='assets/projects/hifi_p2.png' alt='Hi-fi designs' loading='lazy'></div></div>` },
+      { label: 'Results', html: `<div class='pm-content-section'><h3>Hopper Prototype</h3><div class='pm-img-frame'><img src='assets/projects/hopper_prototype.png' alt='Final designs' loading='lazy'></div><p style='margin-top:.75rem'>A product direction that reduces decision time, minimizes trial-and-error, and improves study session consistency.</p></div><div class='pm-content-section'><h3>Working Prototype</h3><a class='pm-prototype-btn' href='https://www.figma.com/proto/5FR4OZzjIcEkWsQ1ADRFL9/Project-2---victoria-nguyen?node-id=126-1792&t=ZpxeV1erFJveLsFx-1&scaling=scale-down&content-scaling=fixed&page-id=126%3A439&starting-point-node-id=126%3A1786&show-proto-sidebar=1&fuid=1563092725869860287' target='_blank' rel='noopener'>View Prototype ↗</a></div><div class='pm-content-section'><h3>What I Learned</h3><div class='pm-reflection'><div class='pm-reflection-item'><span>💡</span><p>The core problem was <strong>uncertainty</strong>, not discovery — students knew where spaces existed.</p></div><div class='pm-reflection-item'><span>🎯</span><p>Users prioritize <strong>better decisions</strong> over more options — reduce choice anxiety first.</p></div><div class='pm-reflection-item'><span>🔄</span><p>Effective UX reduces <strong>hesitation</strong>, not just the number of steps in a flow.</p></div></div></div>` },
     ],
   },
   {
@@ -75,24 +111,6 @@ const PROJECTS = [
     ],
   },
   {
-    id: 'hopper', title: 'Hopper', mono: 'Ho', type: 'product',
-    meta: 'Product Research · UX Strategy · Prototyping',
-    role: 'Lead Researcher & Designer', dates: 'Jan 2026 – Apr 2026',
-    blurb: 'Real-time study space discovery — observational research, environment indicators, defined product direction.',
-    tags: ['User Research', 'UX Strategy', 'Figma'],
-    snapshot: {
-      problem: 'Students waste time on trial-and-error with no real-time study space visibility',
-      solution: 'Real-time environment discovery platform with crowd, noise & seating indicators',
-      impact: 'Observational research across 5+ locations · Full product direction defined',
-    },
-    tabs: [
-      { label: 'Situation', html: `<div class='pm-content-section'><h3>Overview</h3><p>Hopper is a real-time study space discovery platform that helps students make faster, more confident decisions about where to study.</p></div><div class='pm-content-section'><h3>Context</h3><p>Students rely on trial-and-error when selecting study spaces, often using static tools that don't reflect real-time conditions. This leads to wasted time, disrupted focus, and inconsistent productivity.</p></div><div class='pm-content-section'><h3>My Role</h3><ul><li>Led <strong>product research and behavioral analysis</strong> across multiple campus locations</li><li>Defined product direction and feature prioritization framework</li><li>Translated research insights into UX strategy and prototypes</li></ul></div><div class='pm-content-section'><h3>Tools</h3><div class='pm-tag-row'><span>Observational Research</span><span>Interviews</span><span>Behavioral Analysis</span><span>Figma</span></div></div>` },
-      { label: 'Research', html: `<div class='pm-content-section'><h3>Problem Statement</h3><p class='pm-callout'>Students lack visibility into real-time study environments, forcing inefficient trial-and-error decision-making that breaks focus and wastes time.</p></div><div class='pm-content-section'><h3>Research Methods</h3><ul><li>In-person <strong>observational research</strong> across libraries, cafés, and common areas</li><li>Tracked decision hesitation patterns and space-switching behavior</li><li>Found students frequently leave quickly if a space doesn't meet expectations on arrival</li></ul></div><div class='pm-content-section'><h3>Key Insights</h3><div class='pm-insight-cards'><div class='pm-insight-card'><span class='pm-insight-num'>01</span><p>Students rarely know what a space <em>feels like</em> before arriving</p></div><div class='pm-insight-card'><span class='pm-insight-num'>02</span><p>Decision-making is driven by <strong>environment factors</strong> — not just location</p></div><div class='pm-insight-card'><span class='pm-insight-num'>03</span><p>Trial-and-error creates friction and <strong>breaks study flow</strong> before it starts</p></div><div class='pm-insight-card'><span class='pm-insight-num'>04</span><p>No existing tool surfaces real-time crowd, noise, or seating data</p></div></div></div><div class='pm-content-section'><h3>Target Users</h3><ul><li>Students studying in public and shared environments</li><li>Users sensitive to environmental conditions (noise, crowd)</li><li>Productivity-focused individuals with variable schedules</li></ul></div>` },
-      { label: 'Design', html: `<div class='pm-content-section'><h3>Feature Decisions</h3><div class='pm-feature-grid'><div class='pm-feature-card'><span class='pm-feature-icon'>👥</span><h4>Real-Time Crowd &amp; Seating</h4><p>Addresses biggest uncertainty. Reduces wasted trips before they happen.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>🔊</span><h4>Noise Level Indicators</h4><p>Key factor in productivity. Visual indicators for quick, scannable interpretation.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>⚡</span><h4>Smart Filtering</h4><p>Enables fast narrowing of options. Designed to avoid overwhelming users with choices.</p></div><div class='pm-feature-card'><span class='pm-feature-icon'>🗺️</span><h4>Map + List Hybrid</h4><p>Map supports discovery. List supports comparison and decision-making.</p></div></div></div><div class='pm-content-section'><h3>Site Map</h3><div class='pm-img-frame'><img src='assets/projects/p2_site.png' alt='Site map' loading='lazy'></div></div><div class='pm-content-section'><h3>Lo-Fidelity Exploration</h3><div class='pm-img-frame'><img src='assets/projects/lofi_p2.png' alt='Lo-fi wireframes' loading='lazy'></div></div><div class='pm-content-section'><h3>Hi-Fi Design</h3><div class='pm-img-frame'><img src='assets/projects/hifi_p2.png' alt='Hi-fi designs' loading='lazy'></div></div>` },
-      { label: 'Results', html: `<div class='pm-content-section'><h3>Final Outcome</h3><div class='pm-img-frame'><img src='assets/projects/hopper_prototype.png' alt='Final designs' loading='lazy'></div><p style='margin-top:.75rem'>A product direction that reduces decision time, minimizes trial-and-error, and improves study session consistency.</p></div><div class='pm-content-section'><h3>Working Prototype</h3><a class='pm-prototype-btn' href='https://www.figma.com/proto/5FR4OZzjIcEkWsQ1ADRFL9/Project-2---victoria-nguyen?node-id=126-1792&t=ZpxeV1erFJveLsFx-1&scaling=scale-down&content-scaling=fixed&page-id=126%3A439&starting-point-node-id=126%3A1786&show-proto-sidebar=1&fuid=1563092725869860287' target='_blank' rel='noopener'>View Prototype ↗</a></div><div class='pm-content-section'><h3>What I Learned</h3><div class='pm-reflection'><div class='pm-reflection-item'><span>💡</span><p>The core problem was <strong>uncertainty</strong>, not discovery — students knew where spaces existed.</p></div><div class='pm-reflection-item'><span>🎯</span><p>Users prioritize <strong>better decisions</strong> over more options — reduce choice anxiety first.</p></div><div class='pm-reflection-item'><span>🔄</span><p>Effective UX reduces <strong>hesitation</strong>, not just the number of steps in a flow.</p></div></div></div>` },
-    ],
-  },
-  {
     id: 'betbuddies', title: 'BetBuddies', mono: 'Be', type: 'product',
     meta: 'Entrepreneurship · User Research · Behavioral Design',
     role: 'Product Founder & Chief Marketing Officer', dates: 'Sep 2025 – Apr 2026',
@@ -133,15 +151,19 @@ const PROJECTS = [
 
 /* ---------------- JOURNEY DATA ---------------- */
 const JOBS = [
-  { id: 'gametime', dates: 'june 2026 – present', title: 'Gametime United', role: 'Full-Stack Software Intern', current: true,
+  { id: 'invar', dates: '', title: 'INVAR', role: 'CEO', current: true,
+    blurb: 'Inside-out analytics for product-led teams.',
+    bullets: ['Leading the company, product direction, and positioning', 'Running a design-partner pilot with 10–12 product-led teams', 'Connecting PostHog, Stripe, HubSpot & Slack to explain why metrics move and measure whether fixes work'],
+    tools: 'Leadership · Product strategy · Customer discovery · AI analytics' },
+  { id: 'acaso', dates: '', title: 'ACASO', role: 'Co-Founder & COO', current: true,
+    blurb: 'Your AI operating partner — agents that learn and improve a small company\'s back office.',
+    bullets: ['Lead marketing, finance, and strategy', 'Built the financial model, market sizing, and go-to-market plan', 'Leading pre-seed fundraising and investor conversations'],
+    tools: 'Strategy · Financial modeling · Go-to-market · Fundraising' },
+  { id: 'gametime', dates: 'june 2026 – aug 2026', title: 'Gametime United', role: 'Full-Stack Software Intern', current: false,
     blurb: 'AI chatbot feedback systems for live products.',
     bullets: ['Building AI chatbot feedback systems with React Native and FastAPI', 'Working with DynamoDB and Braintrust for AI evaluation', 'Collaborating across product and engineering'],
     tools: 'React Native · FastAPI · DynamoDB · Braintrust' },
-  { id: 'acaso', dates: 'may 2026 – present', title: 'ACASO', role: 'Co-Founder & CEO', current: true,
-    blurb: 'Building an AI-powered financial operations platform from zero.',
-    bullets: ['Product strategy and customer discovery', 'UX/UI design and full-stack development', 'AI document processing for invoice & contract auditing'],
-    tools: 'Product strategy · UX/UI · Full-stack · AI' },
-  { id: 'mmcompbio', dates: 'jan 2026 – present', title: 'Michigan Medicine — Dept. of Computational Biology', role: 'Research Assistant', current: true,
+  { id: 'mmcompbio', dates: 'jan 2026 – sep 2026', title: 'Michigan Medicine — Dept. of Computational Biology', role: 'Research Assistant', current: false,
     blurb: 'Genomic Agent Platform Development.',
     bullets: ['Built V1 of an AI-powered genomic chat platform with a React/TypeScript interface and Supabase Postgres for session persistence and result visualization', 'Defined product requirements for a conversational AI system querying DNA binding predictions across the 3B+ base-pair human genome', 'Partnered with PhD researchers to turn model outputs into interpretable features (motif highlight maps, multi-layer genomic visualizations)'],
     tools: 'React · TypeScript · Supabase · Python · FastAPI' },
@@ -167,15 +189,17 @@ const JOBS = [
 const grid = document.getElementById('card-grid');
 let currentFilter = 'all';
 
+const FEATURED = ['invar', 'acaso'];
+
 function renderCards() {
-  const cards = PROJECTS.filter(p => p.id !== 'acaso' && (currentFilter === 'all' || p.type === currentFilter));
+  const cards = PROJECTS.filter(p => !FEATURED.includes(p.id) && (currentFilter === 'all' || p.type === currentFilter));
   grid.innerHTML = cards.map(p => `
     <div class="pcard" data-project="${p.id}" role="button" tabindex="0">
       <div class="top">
         <span class="type ${p.type}">${p.type === 'tech' ? 'ENGINEERING' : 'PRODUCT'}</span>
         <span class="dates">${p.dates}</span>
       </div>
-      <h3>${p.title}</h3>
+      <h3>${p.logo ? `<img class="pcard-logo" src="${p.logo}" alt="">` : ''}${p.title}</h3>
       <p>${p.blurb}</p>
       <div class="tags">${p.tags.map(t => `<span>${t}</span>`).join('')}</div>
       <div class="cta">open the case study →</div>
@@ -208,11 +232,14 @@ function openModal(id) {
   const p = PROJECTS.find(x => x.id === id);
   if (!p) return;
   activeProject = p;
-  elMono.textContent = p.mono;
+  elMono.innerHTML = p.logo ? `<img src="${p.logo}" alt="${p.title} logo">` : p.mono;
+  elMono.classList.toggle('has-logo', !!p.logo);
+  elMono.classList.toggle('logo-fill', !!p.logoFill);
   elTitle.textContent = p.title;
   elMeta.textContent = p.meta;
   elRole.textContent = p.role;
   elDates.textContent = p.dates;
+  elDates.hidden = !p.dates;
   elPsi.innerHTML = [
     ['PROBLEM', p.snapshot.problem],
     ['SOLUTION', p.snapshot.solution],
@@ -264,7 +291,7 @@ timeline.innerHTML = JOBS.map(j => `
   <div class="tl-item" data-job="${j.id}">
     <div class="tl-dot${j.current ? ' current' : ''}"></div>
     <div class="tl-head">
-      <div class="tl-dates">${j.dates}</div>
+      ${j.dates ? `<div class="tl-dates">${j.dates}</div>` : ''}
       <div class="tl-titleline"><div class="tl-title">${j.title}</div><span class="tl-chev">›</span></div>
       <div class="tl-role">${j.role}</div>
     </div>
@@ -349,7 +376,7 @@ const SECTIONS = ['home', 'gallery', 'work', 'journey', 'contact'];
 const BUBBLES = {
   home: 'hi again!! keep scrolling ♡',
   gallery: 'drag the polaroids around ♡',
-  work: "everything here is handmade. the ACASO one's my favorite ✦",
+  work: "everything here is handmade. INVAR's the house special ✦",
   journey: 'the long steep... how I got here (still brewing)',
   contact: 'say hi!! I reply faster than you can say 11:11',
 };
